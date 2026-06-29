@@ -23,18 +23,18 @@ export default function Hero() {
       className="relative min-h-screen w-full overflow-hidden bg-void flex flex-col pt-16"
     >
       <div className="absolute inset-0 z-0">
-        {/* Canary Wharf / London financial district at night */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1600&q=80"
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ opacity: 0.35, mixBlendMode: "luminosity" }}
+        {/* Black + deep crimson radial gradient */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 60% at 50% 20%, #5C0A0A 0%, #2D0000 45%, #000000 80%)",
+          }}
         />
+        {/* Optional video overlay */}
         <video
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ opacity: 0.12, mixBlendMode: "screen" }}
+          style={{ opacity: 0.06, mixBlendMode: "screen" }}
           autoPlay
           loop
           muted
@@ -42,8 +42,7 @@ export default function Hero() {
         >
           <source src="/hero.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, #000 0%, transparent 30%)" }} />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, #000 0%, transparent 40%)" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, #000 0%, transparent 50%)" }} />
       </div>
 
       <Waveform count={80} />
