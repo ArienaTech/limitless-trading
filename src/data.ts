@@ -1,105 +1,274 @@
-export type Format = "VINYL" | "DIGITAL" | "EP" | "ALBUM";
+// ─── Trust Metrics (ticker) ──────────────────────────────────────────────────
 
-export interface Track {
+export const trustMetrics: string[] = [
+  "$2.4B+ CAPITAL MANAGED",
+  "847 ACTIVE MEMBERS",
+  "12 YEARS OPERATING",
+  "99.97% PLATFORM UPTIME",
+  "FCA REGULATED ENTITY",
+  "ISO 27001 CERTIFIED",
+  "5,200+ MARKETS MONITORED",
+  "<45MS AVERAGE EXECUTION",
+  "24/5 MARKET COVERAGE",
+  "SAME-DAY REPORTING",
+];
+
+// ─── Infrastructure & Trust ───────────────────────────────────────────────────
+
+export interface TrustItem {
+  index: string;
+  category: string;
+  name: string;
+  detail: string;
+}
+
+export const trustItems: TrustItem[] = [
+  {
+    index: "001",
+    category: "REGULATORY",
+    name: "FCA Authorised",
+    detail:
+      "Regulated by the Financial Conduct Authority. Full client money protection under CASS rules. Reference #987654.",
+  },
+  {
+    index: "002",
+    category: "EXECUTION",
+    name: "Tier-1 Prime Brokerage",
+    detail:
+      "Institutional-grade execution via Tier-1 prime brokers. Best-execution policy enforced algorithmically on every order.",
+  },
+  {
+    index: "003",
+    category: "SECURITY",
+    name: "ISO 27001 Certified",
+    detail:
+      "Information security management certified to ISO 27001:2022. Annual external audits. 256-bit AES encryption at rest and in transit.",
+  },
+  {
+    index: "004",
+    category: "INFRASTRUCTURE",
+    name: "Co-located Data Centres",
+    detail:
+      "Ultra-low latency execution from co-located infrastructure across three Tier-4 data centres. 99.97% SLA-backed uptime since 2014.",
+  },
+  {
+    index: "005",
+    category: "RISK",
+    name: "Independent Risk Committee",
+    detail:
+      "Three-person independent risk oversight committee. Automated kill-switches and drawdown controls active on every strategy.",
+  },
+  {
+    index: "006",
+    category: "REPORTING",
+    name: "Daily Transparency Reports",
+    detail:
+      "Every member receives daily P&L reporting, trade-level transparency, and risk attribution — auditable in real time.",
+  },
+];
+
+// ─── Value Pillars ────────────────────────────────────────────────────────────
+
+export interface ValuePillar {
+  index: string;
+  title: string;
+  tagline: string;
+  description: string;
+}
+
+export const valuePillars: ValuePillar[] = [
+  {
+    index: "01",
+    title: "Execute",
+    tagline: "Institutional-grade execution. Zero emotional bias.",
+    description:
+      "Every decision is governed by rules, not sentiment. Our algorithms execute thousands of decisions per day with a precision no human trader can consistently match — without hesitation, without fatigue.",
+  },
+  {
+    index: "02",
+    title: "Learn",
+    tagline: "Continuous intelligence. Market-aware systems.",
+    description:
+      "Markets evolve. Our systems do too. Continuous strategy research, daily performance review, and weekly member intelligence reports ensure you always understand what is working and why.",
+  },
+  {
+    index: "03",
+    title: "Grow",
+    tagline: "Disciplined compounding. Long-term results.",
+    description:
+      "Sustainable growth comes from risk-adjusted consistency, not outsized bets. Our portfolio construction targets stable, compound returns across market cycles — measuring success in years, not days.",
+  },
+];
+
+// ─── Performance Metrics ──────────────────────────────────────────────────────
+
+export interface Metric {
+  value: string;
+  label: string;
+  note: string;
+}
+
+export const metrics: Metric[] = [
+  {
+    value: "5,200+",
+    label: "Markets Monitored",
+    note: "Equities, FX, Futures, Commodities",
+  },
+  {
+    value: "99.97%",
+    label: "System Availability",
+    note: "Since operational launch, 2014",
+  },
+  {
+    value: "<45ms",
+    label: "Avg Execution Time",
+    note: "Co-located, cross-venue routing",
+  },
+  {
+    value: "24/5",
+    label: "Market Coverage",
+    note: "All major global sessions",
+  },
+  {
+    value: "Same day",
+    label: "P&L Reporting",
+    note: "Full trade-level transparency",
+  },
+  {
+    value: "12 yr",
+    label: "Live Track Record",
+    note: "Auditable, third-party verified",
+  },
+];
+
+// ─── Client Success Stories ───────────────────────────────────────────────────
+
+export interface ClientStory {
+  initials: string;
+  background: string;
+  challenge: string;
+  outcome: string;
+  quote: string;
+  stat: string;
+  statLabel: string;
+}
+
+export const clientStories: ClientStory[] = [
+  {
+    initials: "MH",
+    background: "Former portfolio manager — 18 years institutional equities",
+    challenge:
+      "After moving to independent management, MH struggled to replicate institutional discipline without a full team. Emotion and fatigue were eroding returns that had been consistent for nearly two decades.",
+    outcome:
+      "LTG's systematic framework replaced discretionary judgment with rules-based execution. Within 12 months, portfolio volatility dropped 34% while risk-adjusted returns improved materially.",
+    quote:
+      "I spent 18 years at an institution with an entire risk team around me. LTG gave me that infrastructure as an independent — the discipline I had built my career on, at a fraction of the overhead.",
+    stat: "−34%",
+    statLabel: "Portfolio volatility",
+  },
+  {
+    initials: "SR",
+    background: "Business owner — first systematic capital allocation",
+    challenge:
+      "SR had accumulated significant capital from a successful exit but had no trading background. Previous self-directed attempts resulted in costly emotional decisions during volatile periods.",
+    outcome:
+      "Onboarded through LTG's structured introduction programme. A clear strategy allocation was built against SR's risk profile. No trading decisions required — the system handled execution entirely.",
+    quote:
+      "I did not want another fund. I wanted to understand what was happening with my capital every day. LTG gave me full transparency without expecting me to be a trader.",
+    stat: "0",
+    statLabel: "Emotional decisions required",
+  },
+  {
+    initials: "AT",
+    background: "Active retail trader — 6 years of inconsistent results",
+    challenge:
+      "AT was technically proficient but consistently undermined results through position sizing errors and holding losing trades too long. Recognised the problem but could not break the pattern independently.",
+    outcome:
+      "After transitioning to LTG's systematic approach, AT eliminated the discretionary overrides that had been most costly. Consistent rule application restored both confidence and performance.",
+    quote:
+      "I knew exactly what I was doing wrong. The problem was I could not stop doing it. Removing the discretion was not a limitation — it was the answer.",
+    stat: "18 mo",
+    statLabel: "Consistent execution",
+  },
+];
+
+// ─── Educational Insights ─────────────────────────────────────────────────────
+
+export interface Insight {
+  index: string;
+  category: string;
+  title: string;
+  excerpt: string;
+  readTime: string;
+}
+
+export const insights: Insight[] = [
+  {
+    index: "001",
+    category: "STRATEGY",
+    title: "Why Systematic Trading Outperforms Over the Long Run",
+    excerpt:
+      "When the same rules are applied without exception, the compounding effect of consistency becomes mathematically dominant over discretionary approaches.",
+    readTime: "6 MIN READ",
+  },
+  {
+    index: "002",
+    category: "PSYCHOLOGY",
+    title: "The Anatomy of a Bad Trade: How Smart Investors Lose Money",
+    excerpt:
+      "Most losses are not caused by poor analysis. They are caused by the human response to uncertainty — reflexive decisions made in the gap between knowing the rules and following them.",
+    readTime: "8 MIN READ",
+  },
+  {
+    index: "003",
+    category: "RISK",
+    title: "Risk-Adjusted Returns: The Only Metric That Matters",
+    excerpt:
+      "Headline returns are marketing. Sharpe ratio, Sortino ratio, max drawdown — these are the professional standards. Here is how to read them, and why they change everything.",
+    readTime: "5 MIN READ",
+  },
+];
+
+// ─── Application Steps ────────────────────────────────────────────────────────
+
+export interface AppStep {
   num: string;
   title: string;
-  label: string;
-  year: string;
-  format: Format;
+  description: string;
 }
 
-export const tracks: Track[] = [
-  { num: "001", title: "Dead Reckoning", label: "Ostgut Ton", year: "2025", format: "VINYL" },
-  { num: "002", title: "Signal Loss", label: "Tresor", year: "2024", format: "VINYL" },
-  { num: "003", title: "Null Space", label: "self-released", year: "2024", format: "DIGITAL" },
-  { num: "004", title: 'Fault Line (12")', label: "Semantica", year: "2023", format: "VINYL" },
-  { num: "005", title: "Everything Goes Dark", label: "CLR", year: "2023", format: "DIGITAL" },
-  { num: "006", title: "Interior / Exterior", label: "Prologue", year: "2022", format: "VINYL" },
-  { num: "007", title: "Pressure Wave EP", label: "Blueprint", year: "2022", format: "EP" },
-  { num: "008", title: "Corridor", label: "Stroboscopic Artefacts", year: "2021", format: "VINYL" },
-];
-
-export type ShowType =
-  | "HEADLINE"
-  | "B2B"
-  | "SUPPORTING"
-  | "BACK TO BACK"
-  | "RESIDENCY";
-
-export interface Show {
-  date: string;
-  venue: string;
-  city: string;
-  type: ShowType;
-}
-
-export const shows: Show[] = [
-  { date: "09 MAY", venue: "Fabric Room 1", city: "London", type: "HEADLINE" },
-  { date: "16 MAY", venue: "Tresor", city: "Berlin", type: "B2B" },
-  { date: "23 MAY", venue: "Shelter", city: "Amsterdam", type: "HEADLINE" },
-  { date: "31 MAY", venue: "Corsica Studios", city: "London", type: "SUPPORTING" },
-  { date: "07 JUN", venue: "Panorama Bar", city: "Berlin", type: "HEADLINE" },
-  { date: "14 JUN", venue: "Output", city: "New York", type: "HEADLINE" },
-  { date: "21 JUN", venue: "Concrete", city: "Paris", type: "BACK TO BACK" },
-  { date: "28 JUN", venue: "Robert Johnson", city: "Offenbach", type: "HEADLINE" },
-  { date: "12 JUL", venue: "De School", city: "Amsterdam", type: "RESIDENCY" },
-];
-
-export const pastShows: { date: string; venue: string; city: string }[] = [
-  { date: "18 APR 2026", venue: "Berghain", city: "Berlin" },
-  { date: "04 APR 2026", venue: "Bassiani", city: "Tbilisi" },
-  { date: "21 MAR 2026", venue: "Fold", city: "London" },
-  { date: "07 MAR 2026", venue: "Khidi", city: "Tbilisi" },
-  { date: "22 FEB 2026", venue: "Tresor", city: "Berlin" },
-  { date: "08 FEB 2026", venue: "De Marktkantine", city: "Amsterdam" },
-  { date: "25 JAN 2026", venue: "Nitsa", city: "Barcelona" },
-  { date: "11 JAN 2026", venue: "Closer", city: "Kyiv" },
-  { date: "31 DEC 2025", venue: "Funkhaus", city: "Berlin" },
-  { date: "13 DEC 2025", venue: "Sub Club", city: "Glasgow" },
-  { date: "29 NOV 2025", venue: "Rex Club", city: "Paris" },
-  { date: "15 NOV 2025", venue: "Fabric", city: "London" },
-];
-
-export interface Mix {
-  title: string;
-  context: string;
-  date: string;
-  runtime: string;
-}
-
-export const mixes: Mix[] = [
+export const appSteps: AppStep[] = [
   {
-    title: "TRESOR LIVE REC",
-    context: "Recorded live at Tresor, Berlin",
-    date: "Jan 2026",
-    runtime: "01:48:23",
+    num: "01",
+    title: "Application",
+    description:
+      "Submit a brief investor profile covering your background, objectives, and intended capital allocation. No obligations or commitments at this stage.",
   },
   {
-    title: "FABRIC 103",
-    context: "Fabric Podcast Series",
-    date: "Nov 2025",
-    runtime: "02:14:07",
+    num: "02",
+    title: "Review",
+    description:
+      "Our team reviews every application within 48 hours. We assess suitability, not net worth. LTG is selective because strategic alignment matters.",
   },
   {
-    title: "VOID SESSIONS #12",
-    context: "Self-recorded, studio",
-    date: "Mar 2025",
-    runtime: "01:22:54",
+    num: "03",
+    title: "Strategy Discussion",
+    description:
+      "Qualified applicants are invited to a 30-minute call with a senior partner. We explain our approach, answer your questions, and explore fit.",
+  },
+  {
+    num: "04",
+    title: "Approval & Onboarding",
+    description:
+      "Approved members receive a tailored strategy framework, full platform access, and a dedicated onboarding session. Typically completed within one week.",
   },
 ];
 
-export const tickerItems: string[] = [
-  "09 MAY / FABRIC — LONDON",
-  "16 MAY / TRESOR — BERLIN",
-  "23 MAY / SHELTER — AMSTERDAM",
-  "07 JUN / PANORAMA BAR — BERLIN",
-  "14 JUN / OUTPUT — NEW YORK",
-  "28 JUN / ROBERT JOHNSON — OFFENBACH",
-];
+// ─── Navigation ───────────────────────────────────────────────────────────────
 
 export const navLinks = [
-  { label: "Music", href: "#music" },
-  { label: "Live", href: "#live" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#booking" },
+  { label: "Strategy", href: "#strategy" },
+  { label: "Performance", href: "#performance" },
+  { label: "Insights", href: "#insights" },
+  { label: "Apply", href: "#apply" },
 ];

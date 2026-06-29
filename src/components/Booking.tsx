@@ -1,16 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import { appSteps } from "../data";
 import SectionLabel from "./SectionLabel";
 import Reveal from "./Reveal";
 
 const contacts = [
-  { label: "MANAGEMENT", email: "management@void-music.com" },
-  { label: "PRESS", email: "press@void-music.com" },
-  { label: "GENERAL", email: "hello@void-music.com" },
+  { label: "INVESTOR RELATIONS", email: "invest@ltgtrading.com" },
+  { label: "COMPLIANCE", email: "compliance@ltgtrading.com" },
+  { label: "GENERAL", email: "hello@ltgtrading.com" },
 ];
 
-export default function Booking() {
+export default function Application() {
   const [submitted, setSubmitted] = useState(false);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -19,25 +20,64 @@ export default function Booking() {
   };
 
   return (
-    <section id="booking" className="bg-surface border-y border-border">
+    <section id="apply" className="bg-surface border-y border-border">
       <div className="gutter py-24 sm:py-32">
-        <SectionLabel index="06" title="CONTACT" meta="Response within 48h" />
+        <SectionLabel index="09" title="APPLY" meta="No obligations — applications reviewed within 48h" />
 
-        <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-          {/* Left */}
+        {/* Application steps */}
+        <Reveal>
+          <h2
+            className="display uppercase text-white mt-10 mb-6"
+            style={{ fontSize: "clamp(48px, 6vw, 90px)", lineHeight: 0.95 }}
+          >
+            How to Apply.
+          </h2>
+        </Reveal>
+
+        <Reveal>
+          <p className="text-text-soft text-[15px] leading-relaxed max-w-2xl mb-12">
+            LTG is selective because the right fit matters — for you and for us.
+            The application process is straightforward, confidential, and carries
+            no commitment until you choose to proceed.
+          </p>
+        </Reveal>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+          {appSteps.map((step, i) => (
+            <Reveal key={step.num} index={i}>
+              <div className="border border-border bg-void p-6 h-full flex flex-col gap-4">
+                <span className="display text-gold font-bold" style={{ fontSize: "clamp(32px, 3vw, 48px)" }}>
+                  {step.num}
+                </span>
+                <h3 className="display font-medium text-white text-[18px]">
+                  {step.title}
+                </h3>
+                <p className="text-text-soft text-[13px] leading-relaxed flex-1">
+                  {step.description}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+          {/* Left — who it&rsquo;s for */}
           <Reveal>
-            <h2
+            <h3
               className="display uppercase text-white mb-6"
-              style={{ fontSize: "clamp(48px, 6vw, 90px)", lineHeight: 0.95 }}
+              style={{ fontSize: "clamp(32px, 4vw, 56px)", lineHeight: 0.95 }}
             >
-              Bookings.
-            </h2>
-            <p className="text-text-soft text-[15px] leading-relaxed max-w-md">
-              For booking enquiries, festival slots, residency proposals, and
-              press. Response within 48 hours.
+              Who This Is For.
+            </h3>
+            <p className="text-text-soft text-[15px] leading-relaxed max-w-md mb-8">
+              LTG is designed for serious investors who understand that sustainable
+              returns require a systematic, disciplined approach. Whether you are
+              an independent professional, a business owner allocating capital, or
+              an experienced trader looking to remove emotion from execution — if
+              you value process over speculation, we want to hear from you.
             </p>
 
-            <div className="mt-10 border-t border-border">
+            <div className="border-t border-border">
               {contacts.map((c) => (
                 <div
                   key={c.label}
@@ -48,7 +88,7 @@ export default function Booking() {
                   </span>
                   <a
                     href={`mailto:${c.email}`}
-                    className="mono text-[11px] text-text hover:text-acid transition-colors"
+                    className="mono text-[11px] text-text hover:text-gold transition-colors"
                   >
                     {c.email}
                   </a>
@@ -57,64 +97,66 @@ export default function Booking() {
             </div>
 
             <p className="mono text-[11px] text-text-dim mt-8">
-              European booking: Agency XYZ · +49 30 000 0000
+              All applications are reviewed confidentially · No commitment required
             </p>
           </Reveal>
 
-          {/* Right form */}
+          {/* Right — form */}
           <Reveal index={1}>
             <form
               onSubmit={onSubmit}
               className="bg-void border border-border p-6 sm:p-8 flex flex-col gap-4"
             >
-              <Field label="Event name">
+              <Field label="Full name">
                 <input className="field w-full px-3 py-3 text-[14px]" required />
               </Field>
 
-              <Field label="Event date">
+              <Field label="Email address">
                 <input
-                  type="date"
+                  type="email"
                   className="field w-full px-3 py-3 text-[14px]"
+                  required
                 />
               </Field>
 
-              <Field label="Venue / City">
-                <input className="field w-full px-3 py-3 text-[14px]" />
-              </Field>
-
-              <Field label="Expected attendance">
-                <input
-                  type="number"
-                  min={0}
-                  className="field w-full px-3 py-3 text-[14px]"
-                />
-              </Field>
-
-              <Field label="Type">
-                <select className="field w-full px-3 py-3 text-[14px]" defaultValue="Headline">
-                  <option>Headline</option>
-                  <option>Support</option>
-                  <option>B2B</option>
-                  <option>Residency</option>
-                  <option>Festival</option>
+              <Field label="Background">
+                <select className="field w-full px-3 py-3 text-[14px]" defaultValue="Professional investor">
+                  <option>Professional investor</option>
+                  <option>Business owner / entrepreneur</option>
+                  <option>Active retail trader</option>
+                  <option>Family office</option>
                   <option>Other</option>
                 </select>
               </Field>
 
-              <Field label="Message">
+              <Field label="Capital allocation in mind">
+                <select className="field w-full px-3 py-3 text-[14px]" defaultValue="$100k — $500k">
+                  <option>Under $100k</option>
+                  <option>$100k — $500k</option>
+                  <option>$500k — $2M</option>
+                  <option>Over $2M</option>
+                  <option>Prefer not to say</option>
+                </select>
+              </Field>
+
+              <Field label="What are you looking to achieve?">
                 <textarea
                   rows={4}
-                  placeholder="Tell us about the event, the room, the crowd."
+                  placeholder="Briefly describe your current situation and what you are looking for."
                   className="field w-full px-3 py-3 text-[14px] resize-none"
                 />
               </Field>
 
               <button
                 type="submit"
-                className="display font-bold uppercase w-full py-4 bg-acid text-void hover:bg-acid-dim transition-colors mt-2"
+                className="display font-bold uppercase w-full py-4 bg-gold text-void hover:bg-gold-dim transition-colors mt-2"
               >
-                {submitted ? "Enquiry Sent ✓" : "Send Enquiry →"}
+                {submitted ? "Application Received ✓" : "Submit Application →"}
               </button>
+
+              <p className="mono text-[9px] text-text-dim text-center">
+                Your information is kept strictly confidential. No spam, ever.
+              </p>
             </form>
           </Reveal>
         </div>

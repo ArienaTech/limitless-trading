@@ -16,9 +16,9 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "VØID — DJ / Producer",
+  title: "LTG Trading — Systematic Trading for Serious Investors",
   description:
-    "VØID is a Berlin-based DJ and producer working at the intersection of industrial techno, dub, and modern classical. Residencies at Tresor and Panorama Bar since 2019.",
+    "LTG Trading delivers institutional-grade systematic trading to serious investors. FCA regulated, transparent, and built on twelve years of consistent, rules-based execution.",
   manifest: "/manifest.json",
   icons: {
     icon: "/favicon.svg",
@@ -27,12 +27,12 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "VØID",
+    title: "LTG Trading",
   },
   openGraph: {
-    title: "VØID — DJ / Producer",
+    title: "LTG Trading — Systematic Trading for Serious Investors",
     description:
-      "Berlin-based DJ and producer. Industrial techno, dub, and modern classical.",
+      "Institutional-grade systematic trading. FCA regulated. Twelve years of consistent, rules-based execution.",
     type: "website",
   },
 };

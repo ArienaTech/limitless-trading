@@ -7,7 +7,7 @@ import { navLinks } from "../data";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState<string>("#music");
+  const [active, setActive] = useState<string>("#strategy");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -47,9 +47,9 @@ export default function Navbar() {
         <a
           href="#top"
           className="glitch display text-[17px] text-white tracking-tight"
-          data-text="VØID"
+          data-text="LTG"
         >
-          VØID
+          LTG
         </a>
 
         <div className="hidden md:flex items-center gap-8">
@@ -63,7 +63,7 @@ export default function Navbar() {
                   isActive ? "text-text is-active" : "text-text-soft hover:text-text"
                 }`}
               >
-                {isActive && <span className="text-acid">▸</span>}
+                {isActive && <span className="text-gold">▸</span>}
                 {link.label}
               </a>
             );
@@ -72,10 +72,10 @@ export default function Navbar() {
 
         <div className="hidden md:block">
           <a
-            href="#booking"
-            className="btn-acid mono px-4 py-2 inline-block"
+            href="#apply"
+            className="btn-gold mono px-4 py-2 inline-block"
           >
-            Booking →
+            Apply →
           </a>
         </div>
 
@@ -91,7 +91,7 @@ export default function Navbar() {
       {open && (
         <div className="fixed inset-0 z-[110] bg-void flex flex-col md:hidden">
           <div className="gutter flex items-center justify-between h-16">
-            <span className="display text-[17px] text-white">VØID</span>
+            <span className="display text-[17px] text-white">LTG</span>
             <button
               className="text-text"
               aria-label="Close menu"
@@ -106,17 +106,17 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={close}
-                className="display text-4xl uppercase text-text hover:text-acid transition-colors"
+                className="display text-4xl uppercase text-text hover:text-gold transition-colors"
               >
                 {link.label}
               </a>
             ))}
             <a
-              href="#booking"
+              href="#apply"
               onClick={close}
-              className="btn-acid mono px-6 py-3 mt-4"
+              className="btn-gold mono px-6 py-3 mt-4"
             >
-              Booking →
+              Apply →
             </a>
           </div>
         </div>

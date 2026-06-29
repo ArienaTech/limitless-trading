@@ -1,14 +1,15 @@
-import { tickerItems } from "../data";
+import { trustMetrics } from "../data";
+
+const items = [...trustMetrics, ...trustMetrics];
 
 export default function Ticker() {
-  const sequence = [...tickerItems, ...tickerItems];
   return (
-    <div className="relative h-14 bg-surface border-y border-border overflow-hidden flex items-center">
-      <div className="ticker-track mono text-[12px] text-text">
-        {sequence.map((item, i) => (
-          <span key={i} className="flex items-center">
+    <div className="border-y border-border overflow-hidden bg-void-2 py-3">
+      <div className="ticker-track">
+        {items.map((item, i) => (
+          <span key={i} className="mono text-[10px] text-text-soft flex items-center gap-4">
+            <span className="text-gold text-[8px]">◆</span>
             {item}
-            <span className="text-acid ml-3">▸</span>
           </span>
         ))}
       </div>

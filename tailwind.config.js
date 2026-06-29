@@ -16,8 +16,9 @@ export default {
         text: "#f0f0f0",
         "text-soft": "#555555",
         "text-dim": "#333333",
-        acid: "#aaff00",
-        "acid-dim": "#6a9e00",
+        gold: "#D4AF37",
+        "gold-dim": "#A8872A",
+        copper: "#C08020",
       },
       fontFamily: {
         display: ["var(--font-space-grotesk)", "sans-serif"],
