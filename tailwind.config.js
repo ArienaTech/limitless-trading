@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{ts,tsx}"],
+  content: [
+    "./src/app/**/*.{ts,tsx}",
+    "./src/components/**/*.{ts,tsx}",
+    "./src/pages/**/*.{ts,tsx}",
+  ],
   theme: {
     extend: {
       colors: {
@@ -16,8 +20,8 @@ export default {
         "acid-dim": "#6a9e00",
       },
       fontFamily: {
-        display: ["'Space Grotesk'", "sans-serif"],
-        mono: ["'Space Mono'", "monospace"],
+        display: ["var(--font-space-grotesk)", "sans-serif"],
+        mono: ["var(--font-space-mono)", "monospace"],
       },
     },
   },

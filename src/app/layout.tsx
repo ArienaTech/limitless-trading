@@ -1,0 +1,60 @@
+import type { Metadata, Viewport } from "next";
+import { Space_Grotesk, Space_Mono } from "next/font/google";
+import "./globals.css";
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+});
+
+const spaceMono = Space_Mono({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-space-mono",
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  title: "VØID — DJ / Producer",
+  description:
+    "VØID is a Berlin-based DJ and producer working at the intersection of industrial techno, dub, and modern classical. Residencies at Tresor and Panorama Bar since 2019.",
+  manifest: "/manifest.json",
+  icons: {
+    icon: "/favicon.svg",
+    apple: "/icons/icon-192.svg",
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "VØID",
+  },
+  openGraph: {
+    title: "VØID — DJ / Producer",
+    description:
+      "Berlin-based DJ and producer. Industrial techno, dub, and modern classical.",
+    type: "website",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#000000",
+  width: "device-width",
+  initialScale: 1,
+  minimumScale: 1,
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html
+      lang="en"
+      className={`${spaceGrotesk.variable} ${spaceMono.variable}`}
+    >
+      <body>{children}</body>
+    </html>
+  );
+}

@@ -1,3 +1,5 @@
+"use client";
+
 import { useMemo } from "react";
 
 export default function Waveform({ count = 80 }: { count?: number }) {

@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { shows, pastShows } from "../data";
 import type { ShowType } from "../data";
