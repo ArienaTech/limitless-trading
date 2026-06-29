@@ -3,14 +3,6 @@
 import { motion } from "motion/react";
 import Waveform from "./Waveform";
 
-const topBar = [
-  "LTG TRADING",
-  "SYSTEMATIC TRADING",
-  "LONDON, UK",
-  "APPLICATIONS OPEN",
-  "▸ FCA REGULATED",
-];
-
 const fade = (delay: number) => ({
   initial: { opacity: 0, y: 40 },
   animate: { opacity: 1, y: 0 },
@@ -55,19 +47,6 @@ export default function Hero() {
       </div>
 
       <Waveform count={80} />
-
-      <div className="relative z-10 border-b border-border">
-        <div className="gutter h-10 flex items-center overflow-hidden">
-          <div className="mono text-text-soft text-[10px] flex items-center gap-3 whitespace-nowrap">
-            {topBar.map((item, i) => (
-              <span key={i} className="flex items-center gap-3">
-                {i > 0 && <span className="text-text-dim">·</span>}
-                <span>{item}</span>
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
 
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center gutter">
         <motion.div {...fade(0.1)} className="flex items-center gap-2 mb-8">
