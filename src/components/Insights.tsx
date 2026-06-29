@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { insights } from "../data";
-import SectionLabel from "./SectionLabel";
 import Reveal from "./Reveal";
 
 const insightImages = [
@@ -21,7 +20,6 @@ const insightImages = [
 export default function Insights() {
   return (
     <section id="insights" className="gutter py-24 sm:py-32 bg-void-2">
-      <SectionLabel index="08" title="INSIGHTS" meta="Education & market intelligence" />
 
       <Reveal>
         <h2

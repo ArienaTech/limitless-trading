@@ -1,5 +1,4 @@
 import Image from "next/image";
-import SectionLabel from "./SectionLabel";
 import Reveal from "./Reveal";
 
 const failureReasons = [
@@ -13,7 +12,6 @@ const failureReasons = [
 export default function Strategy() {
   return (
     <section id="strategy" className="gutter py-24 sm:py-32 bg-void">
-      <SectionLabel index="04" title="STRATEGY" meta="The problem we solve" />
 
       <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         <Reveal>

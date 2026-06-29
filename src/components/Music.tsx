@@ -1,11 +1,9 @@
 import { trustItems } from "../data";
-import SectionLabel from "./SectionLabel";
 import Reveal from "./Reveal";
 
 export default function Trust() {
   return (
     <section id="trust" className="gutter py-24 sm:py-32 bg-void">
-      <SectionLabel index="02" title="INFRASTRUCTURE" meta="Why you can trust us" />
 
       <Reveal>
         <h2

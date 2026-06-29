@@ -1,12 +1,10 @@
 import Image from "next/image";
 import { metrics } from "../data";
-import SectionLabel from "./SectionLabel";
 import Reveal from "./Reveal";
 
 export default function Performance() {
   return (
     <section id="performance" className="gutter py-24 sm:py-32 bg-void">
-      <SectionLabel index="07" title="PERFORMANCE" meta="Operational metrics" />
 
       <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         <Reveal>

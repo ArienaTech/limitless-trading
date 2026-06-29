@@ -1,5 +1,4 @@
 import Image from "next/image";
-import SectionLabel from "./SectionLabel";
 import Reveal from "./Reveal";
 
 const beliefs = [
@@ -12,7 +11,6 @@ const beliefs = [
 export default function Philosophy() {
   return (
     <section id="philosophy" className="gutter py-24 sm:py-32 bg-void">
-      <SectionLabel index="03" title="PHILOSOPHY" meta="What we believe" />
 
       <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         <Reveal>

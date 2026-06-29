@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { appSteps } from "../data";
-import SectionLabel from "./SectionLabel";
 import Reveal from "./Reveal";
 
 const contacts = [
@@ -22,7 +21,6 @@ export default function Application() {
   return (
     <section id="apply" className="bg-surface border-y border-border">
       <div className="gutter py-24 sm:py-32">
-        <SectionLabel index="09" title="APPLY" meta="Reviewed within 48h — no obligations" />
 
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           {/* Left */}

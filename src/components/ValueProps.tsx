@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { valuePillars } from "../data";
-import SectionLabel from "./SectionLabel";
 import Reveal from "./Reveal";
 
 // Algorithmic code terminal / candlestick chart / abstract data growth
@@ -22,7 +21,6 @@ const pillarImages = [
 export default function ValueProps() {
   return (
     <section id="values" className="gutter py-24 sm:py-32 bg-void-2">
-      <SectionLabel index="05" title="VALUE" meta="What membership gives you" />
 
       <Reveal>
         <h2

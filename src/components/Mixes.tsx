@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { clientStories } from "../data";
-import SectionLabel from "./SectionLabel";
 import Reveal from "./Reveal";
 
 // Contextual images representing each client's world
@@ -22,7 +21,6 @@ const storyImages = [
 export default function ClientStories() {
   return (
     <section id="stories" className="gutter py-24 sm:py-32 bg-void">
-      <SectionLabel index="06" title="CLIENTS" meta="In their own words" />
 
       <Reveal>
         <h2
