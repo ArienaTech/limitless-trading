@@ -84,8 +84,8 @@ export default function Philosophy() {
             {/* Executive portrait — serious, authoritative, dark premium office */}
             <div className="relative aspect-[4/5] w-full overflow-hidden border border-border">
               <Image
-                src="https://images.unsplash.com/photo-1594759845217-e9c99af2b6a4?auto=format&fit=crop&w=800&q=80"
-                alt="LTG Trading — senior partner"
+                src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/Web-Assets/LTG%20Trading%20Founder.png"
+                alt="LTG Trading — Founder"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"

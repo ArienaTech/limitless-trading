@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { navLinks } from "../data";
 
@@ -44,12 +45,15 @@ export default function Navbar() {
       }`}
     >
       <nav className="gutter flex items-center justify-between h-16">
-        <a
-          href="#top"
-          className="glitch display text-[17px] text-white tracking-tight"
-          data-text="LTG"
-        >
-          LTG
+        <a href="#top" className="flex items-center" aria-label="LTG Trading">
+          <Image
+            src="/logo.svg"
+            alt="LTG Trading"
+            width={80}
+            height={32}
+            priority
+            className="h-8 w-auto"
+          />
         </a>
 
         <div className="hidden md:flex items-center gap-8">
@@ -91,7 +95,7 @@ export default function Navbar() {
       {open && (
         <div className="fixed inset-0 z-[110] bg-void flex flex-col md:hidden">
           <div className="gutter flex items-center justify-between h-16">
-            <span className="display text-[17px] text-white">LTG</span>
+            <Image src="/logo.svg" alt="LTG Trading" width={80} height={32} className="h-8 w-auto" />
             <button
               className="text-text"
               aria-label="Close menu"
