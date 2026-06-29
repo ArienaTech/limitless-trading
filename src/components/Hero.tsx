@@ -28,7 +28,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-screen w-full overflow-hidden bg-void flex flex-col"
+      className="relative min-h-screen w-full overflow-hidden bg-void flex flex-col pt-16"
     >
       {/* Video background */}
       <div className="absolute inset-0 z-0">
