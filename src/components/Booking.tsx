@@ -56,7 +56,7 @@ export default function Application() {
               {contacts.map((c) => (
                 <div key={c.label} className="flex items-center justify-between py-3 border-b border-border">
                   <span className="mono text-[11px] text-text-soft">{c.label}</span>
-                  <a href={`mailto:${c.email}`} className="mono text-[11px] text-text hover:text-gold transition-colors">
+                  <a href={`mailto:${c.email}`} className="text-[14px] text-text hover:text-gold transition-colors">
                     {c.email}
                   </a>
                 </div>
