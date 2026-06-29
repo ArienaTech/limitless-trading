@@ -58,9 +58,7 @@ export default function Hero() {
           className="display text-white uppercase leading-[0.88]"
           style={{ fontSize: "clamp(52px, 11vw, 180px)" }}
         >
-          Discipline
-          <br />
-          <span className="text-gold">Compounds.</span>
+          Limitless
         </motion.h1>
 
         <motion.p

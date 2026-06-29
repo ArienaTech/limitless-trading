@@ -4,9 +4,17 @@ import Reveal from "./Reveal";
 
 export default function Performance() {
   return (
-    <section id="performance" className="gutter py-24 sm:py-32 bg-void">
+    <section id="performance" className="relative overflow-hidden gutter py-24 sm:py-32 bg-void">
+      {/* Subtle echo of hero gradient — anchors the dark section */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 50% at 80% 50%, #3A0505 0%, #0D0000 55%, transparent 100%)",
+        }}
+      />
 
-      <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <div className="relative z-10 mt-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         <Reveal>
           <h2
             className="display uppercase text-text mb-4"
