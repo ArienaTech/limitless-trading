@@ -1,6 +1,19 @@
 import { insights } from "../data";
 import SectionLabel from "./SectionLabel";
 import Reveal from "./Reveal";
+import ImagePlaceholder from "./ImagePlaceholder";
+
+const insightImages = [
+  "INSIGHT / SYSTEMATIC vs DISCRETIONARY",
+  "INSIGHT / PSYCHOLOGY OF TRADING",
+  "INSIGHT / RISK-ADJUSTED RETURNS",
+];
+
+const insightImageDesc = [
+  "Abstract: two lines on dark chart — erratic vs. steady systematic trend\nGold steady line wins over time",
+  "Close-up: human eye reflecting a trading screen\nIntense, moody, dark — the cost of emotion",
+  "Minimalist: Sharpe ratio curve on dark background\nClean, analytical, precise",
+];
 
 export default function Insights() {
   return (
@@ -19,49 +32,36 @@ export default function Insights() {
       </Reveal>
 
       <Reveal>
-        <p className="text-text-soft text-[15px] leading-relaxed max-w-2xl mt-6 mb-16">
-          LTG members receive weekly market intelligence, trading education, and
-          risk management analysis. Whether you are new to systematic trading or
-          experienced — understanding the framework is the first step.
+        <p className="text-text-soft text-[14px] mb-16 max-w-xl">
+          Members receive weekly market intelligence and trading education. Understanding the framework is the first step.
         </p>
       </Reveal>
 
-      <div className="border-t border-border">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {insights.map((insight, i) => (
           <Reveal key={insight.index} index={i}>
-            <article className="track-row group border-b border-border py-8 grid grid-cols-1 md:grid-cols-[60px_160px_1fr_120px] items-center gap-6">
-              <span className="track-num mono text-[11px] text-text-dim transition-colors">
-                {insight.index}
-              </span>
-
-              <span className="mono text-[10px] text-gold">
-                {insight.category}
-              </span>
-
-              <div>
-                <h3 className="display font-medium text-[17px] text-white mb-2">
+            <article className="mix-card bg-surface border border-border h-full flex flex-col group">
+              {/* IMAGE: Editorial article thumbnail — see sublabel per article */}
+              <ImagePlaceholder
+                label={insightImages[i]}
+                sublabel={insightImageDesc[i]}
+                className="aspect-[16/9]"
+              />
+              <div className="p-5 flex flex-col gap-3 flex-1">
+                <div className="flex items-center justify-between">
+                  <span className="mono text-[9px] text-gold">{insight.category}</span>
+                  <span className="mono text-[9px] text-text-dim">{insight.readTime}</span>
+                </div>
+                <h3 className="display font-medium text-[15px] text-white leading-snug flex-1">
                   {insight.title}
                 </h3>
-                <p className="text-text-soft text-[13px] leading-relaxed">
-                  {insight.excerpt}
-                </p>
+                <a href="#apply" className="mono text-[10px] text-gold link-underline self-start mt-2">
+                  Read as a member →
+                </a>
               </div>
-
-              <span className="mono text-[10px] text-text-dim md:text-right">
-                {insight.readTime}
-              </span>
             </article>
           </Reveal>
         ))}
-      </div>
-
-      <div className="mt-10 flex flex-wrap gap-6">
-        <a
-          href="#apply"
-          className="mono text-[11px] text-gold link-underline"
-        >
-          Access full insight library as a member →
-        </a>
       </div>
     </section>
   );

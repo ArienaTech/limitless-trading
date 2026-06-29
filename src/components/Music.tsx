@@ -9,7 +9,7 @@ export default function Trust() {
 
       <Reveal>
         <h2
-          className="display uppercase text-text mt-10 mb-4"
+          className="display uppercase text-text mt-10 mb-12"
           style={{ fontSize: "clamp(48px, 7vw, 110px)", lineHeight: 0.95 }}
         >
           Built for Institutions.
@@ -18,32 +18,18 @@ export default function Trust() {
         </h2>
       </Reveal>
 
-      <Reveal>
-        <p className="text-text-soft text-[15px] leading-relaxed max-w-2xl mt-6 mb-12">
-          Every element of LTG&rsquo;s infrastructure answers one question: why should
-          you trust us with your capital? The answer is found in our regulation,
-          our technology, our risk controls, and our transparency.
-        </p>
-      </Reveal>
-
       <div className="border-t border-border">
         {trustItems.map((item, i) => (
           <Reveal key={item.index} index={i}>
-            <div className="track-row group border-b border-border grid grid-cols-1 md:grid-cols-[60px_200px_1fr] items-start gap-4 py-6">
+            <div className="track-row group border-b border-border grid grid-cols-1 md:grid-cols-[60px_180px_1fr] items-center gap-4 py-5">
               <span className="track-num mono text-[11px] text-text-dim transition-colors">
                 {item.index}
               </span>
-
-              <div className="flex flex-col gap-1">
-                <span className="mono text-[10px] text-gold">{item.category}</span>
-                <span className="display font-medium text-[16px] text-white">
-                  {item.name}
-                </span>
+              <div className="flex flex-col gap-0.5">
+                <span className="mono text-[9px] text-gold">{item.category}</span>
+                <span className="display font-medium text-[15px] text-white">{item.name}</span>
               </div>
-
-              <span className="text-text-soft text-[14px] leading-relaxed md:pl-4">
-                {item.detail}
-              </span>
+              <span className="text-text-soft text-[13px] leading-snug">{item.detail}</span>
             </div>
           </Reveal>
         ))}

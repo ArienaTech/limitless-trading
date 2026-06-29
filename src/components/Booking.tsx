@@ -22,86 +22,49 @@ export default function Application() {
   return (
     <section id="apply" className="bg-surface border-y border-border">
       <div className="gutter py-24 sm:py-32">
-        <SectionLabel index="09" title="APPLY" meta="No obligations — applications reviewed within 48h" />
+        <SectionLabel index="09" title="APPLY" meta="Reviewed within 48h — no obligations" />
 
-        {/* Application steps */}
-        <Reveal>
-          <h2
-            className="display uppercase text-white mt-10 mb-6"
-            style={{ fontSize: "clamp(48px, 6vw, 90px)", lineHeight: 0.95 }}
-          >
-            How to Apply.
-          </h2>
-        </Reveal>
-
-        <Reveal>
-          <p className="text-text-soft text-[15px] leading-relaxed max-w-2xl mb-12">
-            LTG is selective because the right fit matters — for you and for us.
-            The application process is straightforward, confidential, and carries
-            no commitment until you choose to proceed.
-          </p>
-        </Reveal>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-          {appSteps.map((step, i) => (
-            <Reveal key={step.num} index={i}>
-              <div className="border border-border bg-void p-6 h-full flex flex-col gap-4">
-                <span className="display text-gold font-bold" style={{ fontSize: "clamp(32px, 3vw, 48px)" }}>
-                  {step.num}
-                </span>
-                <h3 className="display font-medium text-white text-[18px]">
-                  {step.title}
-                </h3>
-                <p className="text-text-soft text-[13px] leading-relaxed flex-1">
-                  {step.description}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-          {/* Left — who it&rsquo;s for */}
+        <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+          {/* Left */}
           <Reveal>
-            <h3
-              className="display uppercase text-white mb-6"
-              style={{ fontSize: "clamp(32px, 4vw, 56px)", lineHeight: 0.95 }}
+            <h2
+              className="display uppercase text-white mb-4"
+              style={{ fontSize: "clamp(48px, 6vw, 90px)", lineHeight: 0.95 }}
             >
-              Who This Is For.
-            </h3>
-            <p className="text-text-soft text-[15px] leading-relaxed max-w-md mb-8">
-              LTG is designed for serious investors who understand that sustainable
-              returns require a systematic, disciplined approach. Whether you are
-              an independent professional, a business owner allocating capital, or
-              an experienced trader looking to remove emotion from execution — if
-              you value process over speculation, we want to hear from you.
+              Ready to
+              <br />
+              <span className="text-gold">Apply?</span>
+            </h2>
+            <p className="text-text-soft text-[14px] mb-10 max-w-sm">
+              LTG is selective. We assess fit, not just capital. The process is simple, confidential, and carries no commitment.
             </p>
+
+            {/* Steps */}
+            <div className="border-t border-border mb-10">
+              {appSteps.map((step) => (
+                <div key={step.num} className="flex items-start gap-5 py-4 border-b border-border">
+                  <span className="display text-gold font-bold text-[22px] shrink-0 w-8">{step.num}</span>
+                  <div>
+                    <div className="display font-medium text-white text-[15px]">{step.title}</div>
+                    <div className="text-text-soft text-[12px] mt-0.5">{step.description}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
 
             <div className="border-t border-border">
               {contacts.map((c) => (
-                <div
-                  key={c.label}
-                  className="flex items-center justify-between py-4 border-b border-border"
-                >
-                  <span className="mono text-[11px] text-text-soft">
-                    {c.label}
-                  </span>
-                  <a
-                    href={`mailto:${c.email}`}
-                    className="mono text-[11px] text-text hover:text-gold transition-colors"
-                  >
+                <div key={c.label} className="flex items-center justify-between py-3 border-b border-border">
+                  <span className="mono text-[11px] text-text-soft">{c.label}</span>
+                  <a href={`mailto:${c.email}`} className="mono text-[11px] text-text hover:text-gold transition-colors">
                     {c.email}
                   </a>
                 </div>
               ))}
             </div>
-
-            <p className="mono text-[11px] text-text-dim mt-8">
-              All applications are reviewed confidentially · No commitment required
-            </p>
           </Reveal>
 
-          {/* Right — form */}
+          {/* Form */}
           <Reveal index={1}>
             <form
               onSubmit={onSubmit}
@@ -112,11 +75,7 @@ export default function Application() {
               </Field>
 
               <Field label="Email address">
-                <input
-                  type="email"
-                  className="field w-full px-3 py-3 text-[14px]"
-                  required
-                />
+                <input type="email" className="field w-full px-3 py-3 text-[14px]" required />
               </Field>
 
               <Field label="Background">
@@ -141,8 +100,8 @@ export default function Application() {
 
               <Field label="What are you looking to achieve?">
                 <textarea
-                  rows={4}
-                  placeholder="Briefly describe your current situation and what you are looking for."
+                  rows={3}
+                  placeholder="Briefly describe your situation and goals."
                   className="field w-full px-3 py-3 text-[14px] resize-none"
                 />
               </Field>
@@ -155,7 +114,7 @@ export default function Application() {
               </button>
 
               <p className="mono text-[9px] text-text-dim text-center">
-                Your information is kept strictly confidential. No spam, ever.
+                Confidential · No spam · No commitment
               </p>
             </form>
           </Reveal>
@@ -165,13 +124,7 @@ export default function Application() {
   );
 }
 
-function Field({
-  label,
-  children,
-}: {
-  label: string;
-  children: React.ReactNode;
-}) {
+function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <label className="flex flex-col gap-2">
       <span className="label">{label}</span>

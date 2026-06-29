@@ -1,11 +1,12 @@
 import { clientStories } from "../data";
 import SectionLabel from "./SectionLabel";
 import Reveal from "./Reveal";
+import ImagePlaceholder from "./ImagePlaceholder";
 
 export default function ClientStories() {
   return (
     <section id="stories" className="gutter py-24 sm:py-32 bg-void">
-      <SectionLabel index="06" title="CLIENTS" meta="Success stories" />
+      <SectionLabel index="06" title="CLIENTS" meta="In their own words" />
 
       <Reveal>
         <h2
@@ -19,68 +20,35 @@ export default function ClientStories() {
       </Reveal>
 
       <Reveal>
-        <p className="text-text-soft text-[15px] leading-relaxed max-w-2xl mt-6 mb-12">
-          These are the experiences of LTG members, shared with their permission.
-          No performance claims — just honest accounts of how systematic trading
-          changed their approach to capital.
+        <p className="text-text-soft text-[14px] mb-16 max-w-xl">
+          Shared with permission. No performance projections — just honest accounts of what changed.
         </p>
       </Reveal>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {clientStories.map((story, i) => (
           <Reveal key={story.initials} index={i}>
             <article className="mix-card bg-surface border border-border h-full flex flex-col">
-              {/* top accent bar */}
-              <div className="h-[3px] w-full bg-border">
-                <div className="h-full bg-gold" style={{ width: "100%" }} />
-              </div>
+              {/* IMAGE: Anonymous client portrait — silhouette, blurred, or geometric avatar.
+                  No identifying features. Dark background. Warm/gold tone.
+                  Style: editorial, not stock photo. Each should feel distinct.
+                  MH: office/formal setting. SR: business/entrepreneurial. AT: focused/desk. */}
+              <ImagePlaceholder
+                label={`CLIENT / ${story.initials}`}
+                sublabel={`Anonymous portrait — ${story.background}\nSilhouette or blurred, editorial style`}
+                className="aspect-[3/2]"
+              />
 
-              {/* header */}
-              <div className="p-6 border-b border-border flex items-start justify-between gap-4">
-                <div>
-                  <div
-                    className="display font-bold text-gold"
-                    style={{ fontSize: "clamp(36px, 4vw, 52px)", lineHeight: 1 }}
-                  >
-                    {story.initials}
-                  </div>
-                  <p className="mono text-[10px] text-text-soft mt-2">
-                    {story.background}
-                  </p>
-                </div>
-                <div className="text-right shrink-0">
-                  <div className="display font-bold text-white text-2xl">
-                    {story.stat}
-                  </div>
-                  <div className="mono text-[9px] text-text-dim mt-1 max-w-[100px]">
-                    {story.statLabel}
-                  </div>
-                </div>
-              </div>
-
-              {/* challenge & outcome */}
               <div className="p-6 flex flex-col gap-5 flex-1">
-                <div>
-                  <span className="mono text-[9px] text-gold block mb-2">
-                    THE CHALLENGE
-                  </span>
-                  <p className="text-text-soft text-[13px] leading-relaxed">
-                    {story.challenge}
-                  </p>
+                <div className="flex items-start justify-between gap-4">
+                  <p className="mono text-[10px] text-text-soft leading-relaxed">{story.background}</p>
+                  <div className="text-right shrink-0">
+                    <div className="display font-bold text-gold text-[22px]">{story.stat}</div>
+                    <div className="mono text-[9px] text-text-dim max-w-[90px]">{story.statLabel}</div>
+                  </div>
                 </div>
-                <div>
-                  <span className="mono text-[9px] text-gold block mb-2">
-                    THE OUTCOME
-                  </span>
-                  <p className="text-text-soft text-[13px] leading-relaxed">
-                    {story.outcome}
-                  </p>
-                </div>
-              </div>
 
-              {/* quote */}
-              <div className="px-6 pb-6">
-                <blockquote className="border-l-2 border-gold pl-4">
+                <blockquote className="border-l-2 border-gold pl-4 mt-auto">
                   <p className="text-[13px] text-text leading-relaxed italic">
                     &ldquo;{story.quote}&rdquo;
                   </p>

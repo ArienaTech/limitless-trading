@@ -30,32 +30,23 @@ export default function Hero() {
       id="top"
       className="relative min-h-screen w-full overflow-hidden bg-void flex flex-col pt-16"
     >
-      {/* Video background */}
+      {/* VIDEO: 30-second loop, aerial timelapse of London City / Canary Wharf at night.
+          Dark, moody, city lights reflecting on water. No text overlays.
+          Alternatively: abstract financial data streams / candlestick charts morphing.
+          File: /hero.mp4 */}
       <div className="absolute inset-0 z-0">
         <video
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ opacity: 0.12, mixBlendMode: "screen" }}
+          style={{ opacity: 0.15, mixBlendMode: "screen" }}
           autoPlay
           loop
           muted
           playsInline
-          poster=""
         >
           <source src="/hero.mp4" type="video/mp4" />
         </video>
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to bottom, #000 0%, transparent 30%)",
-          }}
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(to top, #000 0%, transparent 40%)",
-          }}
-        />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, #000 0%, transparent 30%)" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, #000 0%, transparent 40%)" }} />
       </div>
 
       <Waveform count={80} />
@@ -74,14 +65,9 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center gutter">
-        <motion.div
-          {...fade(0.1)}
-          className="flex items-center gap-2 mb-8"
-        >
+        <motion.div {...fade(0.1)} className="flex items-center gap-2 mb-8">
           <span className="pulse-dot" />
-          <span className="mono text-[10px] text-text-soft">
-            APPLICATIONS OPEN
-          </span>
+          <span className="mono text-[10px] text-text-soft">APPLICATIONS OPEN</span>
         </motion.div>
 
         <motion.h1
@@ -94,20 +80,14 @@ export default function Hero() {
           <span className="text-gold">Compounds.</span>
         </motion.h1>
 
-        <motion.div
+        <motion.p
           {...fade(0.3)}
-          className="mt-10 w-full max-w-2xl flex flex-col items-center gap-5"
+          className="text-text-soft text-[15px] mt-8 max-w-md"
         >
-          <div className="h-px w-full bg-border" />
-          <p className="text-text-soft text-[15px] leading-relaxed max-w-xl">
-            Institutional-grade systematic trading for serious investors. Rules-based execution, complete transparency, and a twelve-year auditable track record.
-          </p>
-        </motion.div>
+          12 years. FCA regulated. Institutional-grade systematic trading.
+        </motion.p>
 
-        <motion.div
-          {...fade(0.4)}
-          className="mt-8 flex items-center gap-3"
-        >
+        <motion.div {...fade(0.4)} className="mt-8 flex items-center gap-3">
           <a href="#apply" className="btn-gold mono px-5 py-3 inline-block">
             Apply for Access →
           </a>
@@ -118,24 +98,16 @@ export default function Hero() {
       </div>
 
       {/* Trust stats bar */}
-      <motion.div
-        {...fade(0.52)}
-        className="relative z-10 border-t border-border"
-      >
+      <motion.div {...fade(0.52)} className="relative z-10 border-t border-border">
         <div className="gutter py-6 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0">
           {trustStats.map((stat, i) => (
             <div
               key={stat.label}
               className={`flex flex-col items-center text-center ${
-                i < trustStats.length - 1
-                  ? "md:border-r md:border-border"
-                  : ""
+                i < trustStats.length - 1 ? "md:border-r md:border-border" : ""
               }`}
             >
-              <span
-                className="display text-gold font-bold"
-                style={{ fontSize: "clamp(22px, 3vw, 36px)" }}
-              >
+              <span className="display text-gold font-bold" style={{ fontSize: "clamp(22px, 3vw, 36px)" }}>
                 {stat.value}
               </span>
               <span className="label mt-1">{stat.label}</span>
