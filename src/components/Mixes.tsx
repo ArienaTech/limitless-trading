@@ -1,89 +1,77 @@
-import { Play } from "lucide-react";
-import { mixes } from "../data";
-import SectionLabel from "./SectionLabel";
+import Image from "next/image";
+import { clientStories } from "../data";
 import Reveal from "./Reveal";
 
-const covers = [
-  "MIX / 01 — ABSTRACT NOISE",
-  "MIX / 02 — VINYL MACRO",
-  "MIX / 03 — BOOTH MOTION",
+// Contextual images representing each client's world
+const storyImages = [
+  {
+    src: "https://images.unsplash.com/photo-1748439281934-2803c6a3ee36?auto=format&fit=crop&w=800&q=80",
+    alt: "Institutional portfolio management — multiple screens and data",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1758518727888-ffa196002e59?auto=format&fit=crop&w=800&q=80",
+    alt: "Business professional — strategic capital allocation",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1689732888407-310424e3a372?auto=format&fit=crop&w=800&q=80",
+    alt: "Active trader — candlestick chart analysis on screen",
+  },
 ];
 
-const progress = [0, 0, 0];
-
-export default function Mixes() {
+export default function ClientStories() {
   return (
-    <section id="mixes" className="gutter py-24 sm:py-32 bg-void">
-      <SectionLabel index="05" title="MIXES" meta="Recorded sets & podcasts" />
+    <section id="stories" className="gutter py-24 sm:py-32 bg-void">
 
       <Reveal>
         <h2
-          className="display uppercase text-text mt-10 mb-12"
+          className="display uppercase text-text mt-10 mb-4"
           style={{ fontSize: "clamp(48px, 7vw, 110px)", lineHeight: 0.95 }}
         >
-          Mixes.
+          Real People.
+          <br />
+          <span className="text-gold">Real Results.</span>
         </h2>
       </Reveal>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {mixes.map((mix, i) => (
-          <Reveal key={mix.title} index={i}>
+      <Reveal>
+        <p className="text-text-soft text-[14px] mb-16 max-w-xl">
+          Shared with permission. No performance projections — just honest accounts of what changed.
+        </p>
+      </Reveal>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {clientStories.map((story, i) => (
+          <Reveal key={story.initials} index={i}>
             <article className="mix-card bg-surface border border-border h-full flex flex-col">
-              {/* progress bar */}
-              <div className="h-[3px] w-full bg-border">
-                <div
-                  className="h-full bg-acid"
-                  style={{ width: `${progress[i]}%` }}
+              <div className="relative aspect-[3/2] overflow-hidden">
+                <Image
+                  src={storyImages[i].src}
+                  alt={storyImages[i].alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                 />
-              </div>
-
-              {/* cover */}
-              <div className="relative aspect-square overflow-hidden">
-                <div className="absolute inset-0 noise-overlay opacity-70" />
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    backgroundImage:
-                      "radial-gradient(100% 100% at 30% 30%, rgba(170,255,0,0.08), transparent 60%)",
-                  }}
-                />
-                <span className="absolute left-3 top-3 label">{covers[i]}</span>
-                <div className="mix-play absolute inset-0 flex items-center justify-center opacity-0 transition-opacity">
-                  <span className="w-14 h-14 flex items-center justify-center border border-acid text-acid bg-void/40">
-                    <Play size={20} fill="currentColor" />
-                  </span>
+                <div className="absolute inset-0 bg-void/60" />
+                <div className="absolute top-4 left-4">
+                  <span className="display font-bold text-gold text-[32px] leading-none">{story.initials}</span>
+                </div>
+                <div className="absolute bottom-4 right-4 text-right">
+                  <div className="display font-bold text-white text-[20px]">{story.stat}</div>
+                  <div className="mono text-[9px] text-text-dim">{story.statLabel}</div>
                 </div>
               </div>
 
-              {/* meta */}
-              <div className="p-5 flex flex-col gap-2 flex-1">
-                <h3 className="display font-medium text-[16px] text-white">
-                  {mix.title}
-                </h3>
-                <p className="mono text-[11px] text-text-soft">{mix.context}</p>
-                <div className="flex items-center justify-between mt-auto pt-3">
-                  <span className="mono text-[11px] text-text-dim">
-                    {mix.date}
-                  </span>
-                  <span className="mono text-[11px] text-acid">
-                    {mix.runtime}
-                  </span>
-                </div>
+              <div className="p-6 flex flex-col gap-4 flex-1">
+                <p className="mono text-[10px] text-text-soft leading-relaxed">{story.background}</p>
+                <blockquote className="border-l-2 border-gold pl-4 mt-auto">
+                  <p className="text-[13px] text-text leading-relaxed italic">
+                    &ldquo;{story.quote}&rdquo;
+                  </p>
+                </blockquote>
               </div>
             </article>
           </Reveal>
         ))}
-      </div>
-
-      <div className="text-center mt-10">
-        <a
-          href="https://soundcloud.com"
-          target="_blank"
-          rel="noreferrer"
-          className="mono text-[11px] text-acid link-underline"
-        >
-          All mixes on Soundcloud →
-        </a>
       </div>
     </section>
   );

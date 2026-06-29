@@ -1,13 +1,13 @@
 {
-  "name": "VØID — DJ / Producer",
-  "short_name": "VØID",
-  "description": "Berlin-based DJ and producer. Industrial techno, dub, and modern classical.",
+  "name": "LTG Trading — Systematic Trading",
+  "short_name": "LTG Trading",
+  "description": "Institutional-grade systematic trading for serious investors. FCA regulated. Twelve years of consistent, rules-based execution.",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#000000",
   "theme_color": "#000000",
-  "categories": ["music", "entertainment"],
+  "categories": ["finance", "business"],
   "icons": [
     {
       "src": "/icons/icon-192.svg",
