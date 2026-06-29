@@ -1,6 +1,6 @@
+import Image from "next/image";
 import SectionLabel from "./SectionLabel";
 import Reveal from "./Reveal";
-import ImagePlaceholder from "./ImagePlaceholder";
 
 const beliefs = [
   "Markets reward consistency — not prediction.",
@@ -28,12 +28,8 @@ export default function Philosophy() {
           <div className="flex flex-col gap-0 border-t border-border">
             {beliefs.map((line, i) => (
               <div key={i} className="flex items-start gap-5 py-5 border-b border-border">
-                <span className="mono text-[10px] text-gold mt-1 shrink-0">
-                  0{i + 1}
-                </span>
-                <span className="display font-medium text-white text-[18px] leading-snug">
-                  {line}
-                </span>
+                <span className="mono text-[10px] text-gold mt-1 shrink-0">0{i + 1}</span>
+                <span className="display font-medium text-white text-[18px] leading-snug">{line}</span>
               </div>
             ))}
           </div>
@@ -55,15 +51,25 @@ export default function Philosophy() {
         </Reveal>
 
         <Reveal index={1} className="lg:mt-8">
-          {/* IMAGE: Founder or senior partner portrait. Dark, premium office environment.
-              Serious expression. Soft directional lighting from the left.
-              Subject looking slightly off-camera, confident posture.
-              Style: editorial/corporate, not stock-photo. Dark background. */}
-          <ImagePlaceholder
-            label="FOUNDER / PORTRAIT"
-            sublabel="Editorial portrait — founder or senior partner&#10;Dark office, premium lighting, confident posture"
-            className="aspect-[4/5] w-full"
-          />
+          {/* Executive portrait — serious, authoritative, dark premium office */}
+          <div className="relative aspect-[4/5] w-full overflow-hidden border border-border">
+            <Image
+              src="https://images.unsplash.com/photo-1594759845217-e9c99af2b6a4?auto=format&fit=crop&w=800&q=80"
+              alt="LTG Trading — senior partner"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+            <div className="absolute inset-0 bg-void/50" />
+            <div
+              className="absolute inset-0"
+              style={{ background: "linear-gradient(to top, #000 0%, transparent 50%)" }}
+            />
+            <div className="absolute bottom-5 left-5">
+              <span className="mono text-[9px] text-gold block mb-1">LTG TRADING</span>
+              <span className="mono text-[9px] text-text-dim">London, UK · Est. 2014</span>
+            </div>
+          </div>
         </Reveal>
       </div>
     </section>

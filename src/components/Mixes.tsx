@@ -1,7 +1,23 @@
+import Image from "next/image";
 import { clientStories } from "../data";
 import SectionLabel from "./SectionLabel";
 import Reveal from "./Reveal";
-import ImagePlaceholder from "./ImagePlaceholder";
+
+// Contextual images representing each client's world
+const storyImages = [
+  {
+    src: "https://images.unsplash.com/photo-1748439281934-2803c6a3ee36?auto=format&fit=crop&w=800&q=80",
+    alt: "Institutional portfolio management — multiple screens and data",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1758518727888-ffa196002e59?auto=format&fit=crop&w=800&q=80",
+    alt: "Business professional — strategic capital allocation",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1689732888407-310424e3a372?auto=format&fit=crop&w=800&q=80",
+    alt: "Active trader — candlestick chart analysis on screen",
+  },
+];
 
 export default function ClientStories() {
   return (
@@ -29,25 +45,26 @@ export default function ClientStories() {
         {clientStories.map((story, i) => (
           <Reveal key={story.initials} index={i}>
             <article className="mix-card bg-surface border border-border h-full flex flex-col">
-              {/* IMAGE: Anonymous client portrait — silhouette, blurred, or geometric avatar.
-                  No identifying features. Dark background. Warm/gold tone.
-                  Style: editorial, not stock photo. Each should feel distinct.
-                  MH: office/formal setting. SR: business/entrepreneurial. AT: focused/desk. */}
-              <ImagePlaceholder
-                label={`CLIENT / ${story.initials}`}
-                sublabel={`Anonymous portrait — ${story.background}\nSilhouette or blurred, editorial style`}
-                className="aspect-[3/2]"
-              />
-
-              <div className="p-6 flex flex-col gap-5 flex-1">
-                <div className="flex items-start justify-between gap-4">
-                  <p className="mono text-[10px] text-text-soft leading-relaxed">{story.background}</p>
-                  <div className="text-right shrink-0">
-                    <div className="display font-bold text-gold text-[22px]">{story.stat}</div>
-                    <div className="mono text-[9px] text-text-dim max-w-[90px]">{story.statLabel}</div>
-                  </div>
+              <div className="relative aspect-[3/2] overflow-hidden">
+                <Image
+                  src={storyImages[i].src}
+                  alt={storyImages[i].alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-void/60" />
+                <div className="absolute top-4 left-4">
+                  <span className="display font-bold text-gold text-[32px] leading-none">{story.initials}</span>
                 </div>
+                <div className="absolute bottom-4 right-4 text-right">
+                  <div className="display font-bold text-white text-[20px]">{story.stat}</div>
+                  <div className="mono text-[9px] text-text-dim">{story.statLabel}</div>
+                </div>
+              </div>
 
+              <div className="p-6 flex flex-col gap-4 flex-1">
+                <p className="mono text-[10px] text-text-soft leading-relaxed">{story.background}</p>
                 <blockquote className="border-l-2 border-gold pl-4 mt-auto">
                   <p className="text-[13px] text-text leading-relaxed italic">
                     &ldquo;{story.quote}&rdquo;

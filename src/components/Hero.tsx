@@ -30,14 +30,19 @@ export default function Hero() {
       id="top"
       className="relative min-h-screen w-full overflow-hidden bg-void flex flex-col pt-16"
     >
-      {/* VIDEO: 30-second loop, aerial timelapse of London City / Canary Wharf at night.
-          Dark, moody, city lights reflecting on water. No text overlays.
-          Alternatively: abstract financial data streams / candlestick charts morphing.
-          File: /hero.mp4 */}
       <div className="absolute inset-0 z-0">
+        {/* Canary Wharf / London financial district at night */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1600&q=80"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ opacity: 0.35, mixBlendMode: "luminosity" }}
+        />
         <video
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ opacity: 0.15, mixBlendMode: "screen" }}
+          style={{ opacity: 0.12, mixBlendMode: "screen" }}
           autoPlay
           loop
           muted

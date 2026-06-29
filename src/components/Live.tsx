@@ -1,6 +1,6 @@
+import Image from "next/image";
 import SectionLabel from "./SectionLabel";
 import Reveal from "./Reveal";
-import ImagePlaceholder from "./ImagePlaceholder";
 
 const failureReasons = [
   { num: "01", title: "Emotional decision-making" },
@@ -40,16 +40,17 @@ export default function Strategy() {
         </Reveal>
 
         <Reveal index={1}>
-          {/* IMAGE: Two-panel contrast image.
-              Left half: stressed trader, red screens, cluttered desk, harsh light.
-              Right half: clean trading dashboard, upward chart, calm dark environment.
-              No text on image. Colour split: red/warm left, gold/dark right.
-              OR: Abstract — chaos of random charts vs. single clean trend line. */}
-          <ImagePlaceholder
-            label="CONTRAST / PROBLEM vs SOLUTION"
-            sublabel="Left: stressed trader, red screens, chaos&#10;Right: clean dashboard, upward trend, calm environment"
-            className="aspect-[4/3] w-full mb-8"
-          />
+          {/* Professional trading desk — multiple monitors, live charts, dark environment */}
+          <div className="relative aspect-[4/3] w-full overflow-hidden border border-border mb-8">
+            <Image
+              src="https://images.unsplash.com/photo-1748439435495-722cc1728b7e?auto=format&fit=crop&w=1000&q=80"
+              alt="Professional systematic trading environment"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+            <div className="absolute inset-0 bg-void/40" />
+          </div>
 
           <div className="border border-gold/30 bg-surface p-8">
             <span className="mono text-[10px] text-gold block mb-4">THE LTG DIFFERENCE</span>

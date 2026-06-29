@@ -1,18 +1,21 @@
+import Image from "next/image";
 import { insights } from "../data";
 import SectionLabel from "./SectionLabel";
 import Reveal from "./Reveal";
-import ImagePlaceholder from "./ImagePlaceholder";
 
 const insightImages = [
-  "INSIGHT / SYSTEMATIC vs DISCRETIONARY",
-  "INSIGHT / PSYCHOLOGY OF TRADING",
-  "INSIGHT / RISK-ADJUSTED RETURNS",
-];
-
-const insightImageDesc = [
-  "Abstract: two lines on dark chart — erratic vs. steady systematic trend\nGold steady line wins over time",
-  "Close-up: human eye reflecting a trading screen\nIntense, moody, dark — the cost of emotion",
-  "Minimalist: Sharpe ratio curve on dark background\nClean, analytical, precise",
+  {
+    src: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80",
+    alt: "Systematic trading chart — consistent trend line",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1753998943413-8cba1b923c0e?auto=format&fit=crop&w=800&q=80",
+    alt: "The psychology of trading — code and decision systems",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1762279389020-eeeb69c25813?auto=format&fit=crop&w=800&q=80",
+    alt: "Risk-adjusted returns — abstract financial data visualization",
+  },
 ];
 
 export default function Insights() {
@@ -41,17 +44,19 @@ export default function Insights() {
         {insights.map((insight, i) => (
           <Reveal key={insight.index} index={i}>
             <article className="mix-card bg-surface border border-border h-full flex flex-col group">
-              {/* IMAGE: Editorial article thumbnail — see sublabel per article */}
-              <ImagePlaceholder
-                label={insightImages[i]}
-                sublabel={insightImageDesc[i]}
-                className="aspect-[16/9]"
-              />
+              <div className="relative aspect-[16/9] overflow-hidden">
+                <Image
+                  src={insightImages[i].src}
+                  alt={insightImages[i].alt}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-void/50" />
+                <span className="absolute top-3 left-3 mono text-[9px] text-gold">{insight.category}</span>
+                <span className="absolute top-3 right-3 mono text-[9px] text-text-dim">{insight.readTime}</span>
+              </div>
               <div className="p-5 flex flex-col gap-3 flex-1">
-                <div className="flex items-center justify-between">
-                  <span className="mono text-[9px] text-gold">{insight.category}</span>
-                  <span className="mono text-[9px] text-text-dim">{insight.readTime}</span>
-                </div>
                 <h3 className="display font-medium text-[15px] text-white leading-snug flex-1">
                   {insight.title}
                 </h3>

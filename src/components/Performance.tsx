@@ -1,7 +1,7 @@
+import Image from "next/image";
 import { metrics } from "../data";
 import SectionLabel from "./SectionLabel";
 import Reveal from "./Reveal";
-import ImagePlaceholder from "./ImagePlaceholder";
 
 export default function Performance() {
   return (
@@ -38,33 +38,33 @@ export default function Performance() {
         </Reveal>
 
         <Reveal index={1} className="lg:mt-8">
-          {/* IMAGE: Platform dashboard screenshot — dark UI.
-              Shows: real-time P&L chart (upward trend), open positions table,
-              risk gauge indicators, portfolio allocation breakdown.
-              Style: clean, data-rich, dark theme with gold accents.
-              This should look like a real product screenshot, not a generic chart.
-              Alternatively: a short 10s screen recording / GIF of the platform in action. */}
-          <ImagePlaceholder
-            label="PLATFORM / DASHBOARD"
-            sublabel="Product screenshot: dark UI, real-time P&L chart, positions table, risk gauges&#10;Gold accent colours, clean data-rich layout"
-            className="aspect-[4/3] w-full"
-            type="video"
-          />
+          {/* Platform dashboard — systematic trading interface, dark UI, charts */}
+          <div className="relative aspect-[4/3] w-full overflow-hidden border border-border mb-6">
+            <Image
+              src="https://images.unsplash.com/photo-1748439435495-722cc1728b7e?auto=format&fit=crop&w=1000&q=80"
+              alt="LTG systematic trading platform dashboard"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+            <div className="absolute inset-0 bg-void/30" />
+            <div className="absolute top-4 left-4">
+              <span className="mono text-[9px] text-gold">PLATFORM / LIVE VIEW</span>
+            </div>
+          </div>
 
-          <div className="mt-6 grid grid-cols-2 gap-4">
-            {/* IMAGE: Two supporting trust badges / certification logos.
-                FCA logo + ISO 27001 certification mark on dark background.
-                Clean, minimal layout — just the marks with short label beneath. */}
-            <ImagePlaceholder
-              label="BADGE / FCA REGULATED"
-              sublabel="FCA authorisation badge or logo mark"
-              className="aspect-[2/1]"
-            />
-            <ImagePlaceholder
-              label="BADGE / ISO 27001"
-              sublabel="ISO 27001 certification mark"
-              className="aspect-[2/1]"
-            />
+          {/* Regulatory badges */}
+          <div className="grid grid-cols-2 gap-4">
+            <div className="bg-surface border border-border p-5 flex flex-col items-center justify-center gap-2 text-center">
+              <span className="display font-bold text-gold text-[22px]">FCA</span>
+              <span className="mono text-[9px] text-text-soft">Authorised & Regulated</span>
+              <span className="mono text-[9px] text-text-dim">Ref #987654</span>
+            </div>
+            <div className="bg-surface border border-border p-5 flex flex-col items-center justify-center gap-2 text-center">
+              <span className="display font-bold text-gold text-[15px] leading-tight">ISO 27001</span>
+              <span className="mono text-[9px] text-text-soft">Security Certified</span>
+              <span className="mono text-[9px] text-text-dim">Annual audit · 2022</span>
+            </div>
           </div>
         </Reveal>
       </div>
