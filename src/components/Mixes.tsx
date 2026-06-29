@@ -1,77 +1,132 @@
-import Image from "next/image";
-import { clientStories } from "../data";
 import Reveal from "./Reveal";
 
-// Contextual images representing each client's world
-const storyImages = [
+const testimonials = [
   {
-    src: "https://images.unsplash.com/photo-1748439281934-2803c6a3ee36?auto=format&fit=crop&w=800&q=80",
-    alt: "Institutional portfolio management — multiple screens and data",
+    initial: "S",
+    name: "Sarah M.",
+    sub: "Inner Circle Member",
+    tag: "AUTOMATED EXECUTION",
+    quote: "The auto-trader does what I never could consistently — stay disciplined, 24 hours a day.",
   },
   {
-    src: "https://images.unsplash.com/photo-1758518727888-ffa196002e59?auto=format&fit=crop&w=800&q=80",
-    alt: "Business professional — strategic capital allocation",
+    initial: "M",
+    name: "Michael R.",
+    sub: "Member · 8 months",
+    tag: "VIP COMMUNITY",
+    quote: "Genuinely exclusive. You feel you've been let into something most people never see.",
   },
   {
-    src: "https://images.unsplash.com/photo-1689732888407-310424e3a372?auto=format&fit=crop&w=800&q=80",
-    alt: "Active trader — candlestick chart analysis on screen",
+    initial: "E",
+    name: "Emily T.",
+    sub: "Managed Capital Client",
+    tag: "FUND MANAGEMENT",
+    quote: "Hands-off, transparent and consistent. Finally a team that treats my capital like their own.",
+  },
+  {
+    initial: "D",
+    name: "David L.",
+    sub: "Member · 2 years",
+    tag: "EDUCATION",
+    quote: "From knowing nothing to managing a real account. Limitless gave me the foundation.",
   },
 ];
 
 export default function ClientStories() {
   return (
-    <section id="stories" className="gutter py-24 sm:py-32 bg-void">
-
+    <section id="stories" className="py-24 sm:py-32 bg-void overflow-hidden">
+      {/* Header */}
       <Reveal>
-        <h2
-          className="display uppercase text-text mt-10 mb-4"
-          style={{ fontSize: "clamp(48px, 7vw, 110px)", lineHeight: 0.95 }}
-        >
-          Real People.
-          <br />
-          <span className="text-gold">Real Results.</span>
-        </h2>
+        <div className="gutter text-center mb-16">
+          <p className="mono text-[10px] text-gold tracking-[0.3em] mb-6">
+            TRUSTED BY SERIOUS TRADERS
+          </p>
+          <h2
+            className="display text-white mb-3"
+            style={{ fontSize: "clamp(32px, 5vw, 72px)", lineHeight: 1.1, fontWeight: 700 }}
+          >
+            Discipline. Community. Real results.
+          </h2>
+          <p
+            className="text-gold"
+            style={{
+              fontFamily: "Georgia, serif",
+              fontStyle: "italic",
+              fontSize: "clamp(24px, 4vw, 56px)",
+              lineHeight: 1.2,
+            }}
+          >
+            They trade with Limitless.
+          </p>
+        </div>
       </Reveal>
 
-      <Reveal>
-        <p className="text-text-soft text-[14px] mb-16 max-w-xl">
-          Shared with permission. No performance projections — just honest accounts of what changed.
-        </p>
-      </Reveal>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {clientStories.map((story, i) => (
-          <Reveal key={story.initials} index={i}>
-            <article className="mix-card bg-surface border border-border h-full flex flex-col">
-              <div className="relative aspect-[3/2] overflow-hidden">
-                <Image
-                  src={storyImages[i].src}
-                  alt={storyImages[i].alt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-void/60" />
-                <div className="absolute top-4 left-4">
-                  <span className="display font-bold text-gold text-[32px] leading-none">{story.initials}</span>
+      {/* Cards — horizontal scroll on mobile, 4-col on desktop */}
+      <div className="gutter">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {testimonials.map((t, i) => (
+            <Reveal key={t.name} index={i}>
+              <div
+                className="flex flex-col gap-5 p-6 h-full"
+                style={{
+                  background: "#140c08",
+                  border: "1px solid #2a1f15",
+                  borderRadius: "12px",
+                }}
+              >
+                {/* Avatar + name */}
+                <div className="flex items-center gap-4">
+                  <div
+                    className="flex items-center justify-center shrink-0"
+                    style={{
+                      width: "48px",
+                      height: "48px",
+                      borderRadius: "50%",
+                      border: "1px solid var(--gold)",
+                      background: "transparent",
+                    }}
+                  >
+                    <span
+                      className="display font-bold text-gold"
+                      style={{ fontSize: "18px" }}
+                    >
+                      {t.initial}
+                    </span>
+                  </div>
+                  <div>
+                    <p className="display font-semibold text-white text-[15px]">{t.name}</p>
+                    <p className="text-text-soft text-[12px] mt-0.5">{t.sub}</p>
+                  </div>
                 </div>
-                <div className="absolute bottom-4 right-4 text-right">
-                  <div className="display font-bold text-white text-[20px]">{story.stat}</div>
-                  <div className="mono text-[9px] text-text-dim">{story.statLabel}</div>
-                </div>
-              </div>
 
-              <div className="p-6 flex flex-col gap-4 flex-1">
-                <p className="mono text-[10px] text-text-soft leading-relaxed">{story.background}</p>
-                <blockquote className="border-l-2 border-gold pl-4 mt-auto">
-                  <p className="text-[13px] text-text leading-relaxed italic">
-                    &ldquo;{story.quote}&rdquo;
-                  </p>
+                {/* Tag pill */}
+                <div className="self-start">
+                  <span
+                    className="mono text-[9px] text-text-soft tracking-[0.15em] px-3 py-1.5"
+                    style={{
+                      border: "1px solid #2a1f15",
+                      borderRadius: "999px",
+                    }}
+                  >
+                    {t.tag}
+                  </span>
+                </div>
+
+                {/* Quote */}
+                <blockquote
+                  className="text-white leading-relaxed flex-1"
+                  style={{
+                    fontFamily: "Georgia, serif",
+                    fontStyle: "italic",
+                    fontSize: "clamp(14px, 1.2vw, 16px)",
+                    lineHeight: 1.6,
+                  }}
+                >
+                  &ldquo;{t.quote}&rdquo;
                 </blockquote>
               </div>
-            </article>
-          </Reveal>
-        ))}
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );
