@@ -96,7 +96,7 @@ export default function Philosophy() {
                 style={{ background: "linear-gradient(to top, #000 0%, transparent 50%)" }}
               />
               <div className="absolute bottom-5 left-5">
-                <span className="mono text-[9px] text-gold block mb-1">LTG TRADING</span>
+                <span className="mono text-[9px] text-gold block mb-1">LTG TRADING · FOUNDER</span>
                 <span className="mono text-[9px] text-text-dim">London, UK · Est. 2014</span>
               </div>
             </div>
