@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Ticker from "../components/Ticker";
 import Partners from "../components/Partners";
+import Trust from "../components/Music";
 import Philosophy from "../components/About";
 import ValueProps from "../components/ValueProps";
 import Strategy from "../components/Live";
@@ -22,6 +23,8 @@ export default function Page() {
         <Ticker />
         {/* Partners strip */}
         <Partners />
+        {/* Built for Institutions heading */}
+        <Trust />
         {/* 03 — Brand Philosophy */}
         <Philosophy />
         {/* 04 — Strategy / Problem We Solve */}
