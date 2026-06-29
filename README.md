@@ -7,10 +7,12 @@ editorial — precise, dark, and alive.
 
 ## Tech Stack
 
-- **React 18** + **Vite 6** + **TypeScript**
+- **Next.js 15** (App Router) + **React 18** + **TypeScript**
+- **PWA** via `@ducanh2912/next-pwa` (service worker, offline support, installable)
 - **Tailwind CSS 3** for styling
 - **Motion** (`motion/react`, formerly Framer Motion) for animation
 - **lucide-react** for icons
+- **`next/font/google`** for optimised font loading (Space Grotesk, Space Mono)
 
 ## Design System
 
@@ -42,10 +44,10 @@ frosted nav.
 
 ```bash
 npm install
-npm run dev      # start dev server
-npm run build    # type-check + production build
+npm run dev      # start dev server (http://localhost:3000)
+npm run build    # production build (generates service worker)
+npm run start    # serve the production build
 npm run lint     # eslint
-npm run preview  # preview the production build
 ```
 
 ## Notes
@@ -55,8 +57,12 @@ npm run preview  # preview the production build
   `mix-blend-mode: screen`, so it only adds texture.
 - **Images**: the About and Mixes sections use styled placeholders with the
   original art-direction briefs in the source. Swap in real assets as needed.
+- **PWA**: the service worker (`public/sw.js`) is auto-generated at build time.
+  `public/manifest.json` defines the installable app. Place PNG icons at
+  `public/icons/icon-192.png` and `public/icons/icon-512.png` for best browser
+  support (SVGs are used as placeholders).
 - **Theming**: the artist name `VØID` appears as text and in `data-text`
   attributes (for the glitch effect). The accent `#aaff00` is defined once in
-  `tailwind.config.js` and `src/index.css` — change both to re-skin.
+  `tailwind.config.js` and `src/app/globals.css` — change both to re-skin.
 - External links (Soundcloud, Discogs, Resident Advisor) point out rather than
   embedding third-party iframes.

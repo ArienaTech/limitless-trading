@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import SectionLabel from "./SectionLabel";
 import Reveal from "./Reveal";
