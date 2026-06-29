@@ -47,7 +47,7 @@ export default function Navbar() {
       <nav className="gutter flex items-center justify-between h-16">
         <a href="#top" className="flex items-center" aria-label="LTG Trading">
           <Image
-            src="/logo.svg"
+            src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo-white.svg"
             alt="LTG Trading"
             width={80}
             height={32}
@@ -95,7 +95,7 @@ export default function Navbar() {
       {open && (
         <div className="fixed inset-0 z-[110] bg-void flex flex-col md:hidden">
           <div className="gutter flex items-center justify-between h-16">
-            <Image src="/logo.svg" alt="LTG Trading" width={80} height={32} className="h-8 w-auto" />
+            <Image src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo-white.svg" alt="LTG Trading" width={80} height={32} className="h-8 w-auto" />
             <button
               className="text-text"
               aria-label="Close menu"

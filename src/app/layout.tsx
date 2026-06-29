@@ -21,9 +21,9 @@ export const metadata: Metadata = {
     "LTG Trading delivers institutional-grade systematic trading to serious investors. FCA regulated, transparent, and built on twelve years of consistent, rules-based execution.",
   manifest: "/manifest.json",
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-    apple: "/favicon.svg",
+    icon: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo-white.svg",
+    shortcut: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo-white.svg",
+    apple: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo-white.svg",
   },
   appleWebApp: {
     capable: true,

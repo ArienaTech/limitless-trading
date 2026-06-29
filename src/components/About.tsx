@@ -84,7 +84,7 @@ export default function Philosophy() {
             {/* Executive portrait — serious, authoritative, dark premium office */}
             <div className="relative aspect-[4/5] w-full overflow-hidden border border-border">
               <Image
-                src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/Web-Assets/LTG%20Trading%20Founder.png"
+                src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/LTG%20Trading%20Founder.png"
                 alt="LTG Trading — Founder"
                 fill
                 className="object-cover"
