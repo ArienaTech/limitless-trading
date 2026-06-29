@@ -1,16 +1,30 @@
 // ─── Trust Metrics (ticker) ──────────────────────────────────────────────────
 
 export const trustMetrics: string[] = [
-  "$2.4B+ CAPITAL MANAGED",
-  "847 ACTIVE MEMBERS",
-  "12 YEARS OPERATING",
-  "99.97% PLATFORM UPTIME",
+  "OFFICIAL PARTNER — MONETA MARKETS",
+  "AUTOMATED FOREX EXECUTION",
+  "24/7 MARKET COVERAGE",
+  "PROFESSIONAL FUND MANAGEMENT",
+  "EXCLUSIVE VIP COMMUNITY",
+  "ENQUIRY ONLY — NO PAYMENTS",
   "FCA REGULATED ENTITY",
   "ISO 27001 CERTIFIED",
-  "5,200+ MARKETS MONITORED",
-  "<45MS AVERAGE EXECUTION",
-  "24/5 MARKET COVERAGE",
-  "SAME-DAY REPORTING",
+  "99.97% PLATFORM UPTIME",
+];
+
+// ─── Partners ─────────────────────────────────────────────────────────────────
+
+export interface Partner {
+  name: string;
+  sub: string;
+}
+
+export const partners: Partner[] = [
+  { name: "MONETA", sub: "MARKETS" },
+  { name: "Meridian", sub: "CAPITAL" },
+  { name: "Aurum", sub: "LIQUIDITY" },
+  { name: "Vantage", sub: "PRIME" },
+  { name: "Helios", sub: "FX" },
 ];
 
 // ─── Infrastructure & Trust ───────────────────────────────────────────────────

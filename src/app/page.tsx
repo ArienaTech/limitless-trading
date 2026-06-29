@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Ticker from "../components/Ticker";
+import Partners from "../components/Partners";
 import Trust from "../components/Music";
 import Philosophy from "../components/About";
 import ValueProps from "../components/ValueProps";
@@ -20,6 +21,8 @@ export default function Page() {
         <Hero />
         {/* Trust metrics marquee */}
         <Ticker />
+        {/* Partners strip */}
+        <Partners />
         {/* 02 — Trust & Infrastructure */}
         <Trust />
         {/* 03 — Brand Philosophy */}
