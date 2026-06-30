@@ -19,12 +19,12 @@ const insightImages = [
 
 export default function Insights() {
   return (
-    <section id="insights" className="gutter py-32 sm:py-40 bg-void-2">
+    <section id="insights" className="gutter py-16 sm:py-32 lg:py-40 bg-void-2">
       <Reveal>
         <span className="mono text-[10px] text-gold tracking-[0.3em] block mb-6">MEMBER INTELLIGENCE</span>
         <h2
           className="display uppercase text-text mb-4"
-          style={{ fontSize: "clamp(48px, 7vw, 110px)", lineHeight: 0.95 }}
+          style={{ fontSize: "clamp(36px, 7vw, 110px)", lineHeight: 0.95 }}
         >
           The Edge Is
           <br />
@@ -39,7 +39,7 @@ export default function Insights() {
         </p>
       </Reveal>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
         {insights.map((insight, i) => (
           <Reveal key={insight.index} index={i}>
             <article className="mix-card bg-surface border border-border h-full flex flex-col group">

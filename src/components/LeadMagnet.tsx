@@ -22,12 +22,12 @@ export default function LeadMagnet() {
         style={{ background: "radial-gradient(ellipse 60% 80% at 100% 50%, #2A0505 0%, transparent 70%)" }}
       />
       <div className="relative z-10 gutter py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           <Reveal>
             <span className="mono text-[10px] text-gold tracking-[0.3em] block mb-5">FREE RESOURCE</span>
             <h2
               className="display uppercase text-white mb-5"
-              style={{ fontSize: "clamp(32px, 5vw, 64px)", lineHeight: 0.95 }}
+              style={{ fontSize: "clamp(28px, 5vw, 64px)", lineHeight: 0.95 }}
             >
               The Limitless
               <br />

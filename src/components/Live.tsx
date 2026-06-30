@@ -14,13 +14,13 @@ const failureReasons = [
 
 export default function Strategy() {
   return (
-    <section id="strategy" className="gutter pt-32 pb-32 sm:pt-40 sm:pb-40 bg-void">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+    <section id="strategy" className="gutter pt-16 pb-16 sm:pt-32 sm:pb-32 lg:pt-40 lg:pb-40 bg-void">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
         <Reveal>
           <span className="mono text-[10px] text-gold tracking-[0.3em] block mb-6">THE PROBLEM</span>
           <h2
-            className="display uppercase text-text mb-6"
-            style={{ fontSize: "clamp(48px, 7vw, 110px)", lineHeight: 0.95 }}
+            className="display uppercase text-text mb-4 sm:mb-6"
+            style={{ fontSize: "clamp(36px, 7vw, 110px)", lineHeight: 0.95 }}
           >
             Why Most Traders
             <br />

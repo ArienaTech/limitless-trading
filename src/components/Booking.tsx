@@ -29,7 +29,7 @@ export default function Application() {
         }}
       />
 
-      <div className="relative z-10 gutter py-36 sm:py-48">
+      <div className="relative z-10 gutter py-16 sm:py-28 lg:py-36">
         <Reveal>
           <div className="mb-16 max-w-2xl">
             <span className="mono text-[10px] text-gold tracking-[0.3em] block mb-6">
@@ -37,7 +37,7 @@ export default function Application() {
             </span>
             <h2
               className="display uppercase text-white mb-5"
-              style={{ fontSize: "clamp(48px, 6vw, 90px)", lineHeight: 0.95 }}
+              style={{ fontSize: "clamp(36px, 6vw, 90px)", lineHeight: 0.95 }}
             >
               This Isn&apos;t For
               <br />
@@ -51,7 +51,7 @@ export default function Application() {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start">
           {/* Left */}
           <Reveal>
             <div className="border-t border-border mb-10">

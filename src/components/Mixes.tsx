@@ -36,16 +36,16 @@ const testimonials = [
 
 export default function ClientStories() {
   return (
-    <section id="stories" className="py-32 sm:py-40 bg-void overflow-hidden">
+    <section id="stories" className="py-16 sm:py-32 lg:py-40 bg-void overflow-hidden">
       {/* Header */}
       <Reveal>
-        <div className="gutter text-center mb-16">
+        <div className="gutter text-center mb-10 sm:mb-16">
           <p className="mono text-[10px] text-gold tracking-[0.3em] mb-6">
             TRUSTED BY SERIOUS TRADERS
           </p>
           <h2
             className="display text-white mb-3"
-            style={{ fontSize: "clamp(32px, 5vw, 72px)", lineHeight: 1.1, fontWeight: 700 }}
+            style={{ fontSize: "clamp(26px, 5vw, 72px)", lineHeight: 1.1, fontWeight: 700 }}
           >
             Discipline. Community. Real results.
           </h2>
@@ -54,7 +54,7 @@ export default function ClientStories() {
             style={{
               fontFamily: "Georgia, serif",
               fontStyle: "italic",
-              fontSize: "clamp(24px, 4vw, 56px)",
+              fontSize: "clamp(20px, 4vw, 56px)",
               lineHeight: 1.2,
             }}
           >

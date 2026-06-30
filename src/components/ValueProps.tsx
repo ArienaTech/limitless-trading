@@ -62,21 +62,21 @@ const cards = [
 
 export default function ValueProps() {
   return (
-    <section id="values" className="gutter py-32 sm:py-40 bg-void-2">
+    <section id="values" className="gutter py-16 sm:py-32 lg:py-40 bg-void-2">
       <Reveal>
         <p className="mono text-[10px] text-text-soft tracking-[0.3em] mb-6 text-center">
           WHAT WE DO
         </p>
         <h2
           className="display uppercase text-center mb-16"
-          style={{ fontSize: "clamp(40px, 7vw, 96px)", lineHeight: 0.95 }}
+          style={{ fontSize: "clamp(32px, 7vw, 96px)", lineHeight: 0.95 }}
         >
           <span className="text-white">THE LIMITLESS </span>
           <span className="text-gold">STANDARD.</span>
         </h2>
       </Reveal>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-start">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 items-start">
         {cards.map((card, i) => (
           <Reveal key={card.tag} index={i} scale>
             <motion.div

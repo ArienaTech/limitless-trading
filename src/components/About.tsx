@@ -11,7 +11,6 @@ const beliefs = [
   "We built the system so you don't have to fight yourself.",
 ];
 
-// Masked line-by-line headline reveal
 function MaskedHeadline() {
   const lines = [
     { text: "Winners don't leave it", color: "text-white" },
@@ -20,7 +19,7 @@ function MaskedHeadline() {
   return (
     <h2
       className="display uppercase mx-auto"
-      style={{ fontSize: "clamp(38px, 7vw, 100px)", lineHeight: 0.92, maxWidth: "900px" }}
+      style={{ fontSize: "clamp(32px, 7vw, 100px)", lineHeight: 0.92, maxWidth: "900px" }}
       aria-label="Winners don't leave it to chance."
     >
       {lines.map((line, i) => (
@@ -44,12 +43,9 @@ function MaskedHeadline() {
 export default function Philosophy() {
   return (
     <section id="philosophy" className="relative overflow-hidden bg-void">
-      {/* Background */}
       <div
         className="absolute inset-0 z-0 pointer-events-none"
-        style={{
-          background: "radial-gradient(ellipse 90% 70% at 50% 0%, #4A0808 0%, #1E0000 50%, #000000 100%)",
-        }}
+        style={{ background: "radial-gradient(ellipse 90% 70% at 50% 0%, #4A0808 0%, #1E0000 50%, #000000 100%)" }}
       />
       <div
         className="absolute inset-0 z-0 pointer-events-none"
@@ -57,15 +53,15 @@ export default function Philosophy() {
       />
 
       {/* Opening Statement */}
-      <div className="relative z-10 gutter pt-36 pb-24 text-center border-b border-border">
+      <div className="relative z-10 gutter pt-24 sm:pt-36 pb-16 sm:pb-24 text-center border-b border-border">
         <Reveal>
-          <span className="mono text-[10px] text-gold tracking-[0.3em] block mb-8">
+          <span className="mono text-[10px] text-gold tracking-[0.3em] block mb-6 sm:mb-8">
             THE LIMITLESS PHILOSOPHY
           </span>
         </Reveal>
         <MaskedHeadline />
         <motion.p
-          className="text-text-soft text-[15px] mt-8 mx-auto max-w-xl leading-relaxed"
+          className="text-text-soft text-[14px] sm:text-[15px] mt-6 sm:mt-8 mx-auto max-w-xl leading-relaxed px-2"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
@@ -77,28 +73,27 @@ export default function Philosophy() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 gutter py-32 sm:py-40">
-        <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <div className="relative z-10 gutter py-16 sm:py-32 lg:py-40">
+        <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           <Reveal>
             <h2
-              className="display uppercase text-white mb-6"
-              style={{ fontSize: "clamp(42px, 6vw, 82px)", lineHeight: 0.95 }}
+              className="display uppercase text-white mb-5"
+              style={{ fontSize: "clamp(36px, 6vw, 82px)", lineHeight: 0.95 }}
             >
               Built on
               <br />
               <span className="text-gold">Four Truths.</span>
             </h2>
-            <p className="text-text-soft text-[14px] mb-10 leading-relaxed max-w-md">
+            <p className="text-text-soft text-[14px] mb-8 leading-relaxed max-w-md">
               Every decision Limitless makes — every system, every trade, every member we accept —
               is built on these four principles. They&apos;re not motivational. They&apos;re structural.
             </p>
 
-            {/* Belief list — staggered */}
             <div className="flex flex-col gap-0 border-t border-border">
               {beliefs.map((line, i) => (
                 <motion.div
                   key={i}
-                  className="flex items-start gap-5 py-5 border-b border-border"
+                  className="flex items-start gap-4 sm:gap-5 py-4 sm:py-5 border-b border-border"
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, amount: 0.5 }}
@@ -113,13 +108,12 @@ export default function Philosophy() {
                   >
                     0{i + 1}
                   </motion.span>
-                  <span className="display font-medium text-white text-[18px] leading-snug">{line}</span>
+                  <span className="display font-medium text-white text-[15px] sm:text-[18px] leading-snug">{line}</span>
                 </motion.div>
               ))}
             </div>
 
-            {/* Stats */}
-            <div className="flex gap-10 mt-10">
+            <div className="flex gap-6 sm:gap-10 mt-8 sm:mt-10 flex-wrap">
               {[
                 { value: "2014", label: "Founded" },
                 { value: "$2.4B+", label: "Capital managed" },
@@ -132,17 +126,17 @@ export default function Philosophy() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.4 + i * 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <div className="display text-gold font-bold" style={{ fontSize: "clamp(28px, 4vw, 48px)" }}>{stat.value}</div>
+                  <div className="display text-gold font-bold" style={{ fontSize: "clamp(24px, 4vw, 48px)" }}>{stat.value}</div>
                   <div className="label mt-1">{stat.label}</div>
                 </motion.div>
               ))}
             </div>
           </Reveal>
 
-          {/* Founder image — parallax-ish tilt on hover */}
           <Reveal index={1} className="lg:mt-8">
             <motion.div
-              className="relative aspect-[4/5] w-full overflow-hidden border border-border"
+              className="relative w-full overflow-hidden border border-border"
+              style={{ aspectRatio: "4/5", maxHeight: "600px" }}
               whileHover={{ scale: 1.015 }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             >
@@ -155,7 +149,7 @@ export default function Philosophy() {
               />
               <div className="absolute inset-0 bg-void/10" style={{ backdropFilter: "brightness(1.1)" }} />
               <div className="absolute bottom-0 left-0 right-0 h-1/3" style={{ background: "linear-gradient(to bottom, transparent, #000)" }} />
-              <div className="absolute bottom-5 left-5">
+              <div className="absolute bottom-4 left-4 sm:bottom-5 sm:left-5">
                 <span className="mono text-[9px] block" style={{ color: "#4a4a4a" }}>LIMITLESS TRADING · FOUNDER</span>
               </div>
             </motion.div>

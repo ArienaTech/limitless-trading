@@ -53,7 +53,7 @@ export default function Footer() {
           London, UK — serving members worldwide.
         </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-10 mb-16">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-10 mb-12 sm:mb-16">
           {/* Navigate */}
           <div>
             <h3 className="label mb-5">Navigate</h3>

@@ -7,7 +7,7 @@ import { motion } from "motion/react";
 
 export default function Performance() {
   return (
-    <section id="performance" className="relative overflow-hidden gutter py-32 sm:py-40 bg-void">
+    <section id="performance" className="relative overflow-hidden gutter py-16 sm:py-32 lg:py-40 bg-void">
       {/* Subtle echo of hero gradient — anchors the dark section */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -17,11 +17,11 @@ export default function Performance() {
         }}
       />
 
-      <div className="relative z-10 mt-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <div className="relative z-10 mt-8 sm:mt-12 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
         <Reveal>
           <h2
             className="display uppercase text-text mb-4"
-            style={{ fontSize: "clamp(48px, 7vw, 110px)", lineHeight: 0.95 }}
+            style={{ fontSize: "clamp(36px, 7vw, 110px)", lineHeight: 0.95 }}
           >
             Measurable.
             <br />

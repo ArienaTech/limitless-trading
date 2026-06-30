@@ -53,7 +53,7 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="gutter py-32 sm:py-40 bg-void-2">
+    <section id="faq" className="gutter py-16 sm:py-32 lg:py-40 bg-void-2">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -65,7 +65,7 @@ export default function FAQ() {
         </span>
         <h2
           className="display uppercase text-white mb-16"
-          style={{ fontSize: "clamp(40px, 6vw, 90px)", lineHeight: 0.95 }}
+          style={{ fontSize: "clamp(32px, 6vw, 90px)", lineHeight: 0.95 }}
         >
           Everything You
           <br />
