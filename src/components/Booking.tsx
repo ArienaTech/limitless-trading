@@ -28,7 +28,7 @@ export default function Application() {
         }}
       />
 
-      <div className="relative z-10 gutter py-24 sm:py-32">
+      <div className="relative z-10 gutter py-36 sm:py-48">
         <Reveal>
           <div className="mb-16 max-w-2xl">
             <span className="mono text-[10px] text-gold tracking-[0.3em] block mb-6">

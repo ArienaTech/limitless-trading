@@ -33,7 +33,7 @@ const testimonials = [
 
 export default function ClientStories() {
   return (
-    <section id="stories" className="py-24 sm:py-32 bg-void overflow-hidden">
+    <section id="stories" className="py-32 sm:py-40 bg-void overflow-hidden">
       {/* Header */}
       <Reveal>
         <div className="gutter text-center mb-16">

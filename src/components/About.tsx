@@ -26,7 +26,7 @@ export default function Philosophy() {
       />
 
       {/* ── Opening Statement ── */}
-      <div className="relative z-10 gutter pt-24 pb-20 text-center border-b border-border">
+      <div className="relative z-10 gutter pt-36 pb-24 text-center border-b border-border">
         <Reveal>
           <span className="mono text-[10px] text-gold tracking-[0.3em] block mb-8">
             THE LIMITLESS PHILOSOPHY
@@ -47,7 +47,7 @@ export default function Philosophy() {
       </div>
 
       {/* ── Main Content ── */}
-      <div className="relative z-10 gutter py-24 sm:py-32">
+      <div className="relative z-10 gutter py-32 sm:py-40">
         <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <Reveal>
             <h2

@@ -11,7 +11,7 @@ const failureReasons = [
 
 export default function Strategy() {
   return (
-    <section id="strategy" className="gutter py-24 sm:py-32 bg-void">
+    <section id="strategy" className="gutter pt-32 pb-32 sm:pt-40 sm:pb-40 bg-void">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         <Reveal>
           <span className="mono text-[10px] text-gold tracking-[0.3em] block mb-6">THE PROBLEM</span>

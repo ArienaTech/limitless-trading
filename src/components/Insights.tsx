@@ -19,7 +19,7 @@ const insightImages = [
 
 export default function Insights() {
   return (
-    <section id="insights" className="gutter py-24 sm:py-32 bg-void-2">
+    <section id="insights" className="gutter py-32 sm:py-40 bg-void-2">
       <Reveal>
         <span className="mono text-[10px] text-gold tracking-[0.3em] block mb-6">MEMBER INTELLIGENCE</span>
         <h2

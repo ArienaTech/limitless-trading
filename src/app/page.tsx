@@ -1,10 +1,9 @@
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
-import Ticker from "../components/Ticker";
 import Partners from "../components/Partners";
 import Philosophy from "../components/About";
-import ValueProps from "../components/ValueProps";
 import Strategy from "../components/Live";
+import ValueProps from "../components/ValueProps";
 import ClientStories from "../components/Mixes";
 import Performance from "../components/Performance";
 import Insights from "../components/Insights";
@@ -16,25 +15,14 @@ export default function Page() {
     <div className="bg-void text-text min-h-screen">
       <Navbar />
       <main>
-        {/* 01 — Hero */}
         <Hero />
-        {/* 02 — Partners credibility strip */}
         <Partners />
-        {/* 03 — Brand Philosophy */}
         <Philosophy />
-        {/* Credibility ticker — between philosophy and problem agitation */}
-        <Ticker />
-        {/* 04 — Strategy / Problem We Solve */}
         <Strategy />
-        {/* 05 — Core Value Proposition */}
         <ValueProps />
-        {/* 06 — Client Success Stories */}
         <ClientStories />
-        {/* 07 — Performance & Transparency */}
         <Performance />
-        {/* 08 — Educational Insights */}
         <Insights />
-        {/* 09 — Application Process + Final CTA */}
         <Application />
       </main>
       <Footer />

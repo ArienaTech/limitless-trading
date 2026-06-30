@@ -4,7 +4,7 @@ import Reveal from "./Reveal";
 
 export default function Performance() {
   return (
-    <section id="performance" className="relative overflow-hidden gutter py-24 sm:py-32 bg-void">
+    <section id="performance" className="relative overflow-hidden gutter py-32 sm:py-40 bg-void">
       {/* Subtle echo of hero gradient — anchors the dark section */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -71,6 +71,21 @@ export default function Performance() {
               <span className="mono text-[9px] text-text-soft">Security Certified</span>
               <span className="mono text-[9px] text-text-dim">Annual audit · 2022</span>
             </div>
+          </div>
+
+          {/* Trust signals strip */}
+          <div className="mt-4 border border-border bg-surface grid grid-cols-2 gap-px">
+            {[
+              { label: "AUTOMATED FOREX EXECUTION", sub: "24/7 global markets" },
+              { label: "99.97% UPTIME", sub: "Since launch, 2014" },
+              { label: "PROFESSIONAL FUND MANAGEMENT", sub: "Qualifying members" },
+              { label: "EXCLUSIVE VIP COMMUNITY", sub: "Criteria-based access" },
+            ].map((item) => (
+              <div key={item.label} className="p-4 border-border">
+                <span className="mono text-[9px] text-gold block tracking-[0.1em]">{item.label}</span>
+                <span className="mono text-[9px] text-text-dim mt-1 block">{item.sub}</span>
+              </div>
+            ))}
           </div>
         </Reveal>
       </div>

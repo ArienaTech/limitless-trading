@@ -59,7 +59,7 @@ const cards = [
 
 export default function ValueProps() {
   return (
-    <section id="values" className="gutter py-24 sm:py-32 bg-void-2">
+    <section id="values" className="gutter py-32 sm:py-40 bg-void-2">
       <Reveal>
         <p className="mono text-[10px] text-text-soft tracking-[0.3em] mb-6 text-center">
           WHAT WE DO
