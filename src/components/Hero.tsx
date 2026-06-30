@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useMotionValue, useTransform, animate } from "motion/react";
-import { useEffect, useRef } from "react";
+import { motion } from "motion/react";
+import { useEffect, useRef, useState } from "react";
 import Waveform from "./Waveform";
 
 const fade = (delay: number) => ({
@@ -12,10 +12,7 @@ const fade = (delay: number) => ({
 
 // Animated counter
 function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
-  const count = useMotionValue(0);
-  const rounded = useTransform(count, (v) =>
-    suffix === "%" ? v.toFixed(2) : Math.round(v).toLocaleString()
-  );
+  const [display, setDisplay] = useState("0");
   const ref = useRef<HTMLSpanElement>(null);
   const started = useRef(false);
 
@@ -26,21 +23,26 @@ function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
       ([entry]) => {
         if (entry.isIntersecting && !started.current) {
           started.current = true;
-          animate(count, to, { duration: 1.8, ease: "easeOut" });
+          const count = { val: 0 };
+          const startTime = performance.now();
+          const duration = 1800;
+          const tick = (now: number) => {
+            const progress = Math.min((now - startTime) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const val = eased * to;
+            setDisplay(suffix === "%" ? val.toFixed(2) : Math.round(val).toLocaleString());
+            if (progress < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
         }
       },
       { threshold: 0.5 }
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [count, to]);
+  }, [to, suffix]);
 
-  return (
-    <motion.span ref={ref}>
-      {rounded}
-      {suffix}
-    </motion.span>
-  );
+  return <span ref={ref}>{display}{suffix}</span>;
 }
 
 const trustStats = [
