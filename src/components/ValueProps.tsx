@@ -51,6 +51,8 @@ const cards = [
     ctaHref: "#apply",
     featured: false,
     image: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/WhatWeDo-img3.png",
+  },
+];
 
 export default function ValueProps() {
   return (
