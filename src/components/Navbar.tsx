@@ -24,6 +24,18 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   const close = () => setOpen(false);
 
   return (
@@ -38,8 +50,8 @@ export default function Navbar() {
 
       <header
         className={`fixed top-0 left-0 right-0 z-[100] transition-colors duration-300 ${
-          scrolled
-            ? "bg-void/90 backdrop-blur-md border-b border-border"
+          scrolled || open
+            ? "bg-void border-b border-border"
             : "bg-transparent border-b border-transparent"
         }`}
         role="banner"
@@ -88,62 +100,51 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <button
             className="md:hidden text-text p-2"
-            aria-label="Open navigation menu"
+            aria-label={open ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={open}
             aria-controls="mobile-menu"
-            onClick={() => setOpen(true)}
+            onClick={() => setOpen((prev) => !prev)}
           >
-            <Menu size={22} aria-hidden="true" />
+            {open ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
           </button>
         </nav>
-
-        {/* Mobile menu */}
-        {open && (
-          <div
-            id="mobile-menu"
-            className="fixed inset-0 z-[110] bg-void flex flex-col md:hidden"
-            role="dialog"
-            aria-label="Navigation menu"
-            aria-modal="true"
-          >
-            <div className="gutter flex items-center justify-between h-16">
-              <Image
-                src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo-white.svg"
-                alt="Limitless Trading"
-                width={120}
-                height={48}
-                className="h-10 w-auto"
-              />
-              <button
-                className="text-text p-2"
-                aria-label="Close navigation menu"
-                onClick={close}
-              >
-                <X size={24} aria-hidden="true" />
-              </button>
-            </div>
-            <nav className="flex-1 flex flex-col items-center justify-center gap-10" aria-label="Mobile navigation">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={close}
-                  className="display text-4xl uppercase text-text hover:text-gold transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <Link
-                href="/#apply"
-                onClick={close}
-                className="btn-gold mono px-6 py-3 mt-4 inline-block"
-              >
-                Apply →
-              </Link>
-            </nav>
-          </div>
-        )}
       </header>
+
+      {/* Mobile menu — rendered OUTSIDE the header to avoid stacking context / backdrop-blur bleed */}
+      {open && (
+        <div
+          id="mobile-menu"
+          className="fixed inset-0 z-[99] bg-void flex flex-col md:hidden"
+          role="dialog"
+          aria-label="Navigation menu"
+          aria-modal="true"
+        >
+          {/* Spacer to push content below the header */}
+          <div className="h-16" />
+          <nav
+            className="flex-1 flex flex-col items-center justify-center gap-10"
+            aria-label="Mobile navigation"
+          >
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={close}
+                className="display text-4xl uppercase text-text hover:text-gold transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link
+              href="/#apply"
+              onClick={close}
+              className="btn-gold mono px-6 py-3 mt-4 inline-block"
+            >
+              Apply →
+            </Link>
+          </nav>
+        </div>
+      )}
     </>
   );
 }
