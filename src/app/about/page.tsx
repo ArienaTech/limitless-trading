@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
@@ -195,9 +196,9 @@ export default function AboutPage() {
           <p className="text-text-soft text-[15px] mb-10 max-w-md mx-auto leading-relaxed">
             We accept a small number of new members each quarter. Applications take 2 minutes.
           </p>
-          <a href="/#apply" className="btn-gold mono px-8 py-4 inline-block">
+          <Link href="/#apply" className="btn-gold mono px-8 py-4 inline-block">
             Apply for Access →
-          </a>
+          </Link>
         </section>
       </main>
       <Footer />

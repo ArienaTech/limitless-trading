@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
@@ -95,7 +96,7 @@ export default function InsightsPage() {
           <div className="mt-20 border border-gold/30 bg-surface p-10 text-center">
             <p className="display font-bold text-white text-[22px] mb-3">Want full access to every insight?</p>
             <p className="text-text-soft text-[14px] mb-8 max-w-md mx-auto">Members receive weekly intelligence reports, live trade breakdowns, and the complete Limitless Framework library.</p>
-            <a href="/#apply" className="btn-gold mono px-8 py-4 inline-block">Apply for Access →</a>
+            <Link href="/#apply" className="btn-gold mono px-8 py-4 inline-block">Apply for Access →</Link>
           </div>
         </section>
       </main>
