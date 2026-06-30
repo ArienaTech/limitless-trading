@@ -130,7 +130,7 @@ export default function ClientStories() {
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
             </motion.div>
-          ))}}
+          ))}
         </div>
       </div>
     </section>
