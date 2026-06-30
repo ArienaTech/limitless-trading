@@ -27,7 +27,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-void border-t border-border" role="contentinfo">
+    <footer className="bg-void border-t border-border" role="contentinfo" aria-label="Site footer">
       <div className="gutter pt-20 pb-10">
 
         {/* Brand */}

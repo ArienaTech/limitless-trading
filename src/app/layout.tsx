@@ -183,13 +183,43 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://cpvmmxiiwlzkqapnimws.supabase.co" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
+        {/* Google Search Console verification — replace with real token */}
+        {/* <meta name="google-site-verification" content="YOUR_VERIFICATION_TOKEN" /> */}
+
         {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
+
+        {/* Google Analytics 4 — replace G-XXXXXXXXXX with real Measurement ID */}
+        {/* 
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX" />
+        <script dangerouslySetInnerHTML={{ __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-XXXXXXXXXX');
+          gtag('event', 'page_view');
+        ` }} />
+        */}
+
+        {/* Microsoft Clarity — replace with real project ID */}
+        {/*
+        <script dangerouslySetInnerHTML={{ __html: `
+          (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "YOUR_CLARITY_ID");
+        ` }} />
+        */}
       </head>
-      <body>{children}</body>
+      <body>
+        <div id="main-content">
+          {children}
+        </div>
+      </body>
     </html>
   );
 }

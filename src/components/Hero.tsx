@@ -20,10 +20,10 @@ export default function Hero() {
   return (
     <section
       id="top"
+      aria-label="Limitless Trading — Systematic Forex Trading"
       className="relative min-h-screen w-full overflow-hidden bg-void flex flex-col pt-16"
     >
-      <div className="absolute inset-0 z-0">
-        {/* Black + deep crimson radial gradient */}
+      <div className="absolute inset-0 z-0" aria-hidden="true">
         <div
           className="absolute inset-0"
           style={{
@@ -31,7 +31,6 @@ export default function Hero() {
               "radial-gradient(ellipse 80% 60% at 50% 20%, #5C0A0A 0%, #2D0000 45%, #000000 80%)",
           }}
         />
-        {/* Optional video overlay */}
         <video
           className="absolute inset-0 w-full h-full object-cover"
           style={{ opacity: 0.06, mixBlendMode: "screen" }}
@@ -39,6 +38,8 @@ export default function Hero() {
           loop
           muted
           playsInline
+          poster="/hero-poster.jpg"
+          aria-hidden="true"
         >
           <source src="/hero.mp4" type="video/mp4" />
         </video>
@@ -49,8 +50,8 @@ export default function Hero() {
 
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center gutter">
         <motion.div {...fade(0.1)} className="flex items-center gap-2 mb-8">
-          <span className="pulse-dot" />
-          <span className="mono text-[10px] text-text-soft">APPLICATIONS OPEN</span>
+          <span className="pulse-dot" aria-hidden="true" />
+          <span className="mono text-[10px] text-text-soft">Q3 2026 COHORT — LIMITED SPOTS</span>
         </motion.div>
 
         <motion.h1
@@ -62,24 +63,44 @@ export default function Hero() {
         </motion.h1>
 
         <motion.p
-          {...fade(0.3)}
-          className="text-text-soft text-[15px] mt-8 max-w-md"
+          {...fade(0.28)}
+          className="text-text-soft text-[16px] mt-6 max-w-lg leading-relaxed"
         >
-          12 years. FCA regulated. Institutional-grade systematic trading.
+          Systematic forex trading for serious investors. FCA regulated. 
+          Founded in London, 2014.
         </motion.p>
 
-        <motion.div {...fade(0.4)} className="mt-8 flex items-center gap-3">
-          <a href="#apply" className="btn-gold mono px-5 py-3 inline-block">
+        {/* Primary + Secondary CTA — clear hierarchy */}
+        <motion.div {...fade(0.38)} className="mt-10 flex flex-col sm:flex-row items-center gap-4">
+          <a
+            href="#apply"
+            className="btn-gold mono px-8 py-4 inline-block text-[11px] tracking-[0.15em]"
+            aria-label="Apply for Limitless Trading membership"
+          >
             Apply for Access →
           </a>
-          <a href="#strategy" className="btn-ghost mono px-5 py-3 inline-block">
-            Our Approach →
+          <a
+            href="#strategy"
+            className="mono text-[11px] text-text-soft hover:text-gold transition-colors tracking-[0.1em]"
+            aria-label="Learn about our trading approach"
+          >
+            See How It Works ↓
           </a>
         </motion.div>
+
+        {/* Trust micro-copy */}
+        <motion.p {...fade(0.46)} className="mono text-[9px] text-text-dim mt-5 tracking-[0.1em]">
+          BY APPLICATION ONLY · NO UPFRONT PAYMENT · FULLY CONFIDENTIAL
+        </motion.p>
       </div>
 
       {/* Trust stats bar */}
-      <motion.div {...fade(0.52)} className="relative z-10 border-t border-border">
+      <motion.div
+        {...fade(0.52)}
+        className="relative z-10 border-t border-border"
+        role="region"
+        aria-label="Trust statistics"
+      >
         <div className="gutter py-6 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0">
           {trustStats.map((stat, i) => (
             <div
@@ -88,7 +109,11 @@ export default function Hero() {
                 i < trustStats.length - 1 ? "md:border-r md:border-border" : ""
               }`}
             >
-              <span className="display text-gold font-bold" style={{ fontSize: "clamp(22px, 3vw, 36px)" }}>
+              <span
+                className="display text-gold font-bold"
+                style={{ fontSize: "clamp(22px, 3vw, 36px)" }}
+                aria-label={`${stat.value} ${stat.label}`}
+              >
                 {stat.value}
               </span>
               <span className="label mt-1">{stat.label}</span>
