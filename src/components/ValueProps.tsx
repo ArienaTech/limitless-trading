@@ -18,6 +18,9 @@ const cards = [
     ctaHref: "#apply",
     featured: false,
     image: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/WhatWeDo-img.png",
+  },
+  {
+    tag: "THE INNER CIRCLE",
     title: "Education & Community",
     description:
       "We don't sell signals — we build traders. A vetted community and a structured path to genuine mastery.",
