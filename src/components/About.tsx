@@ -12,20 +12,32 @@ const beliefs = [
 ];
 
 function MaskedHeadline() {
-  const lines = [
-    { text: "Winners don't leave it", color: "text-white" },
-    { text: "to chance.", color: "text-gold" },
-  ];
+  const line1 = "Winners don't leave it".split(" ");
+  const line2 = "to chance.".split(" ");
+
+  const Word = ({ word, delay }: { word: string; delay: number }) => (
+    <motion.span
+      style={{ display: "inline-block", marginRight: "0.25em" }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay }}
+    >
+      {word}
+    </motion.span>
+  );
+
   return (
     <h2
       className="display uppercase mx-auto"
-      style={{ fontSize: "clamp(32px, 7vw, 100px)", lineHeight: 0.92, maxWidth: "900px" }}
+      style={{ fontSize: "clamp(32px, 7vw, 100px)", lineHeight: 1.0, maxWidth: "900px" }}
     >
-      {lines.map((line, i) => (
-        <span key={i} className={line.color} style={{ display: "block" }}>
-          {line.text}
-        </span>
-      ))}
+      <span className="text-white" style={{ display: "block" }}>
+        {line1.map((w, i) => <Word key={i} word={w} delay={0.1 + i * 0.07} />)}
+      </span>
+      <span className="text-gold" style={{ display: "block" }}>
+        {line2.map((w, i) => <Word key={i} word={w} delay={0.45 + i * 0.07} />)}
+      </span>
     </h2>
   );
 }
