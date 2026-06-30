@@ -90,7 +90,7 @@ export default function Philosophy() {
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-void/20" />
+              <div className="absolute inset-0 bg-void/10" style={{ backdropFilter: "brightness(1.1)" }} />
               <div className="absolute bottom-5 left-5">
                 <span className="mono text-[9px] text-gold block">LTG TRADING · FOUNDER</span>
               </div>
