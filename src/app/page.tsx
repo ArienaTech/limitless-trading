@@ -18,12 +18,12 @@ export default function Page() {
       <main>
         {/* 01 — Hero */}
         <Hero />
-        {/* Trust metrics marquee */}
-        <Ticker />
-        {/* Partners strip */}
+        {/* 02 — Partners credibility strip */}
         <Partners />
         {/* 03 — Brand Philosophy */}
         <Philosophy />
+        {/* Credibility ticker — between philosophy and problem agitation */}
+        <Ticker />
         {/* 04 — Strategy / Problem We Solve */}
         <Strategy />
         {/* 05 — Core Value Proposition */}
