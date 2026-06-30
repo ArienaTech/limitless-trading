@@ -11,11 +11,11 @@
   --text: #f0f0f0;
   --text-soft: #8a8a8a;
   --text-dim: #4a4a4a;
-  --gold: #D4AF37;
-  --gold-dim: #A8872A;
-  --copper: #C08020;
+  --gold: #9A7B2E;
+  --gold-dim: #7A5F22;
+  --copper: #8C6018;
   --white: #ffffff;
-  --gutter: clamp(20px, 5vw, 80px);
+  --gutter: clamp(16px, 5vw, 80px);
 }
 
 * {
@@ -273,6 +273,19 @@ body {
 .noise-overlay {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
   mix-blend-mode: overlay;
+}
+
+/* ---------- Mobile touch targets ---------- */
+@media (max-width: 768px) {
+  .btn-gold, .btn-ghost {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  a, button {
+    -webkit-tap-highlight-color: transparent;
+  }
 }
 
 /* ---------- CTA buttons ---------- */

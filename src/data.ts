@@ -281,8 +281,9 @@ export const appSteps: AppStep[] = [
 // ─── Navigation ───────────────────────────────────────────────────────────────
 
 export const navLinks = [
-  { label: "Strategy", href: "#strategy" },
-  { label: "Performance", href: "#performance" },
-  { label: "Insights", href: "#insights" },
-  { label: "Apply", href: "#apply" },
+  { label: "About", href: "/about" },
+  { label: "What We Do", href: "/#values" },
+  { label: "Performance", href: "/#performance" },
+  { label: "Insights", href: "/insights" },
+  { label: "FAQ", href: "/#faq" },
 ];

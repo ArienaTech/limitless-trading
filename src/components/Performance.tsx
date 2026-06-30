@@ -1,16 +1,27 @@
+"use client";
+
 import Image from "next/image";
 import { metrics } from "../data";
 import Reveal from "./Reveal";
+import { motion } from "motion/react";
 
 export default function Performance() {
   return (
-    <section id="performance" className="gutter py-24 sm:py-32 bg-void">
+    <section id="performance" className="relative overflow-hidden gutter py-16 sm:py-32 lg:py-40 bg-void">
+      {/* Subtle echo of hero gradient — anchors the dark section */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 50% at 80% 50%, #3A0505 0%, #0D0000 55%, transparent 100%)",
+        }}
+      />
 
-      <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <div className="relative z-10 mt-8 sm:mt-12 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
         <Reveal>
           <h2
             className="display uppercase text-text mb-4"
-            style={{ fontSize: "clamp(48px, 7vw, 110px)", lineHeight: 0.95 }}
+            style={{ fontSize: "clamp(36px, 7vw, 110px)", lineHeight: 0.95 }}
           >
             Measurable.
             <br />
@@ -23,13 +34,24 @@ export default function Performance() {
           <div className="grid grid-cols-2 gap-px bg-border">
             {metrics.map((metric, i) => (
               <Reveal key={metric.label} index={i}>
-                <div className="bg-void p-6 flex flex-col gap-1">
-                  <span className="display font-bold text-gold" style={{ fontSize: "clamp(24px, 3vw, 40px)", lineHeight: 1 }}>
+                <motion.div
+                  className="bg-void p-6 flex flex-col gap-1 cursor-default"
+                  whileHover={{ backgroundColor: "#0a0505" }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <motion.span
+                    className="display font-bold text-gold"
+                    style={{ fontSize: "clamp(24px, 3vw, 40px)", lineHeight: 1 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 + i * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  >
                     {metric.value}
-                  </span>
+                  </motion.span>
                   <span className="display font-medium text-white text-[13px]">{metric.label}</span>
                   <span className="mono text-[9px] text-text-dim mt-1">{metric.note}</span>
-                </div>
+                </motion.div>
               </Reveal>
             ))}
           </div>
@@ -39,8 +61,8 @@ export default function Performance() {
           {/* Platform dashboard — systematic trading interface, dark UI, charts */}
           <div className="relative aspect-[4/3] w-full overflow-hidden border border-border mb-6">
             <Image
-              src="https://images.unsplash.com/photo-1748439435495-722cc1728b7e?auto=format&fit=crop&w=1000&q=80"
-              alt="LTG systematic trading platform dashboard"
+              src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Image2.png"
+              alt="LTG Trading platform dashboard"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
@@ -63,6 +85,21 @@ export default function Performance() {
               <span className="mono text-[9px] text-text-soft">Security Certified</span>
               <span className="mono text-[9px] text-text-dim">Annual audit · 2022</span>
             </div>
+          </div>
+
+          {/* Trust signals strip */}
+          <div className="mt-4 border border-border bg-surface grid grid-cols-2 gap-px">
+            {[
+              { label: "AUTOMATED FOREX EXECUTION", sub: "24/7 global markets" },
+              { label: "99.97% UPTIME", sub: "Since launch, 2014" },
+              { label: "PROFESSIONAL FUND MANAGEMENT", sub: "Qualifying members" },
+              { label: "EXCLUSIVE VIP COMMUNITY", sub: "Criteria-based access" },
+            ].map((item) => (
+              <div key={item.label} className="p-4 border-border">
+                <span className="mono text-[9px] text-gold block tracking-[0.1em]">{item.label}</span>
+                <span className="mono text-[9px] text-text-dim mt-1 block">{item.sub}</span>
+              </div>
+            ))}
           </div>
         </Reveal>
       </div>

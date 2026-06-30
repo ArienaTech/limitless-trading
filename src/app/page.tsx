@@ -1,14 +1,14 @@
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
-import Ticker from "../components/Ticker";
 import Partners from "../components/Partners";
-import Trust from "../components/Music";
 import Philosophy from "../components/About";
-import ValueProps from "../components/ValueProps";
 import Strategy from "../components/Live";
+import ValueProps from "../components/ValueProps";
 import ClientStories from "../components/Mixes";
 import Performance from "../components/Performance";
+import LeadMagnet from "../components/LeadMagnet";
 import Insights from "../components/Insights";
+import FAQ from "../components/FAQ";
 import Application from "../components/Booking";
 import Footer from "../components/Footer";
 
@@ -17,27 +17,16 @@ export default function Page() {
     <div className="bg-void text-text min-h-screen">
       <Navbar />
       <main>
-        {/* 01 — Hero */}
         <Hero />
-        {/* Trust metrics marquee */}
-        <Ticker />
-        {/* Partners strip */}
         <Partners />
-        {/* Built for Institutions heading */}
-        <Trust />
-        {/* 03 — Brand Philosophy */}
         <Philosophy />
-        {/* 04 — Strategy / Problem We Solve */}
         <Strategy />
-        {/* 05 — Core Value Proposition */}
         <ValueProps />
-        {/* 06 — Client Success Stories */}
         <ClientStories />
-        {/* 07 — Performance & Transparency */}
         <Performance />
-        {/* 08 — Educational Insights */}
+        <LeadMagnet />
         <Insights />
-        {/* 09 — Application Process + Final CTA */}
+        <FAQ />
         <Application />
       </main>
       <Footer />
