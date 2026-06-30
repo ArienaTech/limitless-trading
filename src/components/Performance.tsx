@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { metrics } from "../data";
 import Reveal from "./Reveal";
+import { motion } from "motion/react";
 
 export default function Performance() {
   return (
@@ -31,13 +32,24 @@ export default function Performance() {
           <div className="grid grid-cols-2 gap-px bg-border">
             {metrics.map((metric, i) => (
               <Reveal key={metric.label} index={i}>
-                <div className="bg-void p-6 flex flex-col gap-1">
-                  <span className="display font-bold text-gold" style={{ fontSize: "clamp(24px, 3vw, 40px)", lineHeight: 1 }}>
+                <motion.div
+                  className="bg-void p-6 flex flex-col gap-1 cursor-default"
+                  whileHover={{ backgroundColor: "#0a0505" }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <motion.span
+                    className="display font-bold text-gold"
+                    style={{ fontSize: "clamp(24px, 3vw, 40px)", lineHeight: 1 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 + i * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  >
                     {metric.value}
-                  </span>
+                  </motion.span>
                   <span className="display font-medium text-white text-[13px]">{metric.label}</span>
                   <span className="mono text-[9px] text-text-dim mt-1">{metric.note}</span>
-                </div>
+                </motion.div>
               </Reveal>
             ))}
           </div>

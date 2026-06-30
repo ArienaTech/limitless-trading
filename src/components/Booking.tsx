@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "motion/react";
 import { appSteps } from "../data";
 import Reveal from "./Reveal";
 
@@ -118,12 +119,15 @@ export default function Application() {
                   />
                 </Field>
 
-                <button
+                <motion.button
                   type="submit"
                   className="display font-bold uppercase w-full py-4 bg-gold text-void hover:bg-gold-dim transition-colors mt-2"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 20 }}
                 >
                   {submitted ? "Application Received ✓" : "Request My Spot →"}
-                </button>
+                </motion.button>
 
                 <p className="mono text-[9px] text-text-dim text-center">
                   Confidential · No spam · No payment required

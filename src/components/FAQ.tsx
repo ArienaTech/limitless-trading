@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import Reveal from "./Reveal";
 
 const faqs = [
@@ -76,29 +77,40 @@ export default function FAQ() {
         {faqs.map((faq, i) => (
           <Reveal key={i} index={i}>
             <div className="border-b border-border">
-              <button
+              <motion.button
                 className="w-full flex items-start justify-between gap-6 py-6 text-left group"
                 onClick={() => setOpen(open === i ? null : i)}
                 aria-expanded={open === i}
+                whileHover={{ x: 4 }}
+                transition={{ type: "spring", stiffness: 400, damping: 30 }}
               >
-                <span
-                  className="display font-medium text-white group-hover:text-gold transition-colors text-[16px] leading-snug"
-                >
+                <span className="display font-medium text-white group-hover:text-gold transition-colors text-[16px] leading-snug">
                   {faq.q}
                 </span>
-                <span
-                  className="mono text-gold text-[18px] shrink-0 mt-0.5 transition-transform duration-200"
-                  style={{ transform: open === i ? "rotate(45deg)" : "rotate(0deg)" }}
+                <motion.span
+                  className="mono text-gold text-[20px] shrink-0 mt-0.5 leading-none"
+                  animate={{ rotate: open === i ? 45 : 0 }}
+                  transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
                 >
                   +
-                </span>
-              </button>
+                </motion.span>
+              </motion.button>
 
-              {open === i && (
-                <p className="text-text-soft text-[14px] leading-relaxed pb-6 max-w-2xl">
-                  {faq.a}
-                </p>
-              )}
+              <AnimatePresence initial={false}>
+                {open === i && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                    style={{ overflow: "hidden" }}
+                  >
+                    <p className="text-text-soft text-[14px] leading-relaxed pb-6 max-w-2xl">
+                      {faq.a}
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </Reveal>
         ))}
@@ -107,12 +119,14 @@ export default function FAQ() {
       <Reveal>
         <div className="mt-16 flex flex-col sm:flex-row items-start sm:items-center gap-4">
           <p className="text-text-soft text-[14px]">Still have questions?</p>
-          <a
+          <motion.a
             href="mailto:hello@ltgtrading.com"
             className="mono text-[10px] text-gold link-underline tracking-[0.1em]"
+            whileHover={{ x: 4 }}
+            transition={{ type: "spring", stiffness: 400, damping: 30 }}
           >
             hello@ltgtrading.com →
-          </a>
+          </motion.a>
         </div>
       </Reveal>
     </section>

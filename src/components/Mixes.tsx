@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import Reveal from "./Reveal";
 
 const testimonials = [
@@ -64,15 +65,20 @@ export default function ClientStories() {
       <div className="gutter">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {testimonials.map((t, i) => (
-            <Reveal key={t.name} index={i}>
-              <div
-                className="flex flex-col gap-5 p-6 h-full"
-                style={{
-                  background: "#140c08",
-                  border: "1px solid #2a1f15",
-                  borderRadius: "12px",
-                }}
-              >
+            <motion.div
+              key={t.name}
+              className="flex flex-col gap-5 p-6 h-full"
+              style={{
+                background: "#140c08",
+                border: "1px solid #2a1f15",
+                borderRadius: "12px",
+              }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 }}
+              whileHover={{ y: -5, borderColor: "#4a3520" }}
+            >
                 {/* Avatar + name */}
                 <div className="flex items-center gap-4">
                   <div
@@ -123,9 +129,8 @@ export default function ClientStories() {
                 >
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
-              </div>
-            </Reveal>
-          ))}
+            </motion.div>
+          ))}}
         </div>
       </div>
     </section>

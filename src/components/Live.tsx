@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { motion } from "motion/react";
 import Reveal from "./Reveal";
 
 const failureReasons = [
@@ -29,11 +30,18 @@ export default function Strategy() {
           </p>
 
           <div className="border-t border-border">
-            {failureReasons.map((reason) => (
-              <div key={reason.num} className="show-card border-b border-border py-4 flex items-center gap-5">
+            {failureReasons.map((reason, i) => (
+              <motion.div
+                key={reason.num}
+                className="show-card border-b border-border py-4 flex items-center gap-5"
+                initial={{ opacity: 0, x: -24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1], delay: i * 0.08 }}
+              >
                 <span className="mono text-[11px] text-gold shrink-0">{reason.num}</span>
                 <span className="display font-medium text-[16px] text-white">{reason.title}</span>
-              </div>
+              </motion.div>
             ))}
           </div>
 

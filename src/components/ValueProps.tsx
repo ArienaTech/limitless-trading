@@ -1,5 +1,6 @@
 import Reveal from "./Reveal";
 import Image from "next/image";
+import { motion } from "motion/react";
 
 const cards = [
   {
@@ -75,15 +76,27 @@ export default function ValueProps() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-start">
         {cards.map((card, i) => (
-          <Reveal key={card.tag} index={i}>
-            <div
-              className={`relative flex flex-col h-full transition-colors duration-300 ${
+          <Reveal key={card.tag} index={i} scale>
+            <motion.div
+              className={`relative flex flex-col h-full ${
                 card.featured
                   ? "border border-gold/60 bg-[#1a0a0a]"
-                  : "border border-border bg-[#0f0d0b] hover:border-border-hi"
+                  : "border border-border bg-[#0f0d0b]"
               }`}
               style={{ borderRadius: "12px", overflow: "hidden" }}
+              whileHover={{ y: -6, borderColor: card.featured ? "rgba(154,123,46,0.9)" : "rgba(154,123,46,0.5)" }}
+              transition={{ type: "spring", stiffness: 300, damping: 24 }}
             >
+              {/* Featured glow pulse */}
+              {card.featured && (
+                <motion.div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{ borderRadius: "12px", border: "1px solid" }}
+                  animate={{ borderColor: ["rgba(154,123,46,0.3)", "rgba(154,123,46,0.7)", "rgba(154,123,46,0.3)"] }}
+                  transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                />
+              )}
+
               {/* Badge */}
               {card.featured && card.badge && (
                 <div
@@ -96,69 +109,64 @@ export default function ValueProps() {
                 </div>
               )}
 
-              {/* Image */}
+              {/* Image with hover scale */}
               <div className="relative aspect-[16/9] w-full overflow-hidden">
-                <Image
-                  src={card.image}
-                  alt={card.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
+                <motion.div
+                  className="absolute inset-0"
+                  whileHover={{ scale: 1.06 }}
+                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <Image
+                    src={card.image}
+                    alt={card.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </motion.div>
               </div>
 
               {/* Content */}
               <div className="flex flex-col flex-1 p-6 gap-4">
-                {/* Tag */}
                 <span className="mono text-[9px] text-gold tracking-[0.2em]">{card.tag}</span>
-
-                {/* Title */}
                 <h3
                   className="display font-bold text-white"
                   style={{ fontSize: "clamp(20px, 2.5vw, 26px)", lineHeight: 1.1 }}
                 >
                   {card.title}
                 </h3>
-
-                {/* Description */}
                 <p className="text-text-soft text-[13px] leading-relaxed">{card.description}</p>
 
-                {/* Access label */}
                 <div className="pt-1">
                   <p
                     className="text-gold mb-0.5"
-                    style={{
-                      fontFamily: "Georgia, serif",
-                      fontStyle: "italic",
-                      fontSize: "clamp(15px, 1.5vw, 18px)",
-                    }}
+                    style={{ fontFamily: "Georgia, serif", fontStyle: "italic", fontSize: "clamp(15px, 1.5vw, 18px)" }}
                   >
                     {card.access}
                   </p>
-                  <span className="mono text-[9px] text-text-dim tracking-[0.15em]">
-                    {card.accessSub}
-                  </span>
+                  <span className="mono text-[9px] text-text-dim tracking-[0.15em]">{card.accessSub}</span>
                 </div>
 
-                {/* Divider */}
                 <div className="h-px w-full bg-border" />
 
-                {/* Feature list */}
                 <ul className="flex flex-col gap-2 flex-1">
-                  {card.features.map((f) => (
-                    <li
+                  {card.features.map((f, fi) => (
+                    <motion.li
                       key={f}
                       className="flex items-center gap-3 text-[13px] text-text-soft border border-border px-4 py-3"
                       style={{ borderRadius: "999px" }}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.1 + fi * 0.06, duration: 0.4 }}
                     >
                       <span className="text-gold text-[11px]">✓</span>
                       {f}
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
 
-                {/* CTA */}
-                <a
+                <motion.a
                   href={card.ctaHref}
                   className={`mt-4 w-full py-4 text-center mono text-[10px] tracking-[0.2em] transition-colors duration-200 block ${
                     card.featured
@@ -166,11 +174,14 @@ export default function ValueProps() {
                       : "border border-border-hi text-text hover:border-gold hover:text-gold"
                   }`}
                   style={{ borderRadius: "999px" }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 20 }}
                 >
                   {card.cta}
-                </a>
+                </motion.a>
               </div>
-            </div>
+            </motion.div>
           </Reveal>
         ))}
       </div>
