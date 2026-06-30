@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useSpring, useTransform, useMotionValue } from "motion/react";
+import { motion, useSpring } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import Waveform from "./Waveform";
 
@@ -112,18 +112,86 @@ function MagneticLetter({ char, index, total }: { char: string; index: number; t
 
 function AnimatedHeadline() {
   const letters = "Limitless".split("");
+
   return (
-    <h1
-      className="display uppercase leading-[0.88] select-none"
-      style={{ fontSize: "clamp(48px, 11vw, 180px)" }}
+    <div
+      style={{ position: "relative", display: "inline-block", lineHeight: 0.88 }}
       aria-label="Limitless"
     >
-      <span style={{ display: "inline-block", overflow: "hidden", paddingBottom: "0.05em" }}>
+      {/* White magnetic letters — always visible */}
+      <h1
+        className="display uppercase select-none"
+        style={{ fontSize: "clamp(48px, 11vw, 180px)", lineHeight: 0.88, margin: 0 }}
+        aria-hidden="true"
+      >
         {letters.map((char, i) => (
           <MagneticLetter key={i} char={char} index={i} total={letters.length} />
         ))}
-      </span>
-    </h1>
+      </h1>
+
+      {/* Gold water rising from bottom — clips upward over the white text */}
+      <motion.div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          overflow: "hidden",
+          pointerEvents: "none",
+        }}
+        initial={{ height: "0%" }}
+        animate={{ height: "100%" }}
+        transition={{ duration: 2.4, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
+      >
+        {/* Animated wave crest riding the water surface */}
+        <motion.svg
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            top: -24,
+            left: -5,
+            width: "calc(100% + 10px)",
+            height: 28,
+            flexShrink: 0,
+          }}
+          viewBox="0 0 600 28"
+          preserveAspectRatio="none"
+        >
+          <motion.path
+            fill="#9A7B2E"
+            animate={{
+              d: [
+                "M0 14 C75 0, 150 28, 225 14 C300 0, 375 28, 450 14 C525 0, 600 28, 600 14 L600 28 L0 28 Z",
+                "M0 14 C75 28, 150 0, 225 14 C300 28, 375 0, 450 14 C525 28, 600 0, 600 14 L600 28 L0 28 Z",
+                "M0 14 C75 0, 150 28, 225 14 C300 0, 375 28, 450 14 C525 0, 600 28, 600 14 L600 28 L0 28 Z",
+              ],
+            }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </motion.svg>
+
+        {/* Gold text — sits inside the rising water block */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            fontSize: "clamp(48px, 11vw, 180px)",
+            fontFamily: "var(--font-space-grotesk), sans-serif",
+            fontWeight: 700,
+            letterSpacing: "-0.04em",
+            textTransform: "uppercase",
+            color: "#9A7B2E",
+            lineHeight: 0.88,
+            whiteSpace: "nowrap",
+          }}
+        >
+          Limitless
+        </div>
+      </motion.div>
+    </div>
   );
 }
 
