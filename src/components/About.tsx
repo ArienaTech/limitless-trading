@@ -64,12 +64,16 @@ export default function Philosophy() {
           </span>
         </Reveal>
         <MaskedHeadline />
-        <Reveal>
-          <p className="text-text-soft text-[15px] mt-8 mx-auto max-w-xl leading-relaxed">
-            The market doesn&apos;t care how smart you are. It rewards systems, not intentions.
-            This is the philosophy every Limitless member trades by.
-          </p>
-        </Reveal>
+        <motion.p
+          className="text-text-soft text-[15px] mt-8 mx-auto max-w-xl leading-relaxed"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.35 }}
+        >
+          The market doesn&apos;t care how smart you are. It rewards systems, not intentions.
+          This is the philosophy every Limitless member trades by.
+        </motion.p>
       </div>
 
       {/* Main Content */}
