@@ -56,11 +56,6 @@ function MagneticLetter({ char, index, total }: { char: string; index: number; t
   const x = useSpring(0, { stiffness: 300, damping: 20 });
   const y = useSpring(0, { stiffness: 300, damping: 20 });
   const scale = useSpring(1, { stiffness: 300, damping: 20 });
-  const [hovered, setHovered] = useState(false);
-
-  // stagger-based gold intensity: letters near center go gold brighter
-  const centerDist = Math.abs(index - total / 2) / (total / 2);
-  const goldStrength = 1 - centerDist * 0.4;
 
   const onMouseMove = (e: React.MouseEvent<HTMLSpanElement>) => {
     const el = ref.current;
@@ -79,7 +74,6 @@ function MagneticLetter({ char, index, total }: { char: string; index: number; t
     x.set(0);
     y.set(0);
     scale.set(1);
-    setHovered(false);
   };
 
   return (
@@ -90,12 +84,10 @@ function MagneticLetter({ char, index, total }: { char: string; index: number; t
         x,
         y,
         scale,
-        color: hovered ? `rgba(154, 123, 46, ${goldStrength})` : "#ffffff",
-        transition: "color 0.15s ease",
+        color: "#ffffff",
         cursor: "default",
       }}
       onMouseMove={onMouseMove}
-      onMouseEnter={() => setHovered(true)}
       onMouseLeave={onMouseLeave}
       initial={{ y: "110%", opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -129,7 +121,7 @@ function AnimatedHeadline() {
         ))}
       </h1>
 
-      {/* Gold water rising from bottom — clips upward over the white text */}
+      {/* Subtle wave shimmer — a soft translucent white band that ripples upward then fades */}
       <motion.div
         aria-hidden="true"
         style={{
@@ -142,36 +134,35 @@ function AnimatedHeadline() {
         }}
         initial={{ height: "0%" }}
         animate={{ height: "100%" }}
-        transition={{ duration: 2.4, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
+        transition={{ duration: 2.2, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
       >
-        {/* Animated wave crest riding the water surface */}
+        {/* Tiny subtle wave at the water line — no fill below, just a faint ripple */}
         <motion.svg
           aria-hidden="true"
           style={{
             position: "absolute",
-            top: -24,
+            top: -6,
             left: -5,
             width: "calc(100% + 10px)",
-            height: 28,
-            flexShrink: 0,
+            height: 10,
           }}
-          viewBox="0 0 600 28"
+          viewBox="0 0 600 10"
           preserveAspectRatio="none"
         >
           <motion.path
-            fill="#9A7B2E"
+            fill="rgba(255,255,255,0.18)"
             animate={{
               d: [
-                "M0 14 C75 0, 150 28, 225 14 C300 0, 375 28, 450 14 C525 0, 600 28, 600 14 L600 28 L0 28 Z",
-                "M0 14 C75 28, 150 0, 225 14 C300 28, 375 0, 450 14 C525 28, 600 0, 600 14 L600 28 L0 28 Z",
-                "M0 14 C75 0, 150 28, 225 14 C300 0, 375 28, 450 14 C525 0, 600 28, 600 14 L600 28 L0 28 Z",
+                "M0 5 C100 2, 200 8, 300 5 C400 2, 500 8, 600 5 L600 10 L0 10 Z",
+                "M0 5 C100 8, 200 2, 300 5 C400 8, 500 2, 600 5 L600 10 L0 10 Z",
+                "M0 5 C100 2, 200 8, 300 5 C400 2, 500 8, 600 5 L600 10 L0 10 Z",
               ],
             }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           />
         </motion.svg>
 
-        {/* Gold text — sits inside the rising water block */}
+        {/* White text inside — same colour so it just reinforces the base layer */}
         <div
           style={{
             position: "absolute",
@@ -183,7 +174,7 @@ function AnimatedHeadline() {
             fontWeight: 700,
             letterSpacing: "-0.04em",
             textTransform: "uppercase",
-            color: "#9A7B2E",
+            color: "#ffffff",
             lineHeight: 0.88,
             whiteSpace: "nowrap",
           }}
