@@ -136,32 +136,6 @@ function AnimatedHeadline() {
         animate={{ height: "100%" }}
         transition={{ duration: 2.2, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
       >
-        {/* Tiny subtle wave at the water line — no fill below, just a faint ripple */}
-        <motion.svg
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            top: -6,
-            left: -5,
-            width: "calc(100% + 10px)",
-            height: 10,
-          }}
-          viewBox="0 0 600 10"
-          preserveAspectRatio="none"
-        >
-          <motion.path
-            fill="rgba(255,255,255,0.18)"
-            animate={{
-              d: [
-                "M0 5 C100 2, 200 8, 300 5 C400 2, 500 8, 600 5 L600 10 L0 10 Z",
-                "M0 5 C100 8, 200 2, 300 5 C400 8, 500 2, 600 5 L600 10 L0 10 Z",
-                "M0 5 C100 2, 200 8, 300 5 C400 2, 500 8, 600 5 L600 10 L0 10 Z",
-              ],
-            }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </motion.svg>
-
         {/* White text inside — same colour so it just reinforces the base layer */}
         <div
           style={{
