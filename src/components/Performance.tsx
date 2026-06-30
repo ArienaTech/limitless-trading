@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { metrics } from "../data";
 import Reveal from "./Reveal";

@@ -23,7 +23,6 @@ function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
       ([entry]) => {
         if (entry.isIntersecting && !started.current) {
           started.current = true;
-          const count = { val: 0 };
           const startTime = performance.now();
           const duration = 1800;
           const tick = (now: number) => {

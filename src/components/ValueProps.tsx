@@ -1,3 +1,5 @@
+"use client";
+
 import Reveal from "./Reveal";
 import Image from "next/image";
 import { motion } from "motion/react";
