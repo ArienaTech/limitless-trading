@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, useSpring, useTransform, useMotionValue } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import Waveform from "./Waveform";
 
@@ -50,22 +50,78 @@ const trustStats = [
   { display: <Counter to={99.97} suffix="%" />, label: "Platform Uptime" },
 ];
 
+// Single letter with magnetic hover
+function MagneticLetter({ char, index, total }: { char: string; index: number; total: number }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const x = useSpring(0, { stiffness: 300, damping: 20 });
+  const y = useSpring(0, { stiffness: 300, damping: 20 });
+  const scale = useSpring(1, { stiffness: 300, damping: 20 });
+  const [hovered, setHovered] = useState(false);
+
+  // stagger-based gold intensity: letters near center go gold brighter
+  const centerDist = Math.abs(index - total / 2) / (total / 2);
+  const goldStrength = 1 - centerDist * 0.4;
+
+  const onMouseMove = (e: React.MouseEvent<HTMLSpanElement>) => {
+    const el = ref.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const dx = (e.clientX - cx) * 0.35;
+    const dy = (e.clientY - cy) * 0.35;
+    x.set(dx);
+    y.set(dy);
+    scale.set(1.18);
+  };
+
+  const onMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+    scale.set(1);
+    setHovered(false);
+  };
+
+  return (
+    <motion.span
+      ref={ref}
+      style={{
+        display: "inline-block",
+        x,
+        y,
+        scale,
+        color: hovered ? `rgba(154, 123, 46, ${goldStrength})` : "#ffffff",
+        transition: "color 0.15s ease",
+        cursor: "default",
+      }}
+      onMouseMove={onMouseMove}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={onMouseLeave}
+      initial={{ y: "110%", opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{
+        duration: 0.7,
+        ease: [0.22, 1, 0.36, 1],
+        delay: 0.2 + index * 0.04,
+      }}
+    >
+      {char}
+    </motion.span>
+  );
+}
+
 function AnimatedHeadline() {
+  const letters = "Limitless".split("");
   return (
     <h1
-      className="display text-white uppercase leading-[0.88]"
+      className="display uppercase leading-[0.88] select-none"
       style={{ fontSize: "clamp(48px, 11vw, 180px)" }}
       aria-label="Limitless"
     >
-      <span style={{ display: "inline-block", overflow: "hidden" }}>
-        <motion.span
-          style={{ display: "inline-block" }}
-          initial={{ y: "110%" }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-        >
-          Limitless
-        </motion.span>
+      <span style={{ display: "inline-block", overflow: "hidden", paddingBottom: "0.05em" }}>
+        {letters.map((char, i) => (
+          <MagneticLetter key={i} char={char} index={i} total={letters.length} />
+        ))}
       </span>
     </h1>
   );
