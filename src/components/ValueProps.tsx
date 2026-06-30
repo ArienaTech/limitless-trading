@@ -105,7 +105,6 @@ export default function ValueProps() {
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-void/50" />
               </div>
 
               {/* Content */}
