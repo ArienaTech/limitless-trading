@@ -41,8 +41,8 @@ export default function Strategy() {
           {/* Professional trading desk — multiple monitors, live charts, dark environment */}
           <div className="relative aspect-[4/3] w-full overflow-hidden border border-border mb-8">
             <Image
-              src="https://images.unsplash.com/photo-1748439435495-722cc1728b7e?auto=format&fit=crop&w=1000&q=80"
-              alt="Professional systematic trading environment"
+              src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Image.png"
+              alt="LTG Trading — systematic trading"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"

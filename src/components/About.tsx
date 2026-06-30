@@ -90,14 +90,9 @@ export default function Philosophy() {
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-void/50" />
-              <div
-                className="absolute inset-0"
-                style={{ background: "linear-gradient(to top, #000 0%, transparent 50%)" }}
-              />
+              <div className="absolute inset-0 bg-void/20" />
               <div className="absolute bottom-5 left-5">
-                <span className="mono text-[9px] text-gold block mb-1">LTG TRADING · FOUNDER</span>
-                <span className="mono text-[9px] text-text-dim">London, UK · Est. 2014</span>
+                <span className="mono text-[9px] text-gold block">LTG TRADING · FOUNDER</span>
               </div>
             </div>
           </Reveal>

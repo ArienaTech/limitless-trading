@@ -17,10 +17,7 @@ const cards = [
     cta: "ENQUIRE",
     ctaHref: "#apply",
     featured: false,
-    image: "https://images.unsplash.com/photo-1604357209793-fca5dca89f97?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    tag: "THE INNER CIRCLE",
+    image: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/WhatWeDo-img.png",
     title: "Education & Community",
     description:
       "We don't sell signals — we build traders. A vetted community and a structured path to genuine mastery.",
@@ -36,7 +33,7 @@ const cards = [
     ctaHref: "#apply",
     featured: true,
     badge: "★ FLAGSHIP · MEMBER FAVOURITE",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80",
+    image: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/WhatWeDo-img2.png",
   },
   {
     tag: "MANAGED CAPITAL",
@@ -53,9 +50,7 @@ const cards = [
     cta: "REQUEST CRITERIA",
     ctaHref: "#apply",
     featured: false,
-    image: "https://images.unsplash.com/photo-1604357209793-fca5dca89f97?auto=format&fit=crop&w=800&q=80",
-  },
-];
+    image: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/WhatWeDo-img3.png",
 
 export default function ValueProps() {
   return (

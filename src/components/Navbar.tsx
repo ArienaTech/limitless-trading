@@ -49,10 +49,10 @@ export default function Navbar() {
           <Image
             src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo-white.svg"
             alt="LTG Trading"
-            width={80}
-            height={32}
+            width={120}
+            height={48}
             priority
-            className="h-8 w-auto"
+            className="h-10 w-auto"
           />
         </a>
 
@@ -95,7 +95,7 @@ export default function Navbar() {
       {open && (
         <div className="fixed inset-0 z-[110] bg-void flex flex-col md:hidden">
           <div className="gutter flex items-center justify-between h-16">
-            <Image src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo-white.svg" alt="LTG Trading" width={80} height={32} className="h-8 w-auto" />
+            <Image src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo-white.svg" alt="LTG Trading" width={120} height={48} className="h-10 w-auto" />
             <button
               className="text-text"
               aria-label="Close menu"
