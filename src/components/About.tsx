@@ -2,10 +2,10 @@ import Image from "next/image";
 import Reveal from "./Reveal";
 
 const beliefs = [
-  "Markets reward consistency — not prediction.",
-  "Consistency comes from discipline.",
-  "Discipline comes from process.",
-  "Process creates long-term performance.",
+  "Most traders lose — not from lack of intelligence, but lack of process.",
+  "Process removes emotion. Emotion is what kills accounts.",
+  "Discipline applied consistently is the only edge that compounds.",
+  "We built the system so you don't have to fight yourself.",
 ];
 
 export default function Philosophy() {
@@ -39,6 +39,10 @@ export default function Philosophy() {
             <br />
             <span style={{ color: "var(--gold)" }}>to chance.</span>
           </h2>
+          <p className="text-text-soft text-[15px] mt-8 mx-auto max-w-xl leading-relaxed">
+            The market doesn&apos;t care how smart you are. It rewards systems, not intentions. 
+            This is the philosophy every Limitless member trades by.
+          </p>
         </Reveal>
       </div>
 
@@ -47,13 +51,17 @@ export default function Philosophy() {
         <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <Reveal>
             <h2
-              className="display uppercase text-white mb-10"
+              className="display uppercase text-white mb-6"
               style={{ fontSize: "clamp(42px, 6vw, 82px)", lineHeight: 0.95 }}
             >
-              The Conviction
+              Built on
               <br />
-              <span className="text-gold">Behind the System.</span>
+              <span className="text-gold">Four Truths.</span>
             </h2>
+            <p className="text-text-soft text-[14px] mb-10 leading-relaxed max-w-md">
+              Every decision Limitless makes — every system, every trade, every member we accept — 
+              is built on these four principles. They&apos;re not motivational. They&apos;re structural.
+            </p>
 
             <div className="flex flex-col gap-0 border-t border-border">
               {beliefs.map((line, i) => (
@@ -91,8 +99,10 @@ export default function Philosophy() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-void/10" style={{ backdropFilter: "brightness(1.1)" }} />
+              {/* Bottom fade */}
+              <div className="absolute bottom-0 left-0 right-0 h-1/3" style={{ background: "linear-gradient(to bottom, transparent, #000)" }} />
               <div className="absolute bottom-5 left-5">
-                <span className="mono text-[9px] text-gold block">LTG TRADING · FOUNDER</span>
+                <span className="mono text-[9px] block" style={{ color: "#4a4a4a" }}>LTG TRADING · FOUNDER</span>
               </div>
             </div>
           </Reveal>

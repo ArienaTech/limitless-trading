@@ -5,36 +5,37 @@ import Reveal from "./Reveal";
 const insightImages = [
   {
     src: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80",
-    alt: "Systematic trading chart — consistent trend line",
+    alt: "Systematic trading chart",
   },
   {
     src: "https://images.unsplash.com/photo-1753998943413-8cba1b923c0e?auto=format&fit=crop&w=800&q=80",
-    alt: "The psychology of trading — code and decision systems",
+    alt: "Trading psychology and decision systems",
   },
   {
     src: "https://images.unsplash.com/photo-1762279389020-eeeb69c25813?auto=format&fit=crop&w=800&q=80",
-    alt: "Risk-adjusted returns — abstract financial data visualization",
+    alt: "Risk-adjusted returns visualization",
   },
 ];
 
 export default function Insights() {
   return (
     <section id="insights" className="gutter py-24 sm:py-32 bg-void-2">
-
       <Reveal>
+        <span className="mono text-[10px] text-gold tracking-[0.3em] block mb-6">MEMBER INTELLIGENCE</span>
         <h2
-          className="display uppercase text-text mt-10 mb-4"
+          className="display uppercase text-text mb-4"
           style={{ fontSize: "clamp(48px, 7vw, 110px)", lineHeight: 0.95 }}
         >
-          Think Before
+          The Edge Is
           <br />
-          <span className="text-gold">You Trade.</span>
+          <span className="text-gold">In the Knowledge.</span>
         </h2>
       </Reveal>
 
       <Reveal>
-        <p className="text-text-soft text-[14px] mb-16 max-w-xl">
-          Members receive weekly market intelligence and trading education. Understanding the framework is the first step.
+        <p className="text-text-soft text-[15px] mb-16 max-w-xl leading-relaxed">
+          Members receive weekly intelligence reports, live trade breakdowns, and institutional-grade 
+          education. This isn&apos;t content — it&apos;s the framework that separates serious traders from the rest.
         </p>
       </Reveal>
 
@@ -58,14 +59,28 @@ export default function Insights() {
                 <h3 className="display font-medium text-[15px] text-white leading-snug flex-1">
                   {insight.title}
                 </h3>
+                <p className="text-text-soft text-[12px] leading-relaxed">{insight.excerpt}</p>
                 <a href="#apply" className="mono text-[10px] text-gold link-underline self-start mt-2">
-                  Read as a member →
+                  Unlock as a member →
                 </a>
               </div>
             </article>
           </Reveal>
         ))}
       </div>
+
+      {/* Soft CTA nudge */}
+      <Reveal>
+        <div className="mt-16 border border-border bg-surface p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div>
+            <p className="display font-bold text-white text-[18px] mb-1">Ready to trade with an edge?</p>
+            <p className="text-text-soft text-[13px]">Members get full access to every report, live session, and trade breakdown.</p>
+          </div>
+          <a href="#apply" className="btn-gold mono px-6 py-3 shrink-0 inline-block">
+            Apply for Access →
+          </a>
+        </div>
+      </Reveal>
     </section>
   );
 }
