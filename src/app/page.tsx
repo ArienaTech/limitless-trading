@@ -7,6 +7,7 @@ import ValueProps from "../components/ValueProps";
 import ClientStories from "../components/Mixes";
 import Performance from "../components/Performance";
 import Insights from "../components/Insights";
+import FAQ from "../components/FAQ";
 import Application from "../components/Booking";
 import Footer from "../components/Footer";
 
@@ -23,6 +24,7 @@ export default function Page() {
         <ClientStories />
         <Performance />
         <Insights />
+        <FAQ />
         <Application />
       </main>
       <Footer />
