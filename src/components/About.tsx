@@ -23,14 +23,14 @@ function MaskedHeadline() {
       aria-label="Winners don't leave it to chance."
     >
       {lines.map((line, i) => (
-        <span key={i} style={{ display: "block", overflow: "hidden" }}>
+        <span key={i} style={{ display: "block", overflow: "hidden", paddingBottom: "0.08em" }}>
           <motion.span
             className={line.color}
             style={{ display: "block" }}
-            initial={{ y: "105%" }}
-            whileInView={{ y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1], delay: 0.1 + i * 0.12 }}
+            initial={{ y: "105%", opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0 }}
+            transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1], delay: 0.2 + i * 0.15 }}
           >
             {line.text}
           </motion.span>
