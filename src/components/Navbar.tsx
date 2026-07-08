@@ -63,7 +63,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" aria-label="Limitless Trading — home" className="flex items-center">
             <Image
-              src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo2.svg"
+              src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/logo3.svg"
               alt="Limitless Trading"
               width={120}
               height={48}

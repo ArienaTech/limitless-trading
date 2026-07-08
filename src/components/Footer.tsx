@@ -44,7 +44,7 @@ export default function Footer() {
           className="overflow-hidden mb-6"
         >
           <Image
-            src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo-white.svg"
+            src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/logo3.svg"
             alt="Limitless Trading"
             width={160}
             height={48}
