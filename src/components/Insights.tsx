@@ -51,12 +51,11 @@ export default function Insights() {
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-void/50" />
                 <span className="absolute top-3 left-3 mono text-[9px] text-gold">{insight.category}</span>
                 <span className="absolute top-3 right-3 mono text-[9px] text-text-dim">{insight.readTime}</span>
               </div>
               <div className="p-5 flex flex-col gap-3 flex-1">
-                <h3 className="display font-medium text-[15px] text-white leading-snug flex-1">
+                <h3 className="display font-medium text-[15px] text-text leading-snug flex-1">
                   {insight.title}
                 </h3>
                 <p className="text-text-soft text-[12px] leading-relaxed">{insight.excerpt}</p>
@@ -73,7 +72,7 @@ export default function Insights() {
       <Reveal>
         <div className="mt-16 border border-border bg-surface p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
-            <p className="display font-bold text-white text-[18px] mb-1">Ready to trade with an edge?</p>
+            <p className="display font-bold text-text text-[18px] mb-1">Ready to trade with an edge?</p>
             <p className="text-text-soft text-[13px]">Members get full access to every report, live session, and trade breakdown.</p>
           </div>
           <a href="#apply" className="btn-gold mono px-6 py-3 shrink-0 inline-block">

@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Space_Mono } from "next/font/google";
 import "./globals.css";
+import SmoothScroll from "../components/SmoothScroll";
+import ScrollProgress from "../components/ScrollProgress";
+import Preloader from "../components/Preloader";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -41,13 +44,13 @@ export const metadata: Metadata = {
   publisher: "Limitless Trading Ltd",
   manifest: "/manifest.json",
   icons: {
-    icon: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo-white.svg",
-    shortcut: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo-white.svg",
-    apple: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo-white.svg",
+    icon: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Favicon2.svg",
+    shortcut: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Favicon2.svg",
+    apple: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Favicon2.svg",
   },
   appleWebApp: {
     capable: true,
-    statusBarStyle: "black-translucent",
+    statusBarStyle: "default",
     title: "Limitless Trading",
   },
   openGraph: {
@@ -92,7 +95,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
+  themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1,
   minimumScale: 1,
@@ -110,7 +113,7 @@ const organizationSchema = {
       url: SITE_URL,
       logo: {
         "@type": "ImageObject",
-        url: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo-white.svg",
+        url: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/logo3.svg",
       },
       description:
         "Limitless is a London-based systematic trading firm founded in 2014. We provide automated forex execution, institutional-grade education, and managed capital services to serious investors. FCA authorised and regulated.",
@@ -216,9 +219,13 @@ export default function RootLayout({
         */}
       </head>
       <body>
-        <div id="main-content">
-          {children}
-        </div>
+        <SmoothScroll>
+          <Preloader />
+          <ScrollProgress />
+          <div id="main-content">
+            {children}
+          </div>
+        </SmoothScroll>
       </body>
     </html>
   );

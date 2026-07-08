@@ -1,6 +1,7 @@
 "use client";
 
 import Reveal from "./Reveal";
+import TiltCard from "./TiltCard";
 import Image from "next/image";
 import { motion } from "motion/react";
 
@@ -20,7 +21,7 @@ const cards = [
     cta: "ENQUIRE",
     ctaHref: "#apply",
     featured: false,
-    image: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/WhatWeDo-img.png",
+    image: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Lgt_img1.png",
   },
   {
     tag: "THE INNER CIRCLE",
@@ -39,7 +40,7 @@ const cards = [
     ctaHref: "#apply",
     featured: true,
     badge: "★ FLAGSHIP · MEMBER FAVOURITE",
-    image: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/WhatWeDo-img2.png",
+    image: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Lgt_img2.png",
   },
   {
     tag: "MANAGED CAPITAL",
@@ -56,7 +57,7 @@ const cards = [
     cta: "REQUEST CRITERIA",
     ctaHref: "#apply",
     featured: false,
-    image: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/WhatWeDo-img3.png",
+    image: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Lgt_img4.png",
   },
 ];
 
@@ -71,7 +72,7 @@ export default function ValueProps() {
           className="display uppercase text-center mb-16"
           style={{ fontSize: "clamp(32px, 7vw, 96px)", lineHeight: 0.95 }}
         >
-          <span className="text-white">THE LIMITLESS </span>
+          <span className="text-text">THE LIMITLESS </span>
           <span className="text-gold">STANDARD.</span>
         </h2>
       </Reveal>
@@ -79,14 +80,15 @@ export default function ValueProps() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 items-start">
         {cards.map((card, i) => (
           <Reveal key={card.tag} index={i} scale>
+            <TiltCard className="h-full">
             <motion.div
               className={`relative flex flex-col h-full ${
                 card.featured
-                  ? "border border-gold/60 bg-[#1a0a0a]"
-                  : "border border-border bg-[#0f0d0b]"
+                  ? "border border-gold/60 bg-[#fbf7ee]"
+                  : "border border-border bg-white"
               }`}
               style={{ borderRadius: "12px", overflow: "hidden" }}
-              whileHover={{ y: -6, borderColor: card.featured ? "rgba(154,123,46,0.9)" : "rgba(154,123,46,0.5)" }}
+              whileHover={{ borderColor: card.featured ? "rgba(154,123,46,0.9)" : "rgba(154,123,46,0.5)" }}
               transition={{ type: "spring", stiffness: 300, damping: 24 }}
             >
               {/* Featured glow pulse */}
@@ -103,9 +105,9 @@ export default function ValueProps() {
               {card.featured && card.badge && (
                 <div
                   className="flex items-center justify-center gap-2 py-2.5 px-4"
-                  style={{ background: "#5C0A0A" }}
+                  style={{ background: "var(--gold-dim)" }}
                 >
-                  <span className="mono text-[9px] text-gold tracking-[0.2em]">
+                  <span className="mono text-[9px] tracking-[0.2em]" style={{ color: "#f6ead0" }}>
                     {card.badge}
                   </span>
                 </div>
@@ -132,7 +134,7 @@ export default function ValueProps() {
               <div className="flex flex-col flex-1 p-6 gap-4">
                 <span className="mono text-[9px] text-gold tracking-[0.2em]">{card.tag}</span>
                 <h3
-                  className="display font-bold text-white"
+                  className="display font-bold text-text"
                   style={{ fontSize: "clamp(20px, 2.5vw, 26px)", lineHeight: 1.1 }}
                 >
                   {card.title}
@@ -184,6 +186,7 @@ export default function ValueProps() {
                 </motion.a>
               </div>
             </motion.div>
+            </TiltCard>
           </Reveal>
         ))}
       </div>

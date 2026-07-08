@@ -44,7 +44,7 @@ export default function ClientStories() {
             TRUSTED BY SERIOUS TRADERS
           </p>
           <h2
-            className="display text-white mb-3"
+            className="display text-text mb-3"
             style={{ fontSize: "clamp(26px, 5vw, 72px)", lineHeight: 1.1, fontWeight: 700 }}
           >
             Discipline. Community. Real results.
@@ -71,15 +71,15 @@ export default function ClientStories() {
               key={t.name}
               className="flex flex-col gap-5 p-6 h-full"
               style={{
-                background: "#140c08",
-                border: "1px solid #2a1f15",
+                background: "#faf7f1",
+                border: "1px solid #e8e1d3",
                 borderRadius: "12px",
               }}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 }}
-              whileHover={{ y: -5, borderColor: "#4a3520" }}
+              whileHover={{ y: -5, borderColor: "#c9b98f" }}
             >
                 {/* Avatar + name */}
                 <div className="flex items-center gap-4">
@@ -101,7 +101,7 @@ export default function ClientStories() {
                     </span>
                   </div>
                   <div>
-                    <p className="display font-semibold text-white text-[15px]">{t.name}</p>
+                    <p className="display font-semibold text-text text-[15px]">{t.name}</p>
                     <p className="text-text-soft text-[12px] mt-0.5">{t.sub}</p>
                   </div>
                 </div>
@@ -111,7 +111,7 @@ export default function ClientStories() {
                   <span
                     className="mono text-[9px] text-text-soft tracking-[0.15em] px-3 py-1.5"
                     style={{
-                      border: "1px solid #2a1f15",
+                      border: "1px solid #e8e1d3",
                       borderRadius: "999px",
                     }}
                   >
@@ -121,7 +121,7 @@ export default function ClientStories() {
 
                 {/* Quote */}
                 <blockquote
-                  className="text-white leading-relaxed flex-1"
+                  className="text-text leading-relaxed flex-1"
                   style={{
                     fontFamily: "Georgia, serif",
                     fontStyle: "italic",

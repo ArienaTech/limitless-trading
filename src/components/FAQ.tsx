@@ -64,7 +64,7 @@ export default function FAQ() {
           FREQUENTLY ASKED QUESTIONS
         </span>
         <h2
-          className="display uppercase text-white mb-16"
+          className="display uppercase text-text mb-16"
           style={{ fontSize: "clamp(32px, 6vw, 90px)", lineHeight: 0.95 }}
         >
           Everything You
@@ -84,7 +84,7 @@ export default function FAQ() {
                 whileHover={{ x: 4 }}
                 transition={{ type: "spring", stiffness: 400, damping: 30 }}
               >
-                <span className="display font-medium text-white group-hover:text-gold transition-colors text-[16px] leading-snug">
+                <span className="display font-medium text-text group-hover:text-gold transition-colors text-[16px] leading-snug">
                   {faq.q}
                 </span>
                 <motion.span

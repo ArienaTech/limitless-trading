@@ -25,7 +25,7 @@ export default function Application() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse 70% 60% at 20% 50%, #2A0505 0%, transparent 70%)",
+          background: "radial-gradient(ellipse 70% 60% at 20% 50%, #f3e7e7 0%, transparent 70%)",
         }}
       />
 
@@ -36,7 +36,7 @@ export default function Application() {
               LIMITED MEMBERSHIP
             </span>
             <h2
-              className="display uppercase text-white mb-5"
+              className="display uppercase text-text mb-5"
               style={{ fontSize: "clamp(36px, 6vw, 90px)", lineHeight: 0.95 }}
             >
               This Isn&apos;t For
@@ -59,7 +59,7 @@ export default function Application() {
                 <div key={step.num} className="flex items-start gap-5 py-5 border-b border-border">
                   <span className="display text-gold font-bold text-[22px] shrink-0 w-8">{step.num}</span>
                   <div>
-                    <div className="display font-medium text-white text-[15px] mb-1">{step.title}</div>
+                    <div className="display font-medium text-text text-[15px] mb-1">{step.title}</div>
                     <div className="text-text-soft text-[13px] leading-relaxed">{step.description}</div>
                   </div>
                 </div>
@@ -67,7 +67,7 @@ export default function Application() {
             </div>
 
             <div className="border border-gold/20 bg-void p-6 mb-8">
-              <p className="display font-medium text-white text-[15px] mb-2">
+              <p className="display font-medium text-text text-[15px] mb-2">
                 &ldquo;We turned away more applications than we accepted last quarter.&rdquo;
               </p>
               <span className="mono text-[9px] text-text-dim">— LTG TRADING, MEMBERSHIP DIRECTOR</span>
@@ -88,7 +88,7 @@ export default function Application() {
           {/* Form */}
           <Reveal index={1}>
             <div className="bg-void border border-border p-6 sm:p-8">
-              <p className="display font-bold text-white text-[18px] mb-1">Start your application</p>
+              <p className="display font-bold text-text text-[18px] mb-1">Start your application</p>
               <p className="text-text-soft text-[13px] mb-6">Takes 2 minutes. No commitment. Fully confidential.</p>
 
               <form onSubmit={onSubmit} className="flex flex-col gap-4">

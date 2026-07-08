@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import Magnetic from "./Magnetic";
 
 const navLinks = [
   { label: "About", href: "/about" },
@@ -49,10 +50,12 @@ export default function Navbar() {
       </a>
 
       <header
-        className={`fixed top-0 left-0 right-0 z-[100] transition-colors duration-300 ${
-          scrolled || open
+        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
+          open
             ? "bg-void border-b border-border"
-            : "bg-transparent border-b border-transparent"
+            : scrolled
+              ? "bg-void/80 backdrop-blur-md border-b border-border shadow-[0_1px_24px_rgba(34,31,25,0.05)]"
+              : "bg-transparent border-b border-transparent"
         }`}
         role="banner"
       >
@@ -63,7 +66,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" aria-label="Limitless Trading — home" className="flex items-center">
             <Image
-              src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo-white.svg"
+              src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/logo3.svg"
               alt="Limitless Trading"
               width={120}
               height={48}
@@ -88,13 +91,15 @@ export default function Navbar() {
 
           {/* CTA */}
           <div className="hidden md:block">
-            <Link
-              href="/#apply"
-              className="btn-gold mono px-4 py-2 inline-block text-[10px] tracking-[0.1em]"
-              aria-label="Apply for Limitless Trading membership"
-            >
-              Apply →
-            </Link>
+            <Magnetic strength={6}>
+              <Link
+                href="/#apply"
+                className="btn-gold mono px-4 py-2 inline-block text-[10px] tracking-[0.1em]"
+                aria-label="Apply for Limitless Trading membership"
+              >
+                Apply →
+              </Link>
+            </Magnetic>
           </div>
 
           {/* Mobile menu button */}
