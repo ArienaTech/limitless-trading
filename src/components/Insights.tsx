@@ -51,7 +51,6 @@ export default function Insights() {
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-void/50" />
                 <span className="absolute top-3 left-3 mono text-[9px] text-gold">{insight.category}</span>
                 <span className="absolute top-3 right-3 mono text-[9px] text-text-dim">{insight.readTime}</span>
               </div>

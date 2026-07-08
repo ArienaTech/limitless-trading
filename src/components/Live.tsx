@@ -62,7 +62,6 @@ export default function Strategy() {
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
-            <div className="absolute inset-0 bg-void/40" />
           </div>
 
           <div className="border border-gold/30 bg-surface p-8">

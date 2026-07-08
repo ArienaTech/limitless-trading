@@ -149,7 +149,6 @@ export default function Philosophy() {
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-void/10" style={{ backdropFilter: "brightness(1.1)" }} />
               <div className="absolute bottom-0 left-0 right-0 h-1/3" style={{ background: "linear-gradient(to bottom, transparent, #fff)" }} />
               <div className="absolute bottom-4 left-4 sm:bottom-5 sm:left-5">
                 <span className="mono text-[9px] block" style={{ color: "var(--text-soft)" }}>LIMITLESS TRADING · FOUNDER</span>
