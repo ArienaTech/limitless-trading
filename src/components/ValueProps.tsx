@@ -103,9 +103,9 @@ export default function ValueProps() {
               {card.featured && card.badge && (
                 <div
                   className="flex items-center justify-center gap-2 py-2.5 px-4"
-                  style={{ background: "#5C0A0A" }}
+                  style={{ background: "var(--gold-dim)" }}
                 >
-                  <span className="mono text-[9px] text-gold tracking-[0.2em]">
+                  <span className="mono text-[9px] tracking-[0.2em]" style={{ color: "#f6ead0" }}>
                     {card.badge}
                   </span>
                 </div>

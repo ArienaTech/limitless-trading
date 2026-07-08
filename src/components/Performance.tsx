@@ -35,7 +35,7 @@ export default function Performance() {
             {metrics.map((metric, i) => (
               <Reveal key={metric.label} index={i}>
                 <motion.div
-                  className="bg-void p-6 flex flex-col gap-1 cursor-default"
+                  className="bg-void p-6 h-full flex flex-col justify-center gap-1 cursor-default"
                   whileHover={{ backgroundColor: "#f7f2e9" }}
                   transition={{ duration: 0.2 }}
                 >
@@ -61,7 +61,7 @@ export default function Performance() {
           {/* Platform dashboard — systematic trading interface, dark UI, charts */}
           <div className="relative aspect-[4/3] w-full overflow-hidden border border-border mb-6">
             <Image
-              src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Image2.png"
+              src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/home_img2.png"
               alt="LTG Trading platform dashboard"
               fill
               className="object-cover"

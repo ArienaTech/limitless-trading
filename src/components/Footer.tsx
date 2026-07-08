@@ -27,7 +27,12 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-void border-t border-border" role="contentinfo" aria-label="Site footer">
+    <footer
+      className="border-t border-[#2b2620]"
+      style={{ background: "#15130f" }}
+      role="contentinfo"
+      aria-label="Site footer"
+    >
       <div className="gutter pt-20 pb-10">
 
         {/* Brand */}
@@ -39,7 +44,7 @@ export default function Footer() {
           className="overflow-hidden mb-6"
         >
           <Image
-            src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo2.svg"
+            src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo-white.svg"
             alt="Limitless Trading"
             width={160}
             height={48}
@@ -47,8 +52,8 @@ export default function Footer() {
           />
         </motion.div>
 
-        <p className="text-text-soft text-[14px] leading-relaxed max-w-md mb-16">
-          Systematic trading for serious investors. FCA regulated, institutionally 
+        <p className="text-[14px] leading-relaxed max-w-md mb-16" style={{ color: "#b7b0a1" }}>
+          Systematic trading for serious investors. FCA regulated, institutionally
           executed, and built on twelve years of transparent, rules-based performance.
           London, UK — serving members worldwide.
         </p>
@@ -56,11 +61,11 @@ export default function Footer() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-10 mb-12 sm:mb-16">
           {/* Navigate */}
           <div>
-            <h3 className="label mb-5">Navigate</h3>
+            <h3 className="label mb-5" style={{ color: "#9c9484" }}>Navigate</h3>
             <ul className="flex flex-col gap-3">
               {navLinks.map((item) => (
                 <li key={item.label}>
-                  <a href={item.href} className="text-[13px] text-text-soft hover:text-gold transition-colors">
+                  <a href={item.href} className="text-[13px] hover:text-gold transition-colors" style={{ color: "#b7b0a1" }}>
                     {item.label}
                   </a>
                 </li>
@@ -70,11 +75,11 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h3 className="label mb-5">Legal</h3>
+            <h3 className="label mb-5" style={{ color: "#9c9484" }}>Legal</h3>
             <ul className="flex flex-col gap-3">
               {legalLinks.map((item) => (
                 <li key={item.label}>
-                  <a href={item.href} className="text-[13px] text-text-soft hover:text-gold transition-colors">
+                  <a href={item.href} className="text-[13px] hover:text-gold transition-colors" style={{ color: "#b7b0a1" }}>
                     {item.label}
                   </a>
                 </li>
@@ -84,7 +89,7 @@ export default function Footer() {
 
           {/* Social */}
           <div>
-            <h3 className="label mb-5">Follow</h3>
+            <h3 className="label mb-5" style={{ color: "#9c9484" }}>Follow</h3>
             <ul className="flex flex-col gap-3">
               {socialLinks.map((item) => (
                 <li key={item.label}>
@@ -92,7 +97,8 @@ export default function Footer() {
                     href={item.href}
                     target="_blank"
                     rel="noreferrer noopener"
-                    className="text-[13px] text-text-soft hover:text-gold transition-colors"
+                    className="text-[13px] hover:text-gold transition-colors"
+                    style={{ color: "#b7b0a1" }}
                   >
                     {item.label}
                   </a>
@@ -103,8 +109,8 @@ export default function Footer() {
 
           {/* Regulatory */}
           <div>
-            <h3 className="label mb-5">Regulatory</h3>
-            <p className="mono text-[10px] text-text-soft leading-relaxed mb-4">
+            <h3 className="label mb-5" style={{ color: "#9c9484" }}>Regulatory</h3>
+            <p className="mono text-[10px] leading-relaxed mb-4" style={{ color: "#b7b0a1" }}>
               LTG Trading Ltd is authorised and regulated by the Financial Conduct
               Authority. Registered in England and Wales.
             </p>
@@ -116,7 +122,7 @@ export default function Footer() {
             >
               Verify on FCA Register →
             </a>
-            <p className="mono text-[10px] text-text-dim mt-4 leading-relaxed">
+            <p className="mono text-[10px] mt-4 leading-relaxed" style={{ color: "#8a8374" }}>
               Capital at risk. Past performance is not indicative of future results.
               This website does not constitute financial advice.
             </p>
@@ -124,13 +130,13 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-border pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <span className="mono text-[10px] text-text-dim">
+        <div className="border-t border-[#2b2620] pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <span className="mono text-[10px]" style={{ color: "#8a8374" }}>
             © 2026 LTG Trading Ltd. All rights reserved. London, United Kingdom.
           </span>
           <div className="flex items-center gap-6">
-            <a href="#faq" className="mono text-[10px] text-text-dim hover:text-gold transition-colors">FAQ</a>
-            <a href="mailto:hello@ltgtrading.com" className="mono text-[10px] text-text-dim hover:text-gold transition-colors">
+            <a href="#faq" className="mono text-[10px] hover:text-gold transition-colors" style={{ color: "#8a8374" }}>FAQ</a>
+            <a href="mailto:hello@ltgtrading.com" className="mono text-[10px] hover:text-gold transition-colors" style={{ color: "#8a8374" }}>
               hello@ltgtrading.com
             </a>
           </div>
