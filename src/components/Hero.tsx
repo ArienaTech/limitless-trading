@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useSpring } from "motion/react";
+import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Waveform from "./Waveform";
@@ -51,45 +51,14 @@ const trustStats = [
   { display: <Counter to={99.97} suffix="%" />, label: "Platform Uptime" },
 ];
 
-// Single letter with magnetic hover
-function MagneticLetter({ char, index, total }: { char: string; index: number; total: number }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const x = useSpring(0, { stiffness: 300, damping: 20 });
-  const y = useSpring(0, { stiffness: 300, damping: 20 });
-  const scale = useSpring(1, { stiffness: 300, damping: 20 });
-
-  const onMouseMove = (e: React.MouseEvent<HTMLSpanElement>) => {
-    const el = ref.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
-    const dx = (e.clientX - cx) * 0.35;
-    const dy = (e.clientY - cy) * 0.35;
-    x.set(dx);
-    y.set(dy);
-    scale.set(1.18);
-  };
-
-  const onMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-    scale.set(1);
-  };
-
+// Single letter reveal
+function AnimatedLetter({ char, index }: { char: string; index: number }) {
   return (
     <motion.span
-      ref={ref}
       style={{
         display: "inline-block",
-        x,
-        y,
-        scale,
         color: "var(--text)",
-        cursor: "default",
       }}
-      onMouseMove={onMouseMove}
-      onMouseLeave={onMouseLeave}
       initial={{ y: "110%", opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{
@@ -118,7 +87,7 @@ function AnimatedHeadline() {
         aria-hidden="true"
       >
         {letters.map((char, i) => (
-          <MagneticLetter key={i} char={char} index={i} total={letters.length} />
+          <AnimatedLetter key={i} char={char} index={i} />
         ))}
       </h1>
 
@@ -184,6 +153,7 @@ export default function Hero() {
             sizes="100vw"
           />
         </motion.div>
+        <div className="absolute inset-0" style={{ background: "rgba(255,255,255,0.55)" }} />
         <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, #ffffff 0%, transparent 45%)" }} />
       </div>
 

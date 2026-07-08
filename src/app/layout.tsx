@@ -41,9 +41,9 @@ export const metadata: Metadata = {
   publisher: "Limitless Trading Ltd",
   manifest: "/manifest.json",
   icons: {
-    icon: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo_lgt.svg",
-    shortcut: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo_lgt.svg",
-    apple: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo_lgt.svg",
+    icon: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Favicon.png",
+    shortcut: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Favicon.png",
+    apple: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Favicon.png",
   },
   appleWebApp: {
     capable: true,
@@ -110,7 +110,7 @@ const organizationSchema = {
       url: SITE_URL,
       logo: {
         "@type": "ImageObject",
-        url: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo_lgt.svg",
+        url: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo2.svg",
       },
       description:
         "Limitless is a London-based systematic trading firm founded in 2014. We provide automated forex execution, institutional-grade education, and managed capital services to serious investors. FCA authorised and regulated.",
