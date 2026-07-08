@@ -1,9 +1,11 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, useScroll, useSpring, useTransform } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Waveform from "./Waveform";
+import Particles from "./Particles";
+import Magnetic from "./Magnetic";
 
 const fade = (delay: number) => ({
   initial: { opacity: 0, y: 40 },
@@ -131,18 +133,52 @@ function AnimatedHeadline() {
 }
 
 export default function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // Scroll cinematics — background sinks and zooms, content lifts and fades
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "16%"]);
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.12]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, -90]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.55], [1, 0]);
+
+  // Mouse parallax — layers drift at different depths
+  const mx = useSpring(0, { stiffness: 55, damping: 18, mass: 0.6 });
+  const my = useSpring(0, { stiffness: 55, damping: 18, mass: 0.6 });
+  const bgMX = useTransform(mx, (v) => v * -1);
+  const bgMY = useTransform(my, (v) => v * -1);
+  const fgMX = useTransform(mx, (v) => v * 0.45);
+  const fgMY = useTransform(my, (v) => v * 0.45);
+
+  const onMouseMove = (e: React.MouseEvent) => {
+    const rect = sectionRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    mx.set(((e.clientX - rect.left) / rect.width - 0.5) * 16);
+    my.set(((e.clientY - rect.top) / rect.height - 0.5) * 16);
+  };
+
   return (
     <section
       id="top"
+      ref={sectionRef}
       aria-label="Limitless Trading — Systematic Forex Trading"
       className="relative min-h-screen w-full overflow-hidden bg-void flex flex-col pt-16"
+      onMouseMove={onMouseMove}
+      onMouseLeave={() => {
+        mx.set(0);
+        my.set(0);
+      }}
     >
-      <div className="absolute inset-0 z-0" aria-hidden="true">
+      <motion.div className="absolute inset-0 z-0" style={{ y: bgY, scale: bgScale }} aria-hidden="true">
         <motion.div
           className="absolute inset-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5 }}
+          style={{ x: bgMX, y: bgMY }}
+          initial={{ opacity: 0, scale: 1.06 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
         >
           <Image
             src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/hero_bg.png"
@@ -155,17 +191,27 @@ export default function Hero() {
         </motion.div>
         <div className="absolute inset-0" style={{ background: "rgba(255,255,255,0.55)" }} />
         <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, #ffffff 0%, transparent 45%)" }} />
-      </div>
+        <div className="aurora absolute left-1/2 top-1/3 w-[70vw] h-[45vh] -translate-x-1/2 -translate-y-1/2 rounded-full" />
+        <Particles />
+      </motion.div>
 
       <Waveform count={80} />
 
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center gutter px-5 sm:px-8">
+      <motion.div
+        className="relative z-10 flex-1 flex flex-col items-center justify-center text-center gutter px-5 sm:px-8"
+        style={{ y: contentY, opacity: contentOpacity }}
+      >
         <motion.div {...fade(0.1)} className="flex items-center gap-2 mb-6 sm:mb-8">
           <span className="pulse-dot" aria-hidden="true" />
           <span className="mono text-[9px] sm:text-[10px] text-text-soft tracking-[0.1em] sm:tracking-[0.15em]">Q3 2026 COHORT — LIMITED SPOTS</span>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.01, delay: 0.15 }}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.01, delay: 0.15 }}
+          style={{ x: fgMX, y: fgMY }}
+        >
           <AnimatedHeadline />
         </motion.div>
 
@@ -175,27 +221,31 @@ export default function Hero() {
         </motion.p>
 
         <motion.div {...fade(0.62)} className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto">
-          <motion.a
-            href="#apply"
-            className="btn-gold mono px-6 sm:px-8 py-3 sm:py-4 inline-block text-[10px] sm:text-[11px] tracking-[0.15em] w-full sm:w-auto text-center"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            transition={{ type: "spring", stiffness: 400, damping: 20 }}
-          >
-            Apply for Access →
-          </motion.a>
-          <a
-            href="#strategy"
-            className="mono text-[10px] sm:text-[11px] text-text-soft hover:text-gold transition-colors tracking-[0.1em]"
-          >
-            See How It Works ↓
-          </a>
+          <Magnetic className="block w-full sm:w-auto" strength={8}>
+            <motion.a
+              href="#apply"
+              className="btn-gold mono px-6 sm:px-8 py-3 sm:py-4 inline-block text-[10px] sm:text-[11px] tracking-[0.15em] w-full sm:w-auto text-center"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 400, damping: 20 }}
+            >
+              Apply for Access →
+            </motion.a>
+          </Magnetic>
+          <Magnetic strength={6} ripple={false}>
+            <a
+              href="#strategy"
+              className="mono text-[10px] sm:text-[11px] text-text-soft hover:text-gold transition-colors tracking-[0.1em]"
+            >
+              See How It Works ↓
+            </a>
+          </Magnetic>
         </motion.div>
 
         <motion.p {...fade(0.72)} className="mono text-[8px] sm:text-[9px] text-text-dim mt-4 sm:mt-5 tracking-[0.08em] sm:tracking-[0.1em] px-4 text-center">
           BY APPLICATION ONLY · NO UPFRONT PAYMENT · FULLY CONFIDENTIAL
         </motion.p>
-      </div>
+      </motion.div>
 
       {/* Stats bar */}
       <motion.div

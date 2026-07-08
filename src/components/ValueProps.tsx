@@ -1,6 +1,7 @@
 "use client";
 
 import Reveal from "./Reveal";
+import TiltCard from "./TiltCard";
 import Image from "next/image";
 import { motion } from "motion/react";
 
@@ -79,6 +80,7 @@ export default function ValueProps() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 items-start">
         {cards.map((card, i) => (
           <Reveal key={card.tag} index={i} scale>
+            <TiltCard className="h-full">
             <motion.div
               className={`relative flex flex-col h-full ${
                 card.featured
@@ -86,7 +88,7 @@ export default function ValueProps() {
                   : "border border-border bg-white"
               }`}
               style={{ borderRadius: "12px", overflow: "hidden" }}
-              whileHover={{ y: -6, borderColor: card.featured ? "rgba(154,123,46,0.9)" : "rgba(154,123,46,0.5)" }}
+              whileHover={{ borderColor: card.featured ? "rgba(154,123,46,0.9)" : "rgba(154,123,46,0.5)" }}
               transition={{ type: "spring", stiffness: 300, damping: 24 }}
             >
               {/* Featured glow pulse */}
@@ -184,6 +186,7 @@ export default function ValueProps() {
                 </motion.a>
               </div>
             </motion.div>
+            </TiltCard>
           </Reveal>
         ))}
       </div>

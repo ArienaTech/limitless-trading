@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Space_Mono } from "next/font/google";
 import "./globals.css";
+import SmoothScroll from "../components/SmoothScroll";
+import ScrollProgress from "../components/ScrollProgress";
+import Preloader from "../components/Preloader";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -216,9 +219,13 @@ export default function RootLayout({
         */}
       </head>
       <body>
-        <div id="main-content">
-          {children}
-        </div>
+        <SmoothScroll>
+          <Preloader />
+          <ScrollProgress />
+          <div id="main-content">
+            {children}
+          </div>
+        </SmoothScroll>
       </body>
     </html>
   );
