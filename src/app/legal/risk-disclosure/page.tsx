@@ -14,14 +14,14 @@ export default function RiskDisclosure() {
       <Navbar />
       <main className="gutter pt-36 pb-32 max-w-3xl">
         <span className="mono text-[10px] text-gold tracking-[0.3em] block mb-6">LEGAL</span>
-        <h1 className="display uppercase text-white mb-4" style={{ fontSize: "clamp(36px, 5vw, 64px)", lineHeight: 0.95 }}>
+        <h1 className="display uppercase text-text mb-4" style={{ fontSize: "clamp(36px, 5vw, 64px)", lineHeight: 0.95 }}>
           Risk Disclosure
         </h1>
         <p className="mono text-[10px] text-text-dim mb-16">Last updated: June 2026</p>
 
         <div className="flex flex-col gap-10 text-text-soft text-[14px] leading-relaxed">
           <div className="border border-gold/40 bg-surface p-6">
-            <p className="text-white font-medium text-[15px]">
+            <p className="text-text font-medium text-[15px]">
               <strong>Important:</strong> Trading forex and other financial instruments carries significant risk of loss. 
               You should only trade or invest capital you can afford to lose. Past performance is not indicative of future results.
             </p>
@@ -37,13 +37,13 @@ export default function RiskDisclosure() {
             { title: "7. Past performance", body: "Any performance data, statistics, or case studies presented on this website or in our materials relate to past performance only. Past performance is not a reliable indicator of future results. Performance figures may be based on simulated or live results and both carry uncertainty." },
           ].map((section) => (
             <section key={section.title}>
-              <h2 className="display font-bold text-white text-[18px] mb-3">{section.title}</h2>
+              <h2 className="display font-bold text-text text-[18px] mb-3">{section.title}</h2>
               <p>{section.body}</p>
             </section>
           ))}
 
           <section>
-            <h2 className="display font-bold text-white text-[18px] mb-3">8. Contact</h2>
+            <h2 className="display font-bold text-text text-[18px] mb-3">8. Contact</h2>
             <p>For regulatory enquiries: <a href="mailto:compliance@ltgtrading.com" className="text-gold hover:underline">compliance@ltgtrading.com</a>. To verify our FCA authorisation, visit the <a href="https://register.fca.org.uk" target="_blank" rel="noreferrer" className="text-gold hover:underline">FCA Financial Services Register</a>.</p>
           </section>
         </div>

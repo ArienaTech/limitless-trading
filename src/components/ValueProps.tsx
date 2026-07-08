@@ -20,7 +20,7 @@ const cards = [
     cta: "ENQUIRE",
     ctaHref: "#apply",
     featured: false,
-    image: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/WhatWeDo-img.png",
+    image: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Lgt_img1.png",
   },
   {
     tag: "THE INNER CIRCLE",
@@ -39,7 +39,7 @@ const cards = [
     ctaHref: "#apply",
     featured: true,
     badge: "★ FLAGSHIP · MEMBER FAVOURITE",
-    image: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/WhatWeDo-img2.png",
+    image: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Lgt_img2.png",
   },
   {
     tag: "MANAGED CAPITAL",
@@ -56,7 +56,7 @@ const cards = [
     cta: "REQUEST CRITERIA",
     ctaHref: "#apply",
     featured: false,
-    image: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/WhatWeDo-img3.png",
+    image: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Lgt_img4.png",
   },
 ];
 
@@ -71,7 +71,7 @@ export default function ValueProps() {
           className="display uppercase text-center mb-16"
           style={{ fontSize: "clamp(32px, 7vw, 96px)", lineHeight: 0.95 }}
         >
-          <span className="text-white">THE LIMITLESS </span>
+          <span className="text-text">THE LIMITLESS </span>
           <span className="text-gold">STANDARD.</span>
         </h2>
       </Reveal>
@@ -82,8 +82,8 @@ export default function ValueProps() {
             <motion.div
               className={`relative flex flex-col h-full ${
                 card.featured
-                  ? "border border-gold/60 bg-[#1a0a0a]"
-                  : "border border-border bg-[#0f0d0b]"
+                  ? "border border-gold/60 bg-[#fbf7ee]"
+                  : "border border-border bg-white"
               }`}
               style={{ borderRadius: "12px", overflow: "hidden" }}
               whileHover={{ y: -6, borderColor: card.featured ? "rgba(154,123,46,0.9)" : "rgba(154,123,46,0.5)" }}
@@ -132,7 +132,7 @@ export default function ValueProps() {
               <div className="flex flex-col flex-1 p-6 gap-4">
                 <span className="mono text-[9px] text-gold tracking-[0.2em]">{card.tag}</span>
                 <h3
-                  className="display font-bold text-white"
+                  className="display font-bold text-text"
                   style={{ fontSize: "clamp(20px, 2.5vw, 26px)", lineHeight: 1.1 }}
                 >
                   {card.title}

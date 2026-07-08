@@ -13,7 +13,7 @@ export default function Performance() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 60% 50% at 80% 50%, #3A0505 0%, #0D0000 55%, transparent 100%)",
+            "radial-gradient(ellipse 60% 50% at 80% 50%, #f3e7e7 0%, #faf6f1 55%, transparent 100%)",
         }}
       />
 
@@ -36,7 +36,7 @@ export default function Performance() {
               <Reveal key={metric.label} index={i}>
                 <motion.div
                   className="bg-void p-6 flex flex-col gap-1 cursor-default"
-                  whileHover={{ backgroundColor: "#0a0505" }}
+                  whileHover={{ backgroundColor: "#f7f2e9" }}
                   transition={{ duration: 0.2 }}
                 >
                   <motion.span
@@ -49,7 +49,7 @@ export default function Performance() {
                   >
                     {metric.value}
                   </motion.span>
-                  <span className="display font-medium text-white text-[13px]">{metric.label}</span>
+                  <span className="display font-medium text-text text-[13px]">{metric.label}</span>
                   <span className="mono text-[9px] text-text-dim mt-1">{metric.note}</span>
                 </motion.div>
               </Reveal>

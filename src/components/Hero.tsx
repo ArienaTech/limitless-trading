@@ -2,6 +2,7 @@
 
 import { motion, useSpring } from "motion/react";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Waveform from "./Waveform";
 
 const fade = (delay: number) => ({
@@ -84,7 +85,7 @@ function MagneticLetter({ char, index, total }: { char: string; index: number; t
         x,
         y,
         scale,
-        color: "#ffffff",
+        color: "var(--text)",
         cursor: "default",
       }}
       onMouseMove={onMouseMove}
@@ -148,7 +149,7 @@ function AnimatedHeadline() {
             fontWeight: 700,
             letterSpacing: "-0.04em",
             textTransform: "uppercase",
-            color: "#ffffff",
+            color: "var(--text)",
             lineHeight: 0.88,
             whiteSpace: "nowrap",
           }}
@@ -173,17 +174,17 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5 }}
-          style={{ background: "radial-gradient(ellipse 80% 60% at 50% 20%, #5C0A0A 0%, #2D0000 45%, #000000 80%)" }}
-        />
-        <video
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ opacity: 0.06, mixBlendMode: "screen" }}
-          autoPlay loop muted playsInline poster="/hero-poster.jpg"
-          aria-hidden="true"
         >
-          <source src="/hero.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, #000 0%, transparent 50%)" }} />
+          <Image
+            src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/hero_bg.png"
+            alt=""
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+        </motion.div>
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, #ffffff 0%, transparent 45%)" }} />
       </div>
 
       <Waveform count={80} />

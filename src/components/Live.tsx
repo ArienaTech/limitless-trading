@@ -42,7 +42,7 @@ export default function Strategy() {
                 transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1], delay: i * 0.08 }}
               >
                 <span className="mono text-[11px] text-gold shrink-0">{reason.num}</span>
-                <span className="display font-medium text-[16px] text-white">{reason.title}</span>
+                <span className="display font-medium text-[16px] text-text">{reason.title}</span>
               </motion.div>
             ))}
           </div>
@@ -68,7 +68,7 @@ export default function Strategy() {
           <div className="border border-gold/30 bg-surface p-8">
             <span className="mono text-[10px] text-gold block mb-4">THE LIMITLESS SOLUTION</span>
             <h3
-              className="display uppercase text-white mb-4"
+              className="display uppercase text-text mb-4"
               style={{ fontSize: "clamp(22px, 3vw, 38px)", lineHeight: 1 }}
             >
               We removed the human error.

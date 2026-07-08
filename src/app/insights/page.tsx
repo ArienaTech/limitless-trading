@@ -50,12 +50,12 @@ export default function InsightsPage() {
         <section className="relative overflow-hidden gutter pt-40 pb-24">
           <div
             className="absolute inset-0 pointer-events-none"
-            style={{ background: "radial-gradient(ellipse 80% 60% at 50% 0%, #3A0606 0%, #0D0000 55%, #000 100%)" }}
+            style={{ background: "radial-gradient(ellipse 80% 60% at 50% 0%, #f3e7e7 0%, #faf6f1 55%, #fff 100%)" }}
           />
           <div className="relative z-10">
             <span className="mono text-[10px] text-gold tracking-[0.3em] block mb-8">MEMBER INTELLIGENCE</span>
             <h1
-              className="display uppercase text-white mb-6"
+              className="display uppercase text-text mb-6"
               style={{ fontSize: "clamp(48px, 8vw, 120px)", lineHeight: 0.92 }}
             >
               The edge is in
@@ -78,7 +78,7 @@ export default function InsightsPage() {
                     <span className="mono text-[9px] text-gold">{article.category}</span>
                     <span className="mono text-[9px] text-text-dim">{article.readTime}</span>
                   </div>
-                  <h2 className="display font-medium text-[17px] text-white leading-snug flex-1">
+                  <h2 className="display font-medium text-[17px] text-text leading-snug flex-1">
                     {article.title}
                   </h2>
                   <p className="text-text-soft text-[13px] leading-relaxed">{article.excerpt}</p>
@@ -94,7 +94,7 @@ export default function InsightsPage() {
           </div>
 
           <div className="mt-20 border border-gold/30 bg-surface p-10 text-center">
-            <p className="display font-bold text-white text-[22px] mb-3">Want full access to every insight?</p>
+            <p className="display font-bold text-text text-[22px] mb-3">Want full access to every insight?</p>
             <p className="text-text-soft text-[14px] mb-8 max-w-md mx-auto">Members receive weekly intelligence reports, live trade breakdowns, and the complete Limitless Framework library.</p>
             <Link href="/#apply" className="btn-gold mono px-8 py-4 inline-block">Apply for Access →</Link>
           </div>

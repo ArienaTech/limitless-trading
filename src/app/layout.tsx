@@ -41,13 +41,13 @@ export const metadata: Metadata = {
   publisher: "Limitless Trading Ltd",
   manifest: "/manifest.json",
   icons: {
-    icon: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo-white.svg",
-    shortcut: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo-white.svg",
-    apple: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo-white.svg",
+    icon: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo_lgt.svg",
+    shortcut: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo_lgt.svg",
+    apple: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo_lgt.svg",
   },
   appleWebApp: {
     capable: true,
-    statusBarStyle: "black-translucent",
+    statusBarStyle: "default",
     title: "Limitless Trading",
   },
   openGraph: {
@@ -92,7 +92,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
+  themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1,
   minimumScale: 1,
@@ -110,7 +110,7 @@ const organizationSchema = {
       url: SITE_URL,
       logo: {
         "@type": "ImageObject",
-        url: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo-white.svg",
+        url: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Logo_lgt.svg",
       },
       description:
         "Limitless is a London-based systematic trading firm founded in 2014. We provide automated forex execution, institutional-grade education, and managed capital services to serious investors. FCA authorised and regulated.",

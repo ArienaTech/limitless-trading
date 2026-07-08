@@ -32,7 +32,7 @@ function MaskedHeadline() {
       className="display uppercase mx-auto"
       style={{ fontSize: "clamp(32px, 7vw, 100px)", lineHeight: 1.0, maxWidth: "900px" }}
     >
-      <span className="text-white" style={{ display: "block" }}>
+      <span className="text-text" style={{ display: "block" }}>
         {line1.map((w, i) => <Word key={i} word={w} delay={0.1 + i * 0.07} />)}
       </span>
       <span className="text-gold" style={{ display: "block" }}>
@@ -47,11 +47,11 @@ export default function Philosophy() {
     <section id="philosophy" className="relative overflow-hidden bg-void">
       <div
         className="absolute inset-0 z-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse 90% 70% at 50% 0%, #4A0808 0%, #1E0000 50%, #000000 100%)" }}
+        style={{ background: "radial-gradient(ellipse 90% 70% at 50% 0%, #f3e7e7 0%, #faf6f1 50%, #ffffff 100%)" }}
       />
       <div
         className="absolute inset-0 z-0 pointer-events-none"
-        style={{ background: "linear-gradient(to bottom, transparent 60%, #000 100%)" }}
+        style={{ background: "linear-gradient(to bottom, transparent 60%, #fff 100%)" }}
       />
 
       {/* Opening Statement */}
@@ -79,7 +79,7 @@ export default function Philosophy() {
         <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           <Reveal>
             <h2
-              className="display uppercase text-white mb-5"
+              className="display uppercase text-text mb-5"
               style={{ fontSize: "clamp(36px, 6vw, 82px)", lineHeight: 0.95 }}
             >
               Built on
@@ -110,7 +110,7 @@ export default function Philosophy() {
                   >
                     0{i + 1}
                   </motion.span>
-                  <span className="display font-medium text-white text-[15px] sm:text-[18px] leading-snug">{line}</span>
+                  <span className="display font-medium text-text text-[15px] sm:text-[18px] leading-snug">{line}</span>
                 </motion.div>
               ))}
             </div>
@@ -150,9 +150,9 @@ export default function Philosophy() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-void/10" style={{ backdropFilter: "brightness(1.1)" }} />
-              <div className="absolute bottom-0 left-0 right-0 h-1/3" style={{ background: "linear-gradient(to bottom, transparent, #000)" }} />
+              <div className="absolute bottom-0 left-0 right-0 h-1/3" style={{ background: "linear-gradient(to bottom, transparent, #fff)" }} />
               <div className="absolute bottom-4 left-4 sm:bottom-5 sm:left-5">
-                <span className="mono text-[9px] block" style={{ color: "#4a4a4a" }}>LIMITLESS TRADING · FOUNDER</span>
+                <span className="mono text-[9px] block" style={{ color: "var(--text-soft)" }}>LIMITLESS TRADING · FOUNDER</span>
               </div>
             </motion.div>
           </Reveal>

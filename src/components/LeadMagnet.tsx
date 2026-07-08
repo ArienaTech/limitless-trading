@@ -19,14 +19,14 @@ export default function LeadMagnet() {
     >
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse 60% 80% at 100% 50%, #2A0505 0%, transparent 70%)" }}
+        style={{ background: "radial-gradient(ellipse 60% 80% at 100% 50%, #f3e7e7 0%, transparent 70%)" }}
       />
       <div className="relative z-10 gutter py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           <Reveal>
             <span className="mono text-[10px] text-gold tracking-[0.3em] block mb-5">FREE RESOURCE</span>
             <h2
-              className="display uppercase text-white mb-5"
+              className="display uppercase text-text mb-5"
               style={{ fontSize: "clamp(28px, 5vw, 64px)", lineHeight: 0.95 }}
             >
               The Limitless
@@ -58,7 +58,7 @@ export default function LeadMagnet() {
                 className="bg-surface border border-border p-8 flex flex-col gap-4"
                 aria-label="Download the Limitless Trading Framework"
               >
-                <p className="display font-bold text-white text-[18px]">Get the free framework</p>
+                <p className="display font-bold text-text text-[18px]">Get the free framework</p>
                 <p className="text-text-soft text-[13px]">Enter your email. We&apos;ll send it immediately.</p>
                 <label className="flex flex-col gap-2">
                   <span className="label">Email address</span>
@@ -85,7 +85,7 @@ export default function LeadMagnet() {
             ) : (
               <div className="bg-surface border border-gold/40 p-8 flex flex-col items-center justify-center text-center gap-4 min-h-[260px]">
                 <span className="text-gold text-[32px]">✓</span>
-                <p className="display font-bold text-white text-[20px]">Framework sent.</p>
+                <p className="display font-bold text-text text-[20px]">Framework sent.</p>
                 <p className="text-text-soft text-[14px]">Check your inbox. And when you&apos;re ready —</p>
                 <a href="#apply" className="btn-gold mono px-6 py-3 inline-block mt-2">
                   Apply for Membership →

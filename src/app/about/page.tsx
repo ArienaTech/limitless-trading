@@ -54,12 +54,12 @@ export default function AboutPage() {
         <section className="relative overflow-hidden gutter pt-40 pb-24">
           <div
             className="absolute inset-0 pointer-events-none"
-            style={{ background: "radial-gradient(ellipse 80% 60% at 50% 0%, #4A0808 0%, #1E0000 50%, #000 100%)" }}
+            style={{ background: "radial-gradient(ellipse 80% 60% at 50% 0%, #f3e7e7 0%, #faf6f1 50%, #fff 100%)" }}
           />
           <div className="relative z-10 max-w-4xl">
             <span className="mono text-[10px] text-gold tracking-[0.3em] block mb-8">ABOUT LIMITLESS</span>
             <h1
-              className="display uppercase text-white mb-8"
+              className="display uppercase text-text mb-8"
               style={{ fontSize: "clamp(48px, 8vw, 120px)", lineHeight: 0.92 }}
             >
               Built on one
@@ -79,7 +79,7 @@ export default function AboutPage() {
             <div>
               <span className="mono text-[10px] text-gold tracking-[0.3em] block mb-8">THE FOUNDER</span>
               <h2
-                className="display uppercase text-white mb-8"
+                className="display uppercase text-text mb-8"
                 style={{ fontSize: "clamp(36px, 5vw, 72px)", lineHeight: 0.95 }}
               >
                 A trader who
@@ -132,9 +132,9 @@ export default function AboutPage() {
                 priority
               />
               <div className="absolute inset-0 bg-void/10" />
-              <div className="absolute bottom-0 left-0 right-0 h-1/3" style={{ background: "linear-gradient(to bottom, transparent, #000)" }} />
+              <div className="absolute bottom-0 left-0 right-0 h-1/3" style={{ background: "linear-gradient(to bottom, transparent, #fff)" }} />
               <div className="absolute bottom-5 left-5">
-                <span className="mono text-[9px] block" style={{ color: "#4a4a4a" }}>LIMITLESS TRADING · FOUNDER</span>
+                <span className="mono text-[9px] block" style={{ color: "var(--text-soft)" }}>LIMITLESS TRADING · FOUNDER</span>
               </div>
             </div>
           </div>
@@ -144,7 +144,7 @@ export default function AboutPage() {
         <section className="gutter py-32 bg-void-2">
           <span className="mono text-[10px] text-gold tracking-[0.3em] block mb-8">WHAT WE STAND FOR</span>
           <h2
-            className="display uppercase text-white mb-16"
+            className="display uppercase text-text mb-16"
             style={{ fontSize: "clamp(40px, 6vw, 90px)", lineHeight: 0.95 }}
           >
             The principles
@@ -155,7 +155,7 @@ export default function AboutPage() {
             {values.map((v, i) => (
               <div key={i} className="bg-void-2 p-10">
                 <span className="mono text-[10px] text-gold block mb-4">0{i + 1}</span>
-                <h3 className="display font-bold text-white text-[22px] mb-4">{v.title}</h3>
+                <h3 className="display font-bold text-text text-[22px] mb-4">{v.title}</h3>
                 <p className="text-text-soft text-[14px] leading-relaxed">{v.body}</p>
               </div>
             ))}
@@ -166,7 +166,7 @@ export default function AboutPage() {
         <section className="gutter py-32 bg-void">
           <span className="mono text-[10px] text-gold tracking-[0.3em] block mb-8">COMPANY HISTORY</span>
           <h2
-            className="display uppercase text-white mb-16"
+            className="display uppercase text-text mb-16"
             style={{ fontSize: "clamp(40px, 6vw, 90px)", lineHeight: 0.95 }}
           >
             Twelve years.
@@ -186,7 +186,7 @@ export default function AboutPage() {
         {/* CTA */}
         <section className="gutter py-32 bg-void-2 text-center">
           <h2
-            className="display uppercase text-white mb-6"
+            className="display uppercase text-text mb-6"
             style={{ fontSize: "clamp(36px, 5vw, 72px)", lineHeight: 0.95 }}
           >
             Ready to trade
