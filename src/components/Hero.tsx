@@ -184,7 +184,7 @@ export default function Hero() {
             sizes="100vw"
           />
         </motion.div>
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, #ffffff 0%, transparent 45%)" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, #ffffff 0%, transparent 45%)" }} />
       </div>
 
       <Waveform count={80} />

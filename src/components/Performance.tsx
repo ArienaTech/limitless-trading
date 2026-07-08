@@ -67,9 +67,6 @@ export default function Performance() {
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
-            <div className="absolute top-4 left-4">
-              <span className="mono text-[9px] text-gold">PLATFORM / LIVE VIEW</span>
-            </div>
           </div>
 
           {/* Regulatory badges */}
