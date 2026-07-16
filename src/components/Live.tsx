@@ -58,7 +58,7 @@ export default function Strategy() {
         <Reveal index={1}>
           <div className="relative aspect-[4/3] w-full overflow-hidden border border-border mb-8">
             <Image
-              src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Dee_1.png"
+              src="/Dee_1.png"
               alt="Dee — LTG Trading founder at his setup"
               fill
               className="object-cover"
@@ -93,17 +93,6 @@ export default function Strategy() {
                 <span className="text-text-soft text-[13px]">Independent risk controls active on every trade, always</span>
               </div>
             </div>
-          </div>
-
-          <div className="relative aspect-[4/3] w-full overflow-hidden border border-border mt-8">
-            <Image
-              src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Dee_2.png"
-              alt="Dee — LTG Trading founder"
-              fill
-              className="object-cover"
-              style={{ filter: "brightness(0.85)" }}
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
           </div>
         </Reveal>
       </div>

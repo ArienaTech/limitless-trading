@@ -32,7 +32,7 @@ export default function Application() {
       <div className="relative z-10 gutter py-16 sm:py-28 lg:py-36">
         <Reveal>
           <div className="mb-16 max-w-2xl">
-            <span className="mono text-[10px] text-gold tracking-[0.3em] block mb-6">
+            <span className="mono text-[10px] text-gold tracking-[0.3em] block text-center mb-6">
               LIMITED MEMBERSHIP
             </span>
             <h2
