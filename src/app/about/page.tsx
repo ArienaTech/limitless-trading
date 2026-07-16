@@ -195,7 +195,7 @@ export default function AboutPage() {
           <p className="text-text-soft text-[15px] mb-10 max-w-md mx-auto leading-relaxed">
             We accept a small number of new members each quarter. Applications take 2 minutes.
           </p>
-          <Link href="/#apply" className="btn-gold mono px-8 py-4 inline-block">
+          <Link href="/#apply" className="btn-gold-solid mono px-8 py-4 inline-block text-[11px] tracking-[0.15em]">
             Apply for Access →
           </Link>
         </section>

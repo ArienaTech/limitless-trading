@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import { articles } from "./articles";
 
 export const metadata: Metadata = {
   title: "Insights — Systematic Trading Education & Market Intelligence | Limitless",
@@ -15,36 +16,47 @@ export const metadata: Metadata = {
   },
 };
 
-const articles = [
-  {
-    slug: "why-systematic-trading-outperforms",
-    category: "STRATEGY",
-    title: "Why Systematic Trading Outperforms Over the Long Run",
-    excerpt: "When the same rules are applied without exception, the compounding effect of consistency becomes mathematically dominant over discretionary approaches.",
-    readTime: "6 MIN READ",
-    date: "June 2026",
-  },
-  {
-    slug: "anatomy-of-a-bad-trade",
-    category: "PSYCHOLOGY",
-    title: "The Anatomy of a Bad Trade: How Smart Investors Lose Money",
-    excerpt: "Most losses are not caused by poor analysis. They are caused by the human response to uncertainty — reflexive decisions made in the gap between knowing the rules and following them.",
-    readTime: "8 MIN READ",
-    date: "May 2026",
-  },
-  {
-    slug: "risk-adjusted-returns",
-    category: "RISK",
-    title: "Risk-Adjusted Returns: The Only Metric That Matters",
-    excerpt: "Headline returns are marketing. Sharpe ratio, Sortino ratio, max drawdown — these are the professional standards. Here is how to read them, and why they change everything.",
-    readTime: "5 MIN READ",
-    date: "May 2026",
-  },
-];
+const SITE_URL = "https://limitlesstrading.com";
+
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "@id": `${SITE_URL}/insights#blog`,
+  name: "Limitless Insights",
+  description:
+    "Institutional-grade trading education and market intelligence from Limitless Trading Group.",
+  url: `${SITE_URL}/insights`,
+  inLanguage: "en-GB",
+  publisher: { "@id": `${SITE_URL}/#organization` },
+  blogPost: articles.map((a) => ({
+    "@type": "BlogPosting",
+    headline: a.title,
+    url: `${SITE_URL}/insights/${a.slug}`,
+    articleSection: a.category,
+    datePublished: a.date,
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+    { "@type": "ListItem", position: 2, name: "Insights", item: `${SITE_URL}/insights` },
+  ],
+};
 
 export default function InsightsPage() {
   return (
     <div className="bg-void text-text min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Navbar />
       <main>
         <section className="relative overflow-hidden gutter pt-40 pb-24">
@@ -84,9 +96,13 @@ export default function InsightsPage() {
                   <p className="text-text-soft text-[13px] leading-relaxed">{article.excerpt}</p>
                   <div className="flex items-center justify-between pt-4 border-t border-border mt-auto">
                     <span className="mono text-[9px] text-text-dim">{article.date}</span>
-                    <a href={`/insights/${article.slug}`} className="mono text-[10px] text-gold link-underline">
+                    <Link
+                      href={`/insights/${article.slug}`}
+                      className="mono text-[10px] text-gold link-underline"
+                      aria-label={`Read more: ${article.title}`}
+                    >
                       Read more →
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </article>
@@ -96,7 +112,7 @@ export default function InsightsPage() {
           <div className="mt-20 border border-gold/30 bg-surface p-10 text-center">
             <p className="display font-bold text-text text-[22px] mb-3">Want full access to every insight?</p>
             <p className="text-text-soft text-[14px] mb-8 max-w-md mx-auto">Members receive weekly intelligence reports, live trade breakdowns, and the complete Limitless Framework library.</p>
-            <Link href="/#apply" className="btn-gold mono px-8 py-4 inline-block">Apply for Access →</Link>
+            <Link href="/#apply" className="btn-gold-solid mono px-8 py-4 inline-block text-[11px] tracking-[0.15em]">Apply for Access →</Link>
           </div>
         </section>
       </main>

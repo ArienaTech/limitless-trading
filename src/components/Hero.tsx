@@ -78,18 +78,17 @@ function AnimatedHeadline() {
   return (
     <div
       style={{ position: "relative", display: "inline-block", lineHeight: 0.88 }}
-      aria-label="Limitless"
+      aria-hidden="true"
     >
-      {/* White magnetic letters — always visible */}
-      <h1
+      {/* Decorative animated wordmark — the semantic <h1> is rendered separately for SEO/AT */}
+      <div
         className="display uppercase select-none"
         style={{ fontSize: "clamp(48px, 11vw, 180px)", lineHeight: 0.88, margin: 0, letterSpacing: "0.02em" }}
-        aria-hidden="true"
       >
         {letters.map((char, i) => (
           <AnimatedLetter key={i} char={char} index={i} />
         ))}
-      </h1>
+      </div>
 
       {/* Subtle wave shimmer — a soft translucent white band that ripples upward then fades */}
       <motion.div
@@ -200,6 +199,11 @@ export default function Hero() {
         className="relative z-10 flex-1 flex flex-col items-center justify-center text-center gutter px-5 sm:px-8"
         style={{ y: contentY, opacity: contentOpacity }}
       >
+        {/* Semantic, descriptive H1 for SEO/AEO/GEO and screen readers */}
+        <h1 className="sr-only">
+          Limitless Trading Group — Systematic Forex Trading, Education &amp; Fund Management in London, UK
+        </h1>
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -217,7 +221,7 @@ export default function Hero() {
           <Magnetic className="block w-full sm:w-auto" strength={8}>
             <motion.a
               href="#apply"
-              className="btn-gold mono px-6 sm:px-8 py-3 sm:py-4 inline-block text-[10px] sm:text-[11px] tracking-[0.15em] w-full sm:w-auto text-center"
+              className="btn-gold-solid mono px-6 sm:px-8 py-3 sm:py-4 inline-block text-[10px] sm:text-[11px] tracking-[0.15em] w-full sm:w-auto text-center"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 400, damping: 20 }}

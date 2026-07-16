@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import Reveal from "./Reveal";
 
@@ -73,47 +74,62 @@ export default function FAQ() {
         </h2>
       </Reveal>
 
-      <div className="max-w-3xl">
-        {faqs.map((faq, i) => (
-          <Reveal key={i} index={i}>
-            <div className="border-b border-border">
-              <motion.button
-                className="w-full flex items-start justify-between gap-6 py-6 text-left group"
-                onClick={() => setOpen(open === i ? null : i)}
-                aria-expanded={open === i}
-                whileHover={{ x: 4 }}
-                transition={{ type: "spring", stiffness: 400, damping: 30 }}
-              >
-                <span className="display font-medium text-text group-hover:text-gold transition-colors text-[16px] leading-snug">
-                  {faq.q}
-                </span>
-                <motion.span
-                  className="mono text-gold text-[20px] shrink-0 mt-0.5 leading-none"
-                  animate={{ rotate: open === i ? 45 : 0 }}
-                  transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_minmax(280px,380px)] gap-10 lg:gap-16 items-start">
+        <div>
+          {faqs.map((faq, i) => (
+            <Reveal key={i} index={i}>
+              <div className="border-b border-border">
+                <motion.button
+                  className="w-full flex items-start justify-between gap-6 py-6 text-left group"
+                  onClick={() => setOpen(open === i ? null : i)}
+                  aria-expanded={open === i}
+                  whileHover={{ x: 4 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 >
-                  +
-                </motion.span>
-              </motion.button>
-
-              <AnimatePresence initial={false}>
-                {open === i && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                    style={{ overflow: "hidden" }}
+                  <span className="display font-medium text-text group-hover:text-gold transition-colors text-[16px] leading-snug">
+                    {faq.q}
+                  </span>
+                  <motion.span
+                    className="mono text-gold text-[20px] shrink-0 mt-0.5 leading-none"
+                    animate={{ rotate: open === i ? 45 : 0 }}
+                    transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    <p className="text-text-soft text-[14px] leading-relaxed pb-6 max-w-2xl">
-                      {faq.a}
-                    </p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          </Reveal>
-        ))}
+                    +
+                  </motion.span>
+                </motion.button>
+
+                <AnimatePresence initial={false}>
+                  {open === i && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                      style={{ overflow: "hidden" }}
+                    >
+                      <p className="text-text-soft text-[14px] leading-relaxed pb-6 max-w-2xl">
+                        {faq.a}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal index={1}>
+          <div className="relative aspect-[3/4] w-full overflow-hidden border border-border lg:sticky lg:top-28">
+            <Image
+              src="/Dee_2.png"
+              alt="Dee — LTG Trading founder"
+              fill
+              className="object-cover"
+              style={{ filter: "brightness(0.85)" }}
+              sizes="(max-width: 1024px) 100vw, 380px"
+            />
+          </div>
+        </Reveal>
       </div>
 
       <Reveal>

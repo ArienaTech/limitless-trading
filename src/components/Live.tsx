@@ -58,8 +58,8 @@ export default function Strategy() {
         <Reveal index={1}>
           <div className="relative aspect-[4/3] w-full overflow-hidden border border-border mb-8">
             <Image
-              src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/home_img1.png"
-              alt="LTG Trading — systematic trading"
+              src="/Dee_1.png"
+              alt="Dee — LTG Trading founder at his setup"
               fill
               className="object-cover"
               style={{ filter: "brightness(0.85)" }}
