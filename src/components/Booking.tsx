@@ -31,8 +31,8 @@ export default function Application() {
 
       <div className="relative z-10 gutter py-16 sm:py-28 lg:py-36">
         <Reveal>
-          <div className="mb-16 max-w-2xl">
-            <span className="mono text-[10px] text-gold tracking-[0.3em] block text-center mb-6">
+          <div className="mb-16 max-w-4xl mx-auto text-center">
+            <span className="mono text-[10px] text-gold tracking-[0.3em] block mb-6">
               LIMITED MEMBERSHIP
             </span>
             <h2
@@ -43,7 +43,7 @@ export default function Application() {
               <br />
               <span className="text-gold">Everyone.</span>
             </h2>
-            <div className="flex flex-col gap-4 max-w-lg">
+            <div className="flex flex-col gap-4 max-w-2xl mx-auto">
               <p className="text-text-soft text-[15px] leading-relaxed">
                 Our goal is to build a community of purpose-driven individuals that develop the
                 skill of forex trading to use as the vehicle to financial freedom and a better
