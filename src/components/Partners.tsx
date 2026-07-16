@@ -22,7 +22,7 @@ export default function Partners() {
         </motion.div>
 
         {/* Partner logos */}
-        <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-8 lg:gap-0">
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-y-8 gap-x-4 sm:gap-8 lg:gap-0">
           {partners.map((partner, i) => (
             <motion.div
               key={partner.name}
