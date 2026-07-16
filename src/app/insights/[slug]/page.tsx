@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
+import Reveal from "../../../components/Reveal";
 import { articles, articleSlugs, getArticle, type ArticleBlock } from "../articles";
 
 const SITE_URL = "https://limitlesstrading.com";
@@ -212,7 +213,7 @@ export default async function ArticlePage({
 
         {/* Conversion CTA */}
         <section className="gutter pb-24" aria-label="Apply for access">
-          <div className="border border-gold/30 bg-surface p-8 sm:p-12 text-center max-w-3xl mx-auto">
+          <Reveal scale className="border border-gold/30 bg-surface p-8 sm:p-12 text-center max-w-3xl mx-auto">
             <p className="display font-bold text-text text-[22px] sm:text-[26px] mb-3">
               Put the theory into practice.
             </p>
@@ -223,28 +224,29 @@ export default async function ArticlePage({
             <Link href="/#apply" className="btn-gold-solid mono px-8 py-4 inline-block text-[11px] tracking-[0.15em]">
               Apply for Access →
             </Link>
-          </div>
+          </Reveal>
         </section>
 
         {/* Related reading — internal linking for SEO */}
         <section className="gutter pb-28" aria-label="Related insights">
           <span className="mono text-[10px] text-gold tracking-[0.3em] block mb-8">CONTINUE READING</span>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {related.map((a) => (
-              <Link
-                key={a.slug}
-                href={`/insights/${a.slug}`}
-                className="bg-surface border border-border hover:border-gold transition-colors duration-300 p-6 flex flex-col gap-3 group"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="mono text-[9px] text-gold">{a.category}</span>
-                  <span className="mono text-[9px] text-text-dim">{a.readTime}</span>
-                </div>
-                <h2 className="display font-medium text-[17px] text-text leading-snug group-hover:text-gold transition-colors">
-                  {a.title}
-                </h2>
-                <span className="mono text-[10px] text-gold link-underline mt-2">Read more →</span>
-              </Link>
+            {related.map((a, i) => (
+              <Reveal key={a.slug} index={i}>
+                <Link
+                  href={`/insights/${a.slug}`}
+                  className="bg-surface border border-border hover:border-gold transition-colors duration-300 p-6 flex flex-col gap-3 group h-full"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="mono text-[9px] text-gold">{a.category}</span>
+                    <span className="mono text-[9px] text-text-dim">{a.readTime}</span>
+                  </div>
+                  <h2 className="display font-medium text-[17px] text-text leading-snug group-hover:text-gold transition-colors">
+                    {a.title}
+                  </h2>
+                  <span className="mono text-[10px] text-gold link-underline mt-2">Read more →</span>
+                </Link>
+              </Reveal>
             ))}
           </div>
         </section>

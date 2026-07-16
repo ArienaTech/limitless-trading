@@ -213,10 +213,7 @@ export default function Hero() {
           <AnimatedHeadline />
         </motion.div>
 
-        <motion.p {...fade(0.5)} className="text-text text-[16px] sm:text-[20px] mt-5 sm:mt-6 max-w-md sm:max-w-xl leading-relaxed font-medium">
-          Systematic forex trading, institutional-grade education, and managed capital — under one roof.
-        </motion.p>
-        <motion.p {...fade(0.56)} className="text-text-soft text-[14px] sm:text-[16px] mt-2 max-w-sm sm:max-w-lg leading-relaxed">
+        <motion.p {...fade(0.5)} className="text-text-soft text-[15px] sm:text-[18px] mt-5 sm:mt-6 max-w-sm sm:max-w-lg leading-relaxed">
           Learn first, execute second, scale forever.
         </motion.p>
 

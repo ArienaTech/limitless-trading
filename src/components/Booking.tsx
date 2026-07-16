@@ -1,9 +1,23 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "motion/react";
+import { motion, type Variants } from "motion/react";
 import { appSteps } from "../data";
 import Reveal from "./Reveal";
+
+const formStagger: Variants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
+};
+
+const formItem: Variants = {
+  hidden: { opacity: 0, y: 16 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+  },
+};
 
 const contacts = [
   { label: "INVESTOR RELATIONS", email: "invest@ltgtrading.com" },
@@ -20,13 +34,18 @@ export default function Application() {
     const name = String(data.get("name") ?? "").trim();
     const email = String(data.get("email") ?? "").trim();
     const profile = String(data.get("profile") ?? "").trim();
+    const source = String(data.get("source") ?? "").trim();
     const goals = String(data.get("goals") ?? "").trim();
 
     // Static site (no backend): route the enquiry through the user's mail client
     // so leads actually reach the team instead of being silently dropped.
     const subject = encodeURIComponent(`Membership application — ${name || "New enquiry"}`);
     const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nI am a: ${profile}\n\nWhat brings you to Limitless:\n${goals}\n`
+      `Name: ${name}\n` +
+        `Email: ${email}\n` +
+        `I am a: ${profile}\n` +
+        `Where they heard about us: ${source}\n\n` +
+        `What brings you to Limitless:\n${goals}\n`
     );
     window.location.href = `mailto:hello@ltgtrading.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
@@ -116,60 +135,103 @@ export default function Application() {
               <p className="display font-bold text-text text-[18px] mb-1">Start your application</p>
               <p className="text-text-soft text-[13px] mb-6">Takes 2 minutes. No commitment. Fully confidential.</p>
 
-              <form onSubmit={onSubmit} className="flex flex-col gap-4">
-                <Field label="Full name" htmlFor="apply-name">
-                  <input
-                    id="apply-name"
-                    name="name"
-                    type="text"
-                    autoComplete="name"
-                    autoCapitalize="words"
-                    className="field w-full px-3 py-3 text-[14px]"
-                    required
-                  />
-                </Field>
+              <motion.form
+                onSubmit={onSubmit}
+                className="flex flex-col gap-4"
+                variants={formStagger}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.15 }}
+              >
+                <motion.div variants={formItem}>
+                  <Field label="Full name" htmlFor="apply-name">
+                    <input
+                      id="apply-name"
+                      name="name"
+                      type="text"
+                      autoComplete="name"
+                      autoCapitalize="words"
+                      className="field w-full px-3 py-3 text-[14px]"
+                      required
+                    />
+                  </Field>
+                </motion.div>
 
-                <Field label="Email address" htmlFor="apply-email">
-                  <input
-                    id="apply-email"
-                    name="email"
-                    type="email"
-                    inputMode="email"
-                    autoComplete="email"
-                    autoCapitalize="none"
-                    spellCheck={false}
-                    className="field w-full px-3 py-3 text-[14px]"
-                    required
-                  />
-                </Field>
+                <motion.div variants={formItem}>
+                  <Field label="Email address" htmlFor="apply-email">
+                    <input
+                      id="apply-email"
+                      name="email"
+                      type="email"
+                      inputMode="email"
+                      autoComplete="email"
+                      autoCapitalize="none"
+                      spellCheck={false}
+                      className="field w-full px-3 py-3 text-[14px]"
+                      required
+                    />
+                  </Field>
+                </motion.div>
 
-                <Field label="I am a..." htmlFor="apply-profile">
-                  <select
-                    id="apply-profile"
-                    name="profile"
-                    className="field w-full px-3 py-3 text-[14px]"
-                    defaultValue="Active retail trader"
-                  >
-                    <option>Active retail trader</option>
-                    <option>Professional investor</option>
-                    <option>Business owner / entrepreneur</option>
-                    <option>Family office</option>
-                    <option>Complete beginner</option>
-                    <option>Other</option>
-                  </select>
-                </Field>
+                <motion.div variants={formItem}>
+                  <Field label="I am a..." htmlFor="apply-profile">
+                    <select
+                      id="apply-profile"
+                      name="profile"
+                      className="field w-full px-3 py-3 text-[14px]"
+                      defaultValue="Active retail trader"
+                    >
+                      <option>Active retail trader</option>
+                      <option>Professional investor</option>
+                      <option>Business owner / entrepreneur</option>
+                      <option>Family office</option>
+                      <option>Complete beginner</option>
+                      <option>Other</option>
+                    </select>
+                  </Field>
+                </motion.div>
 
-                <Field label="What brings you to Limitless?" htmlFor="apply-goals">
-                  <textarea
-                    id="apply-goals"
-                    name="goals"
-                    rows={3}
-                    placeholder="Tell us what you're looking to achieve and where you're at right now."
-                    className="field w-full px-3 py-3 text-[14px] resize-none"
-                  />
-                </Field>
+                <motion.div variants={formItem}>
+                  <Field label="Where did you hear about us?" htmlFor="apply-source">
+                    <select
+                      id="apply-source"
+                      name="source"
+                      className="field w-full px-3 py-3 text-[14px]"
+                      defaultValue=""
+                    >
+                      <option value="" disabled>
+                        Select an option
+                      </option>
+                      <option>Google search</option>
+                      <option>Instagram</option>
+                      <option>YouTube</option>
+                      <option>TikTok</option>
+                      <option>Facebook</option>
+                      <option>X / Twitter</option>
+                      <option>LinkedIn</option>
+                      <option>Referral from a friend</option>
+                      <option>Podcast</option>
+                      <option>Partner or broker</option>
+                      <option>Event or webinar</option>
+                      <option>Other</option>
+                    </select>
+                  </Field>
+                </motion.div>
+
+                <motion.div variants={formItem}>
+                  <Field label="What brings you to Limitless?" htmlFor="apply-goals">
+                    <textarea
+                      id="apply-goals"
+                      name="goals"
+                      rows={3}
+                      placeholder="Tell us what you're looking to achieve and where you're at right now."
+                      className="field w-full px-3 py-3 text-[14px] resize-none"
+                    />
+                  </Field>
+                </motion.div>
 
                 <motion.button
+                  variants={formItem}
                   type="submit"
                   className="display font-bold uppercase w-full py-4 bg-gold text-void hover:bg-gold-dim transition-colors mt-2"
                   whileHover={{ scale: 1.02 }}
@@ -197,7 +259,7 @@ export default function Application() {
                     .
                   </p>
                 )}
-              </form>
+              </motion.form>
             </div>
           </Reveal>
         </div>

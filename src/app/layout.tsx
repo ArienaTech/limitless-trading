@@ -20,7 +20,8 @@ const spaceMono = Space_Mono({
 
 // NOTE (open item): confirm the final production domain before launch.
 const SITE_URL = "https://limitlesstrading.com";
-const OG_IMAGE = `${SITE_URL}/og-image.png`;
+// Social share image is generated dynamically via src/app/opengraph-image.tsx
+// and src/app/twitter-image.tsx (Next.js file conventions).
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -61,14 +62,6 @@ export const metadata: Metadata = {
     type: "website",
     url: SITE_URL,
     siteName: "Limitless Trading",
-    images: [
-      {
-        url: OG_IMAGE,
-        width: 1200,
-        height: 630,
-        alt: "Limitless Trading — Systematic Forex Trading, London UK",
-      },
-    ],
     locale: "en_GB",
   },
   twitter: {
@@ -76,7 +69,6 @@ export const metadata: Metadata = {
     title: "Limitless Trading Group — Learn First, Execute Second, Scale Forever",
     description:
       "Systematic forex trading, education, and fund management. Education first, disciplined execution, and risk management — by application only.",
-    images: [OG_IMAGE],
     creator: "@limitlesstrading",
   },
   robots: {
