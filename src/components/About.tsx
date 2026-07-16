@@ -1,8 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "motion/react";
 import Reveal from "./Reveal";
-import ImagePlaceholder from "./ImagePlaceholder";
 
 const pillars = [
   { title: "Results driven", desc: "Everything we do is measured against real outcomes for our traders." },
@@ -139,19 +139,23 @@ export default function Philosophy() {
           </Reveal>
 
           <Reveal index={1} className="lg:mt-8">
-            {/* OPEN ITEM (§5): swap this placeholder for a photo of Dee and his
-                business partner once supplied by the client. */}
             <motion.div
-              className="relative w-full overflow-hidden"
+              className="relative w-full overflow-hidden border border-border"
               style={{ aspectRatio: "4/5", maxHeight: "600px" }}
               whileHover={{ scale: 1.015 }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             >
-              <ImagePlaceholder
-                label="THE FOUNDERS"
-                sublabel="Photo of Dee & business partner — coming soon"
-                className="w-full h-full"
+              <Image
+                src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/LTG%20Trading%20Founder.png"
+                alt="Limitless Trading — Founder"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
+              <div className="absolute bottom-0 left-0 right-0 h-1/3" style={{ background: "linear-gradient(to bottom, transparent, #fff)" }} />
+              <div className="absolute bottom-4 left-4 sm:bottom-5 sm:left-5">
+                <span className="mono text-[9px] block" style={{ color: "var(--text-soft)" }}>LIMITLESS TRADING · FOUNDER</span>
+              </div>
             </motion.div>
           </Reveal>
         </div>

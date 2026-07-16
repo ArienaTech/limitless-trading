@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import ImagePlaceholder from "../../components/ImagePlaceholder";
 
 export const metadata: Metadata = {
   title: "About Limitless — Our Story, Philosophy & Team | London, UK",
@@ -121,13 +121,19 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* OPEN ITEM (§5): swap for a photo of Dee and his business partner. */}
-            <div className="relative aspect-[4/5] w-full overflow-hidden">
-              <ImagePlaceholder
-                label="THE FOUNDERS"
-                sublabel="Photo of Dee & business partner — coming soon"
-                className="w-full h-full"
+            <div className="relative aspect-[4/5] w-full overflow-hidden border border-border">
+              <Image
+                src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/LTG%20Trading%20Founder.png"
+                alt="Limitless Trading founder — London, UK"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
               />
+              <div className="absolute bottom-0 left-0 right-0 h-1/3" style={{ background: "linear-gradient(to bottom, transparent, #fff)" }} />
+              <div className="absolute bottom-5 left-5">
+                <span className="mono text-[9px] block" style={{ color: "var(--text-soft)" }}>LIMITLESS TRADING · FOUNDER</span>
+              </div>
             </div>
           </div>
         </section>

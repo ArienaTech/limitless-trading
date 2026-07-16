@@ -4,7 +4,6 @@ import Partners from "../components/Partners";
 import Philosophy from "../components/About";
 import Strategy from "../components/Live";
 import ValueProps from "../components/ValueProps";
-import Results from "../components/Results";
 import ClientStories from "../components/Mixes";
 import LeadMagnet from "../components/LeadMagnet";
 import Insights from "../components/Insights";
@@ -23,7 +22,6 @@ export default function Page() {
         <Philosophy />
         <Strategy />
         <ValueProps />
-        <Results />
         <ClientStories />
         <LeadMagnet />
         <Insights />
