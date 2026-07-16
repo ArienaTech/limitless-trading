@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "motion/react";
 
 const navLinks = [
@@ -79,9 +80,9 @@ export default function Footer() {
             <ul className="flex flex-col gap-3">
               {legalLinks.map((item) => (
                 <li key={item.label}>
-                  <a href={item.href} className="text-[13px] hover:text-gold transition-colors" style={{ color: "#b7b0a1" }}>
+                  <Link href={item.href} className="text-[13px] hover:text-gold transition-colors" style={{ color: "#b7b0a1" }}>
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
