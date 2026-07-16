@@ -98,6 +98,52 @@ export const valuePillars: ValuePillar[] = [
   },
 ];
 
+// ─── Leadership / Team ────────────────────────────────────────────────────────
+// Humanising the brand is the single highest-leverage trust/E-E-A-T improvement
+// for a firm operating near people's capital. These are structured PLACEHOLDERS:
+// roles map to the functions the business already describes. To go live, the
+// client supplies each member's real `name`, `bio`, optional `credentials`,
+// `image`, and `linkedin`, then sets `ready: true`. A member only renders their
+// name/bio and emits Person structured data once `ready` is true and a name is
+// present — so no fabricated individuals are ever published.
+
+export interface TeamMember {
+  role: string;
+  name: string; // leave "" until confirmed by the client
+  bio: string;
+  credentials?: string;
+  image?: string; // absolute URL once supplied
+  linkedin?: string;
+  ready?: boolean;
+}
+
+export const team: TeamMember[] = [
+  {
+    role: "Founder & Head of Strategy",
+    name: "",
+    bio: "Sets the systematic philosophy behind Limitless — the belief that mastering the individual comes before mastering the trader.",
+    ready: false,
+  },
+  {
+    role: "Head of Risk & Execution",
+    name: "",
+    bio: "Owns the rules-based execution and independent risk controls applied to every position, across every market condition.",
+    ready: false,
+  },
+  {
+    role: "Head of Trading Education",
+    name: "",
+    bio: "Leads the education-first curriculum — mindset, psychology, and risk management before any trade is placed.",
+    ready: false,
+  },
+  {
+    role: "Partnerships & Client Relations",
+    name: "",
+    bio: "Manages relationships with our trusted, licensed partners and brokers, and the member onboarding experience.",
+    ready: false,
+  },
+];
+
 // ─── Client Success Stories ───────────────────────────────────────────────────
 
 export interface ClientStory {

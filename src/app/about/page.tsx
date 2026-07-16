@@ -3,7 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import ImagePlaceholder from "../../components/ImagePlaceholder";
 import { SITE_URL } from "../../siteConfig";
+import { team } from "../../data";
 
 export const metadata: Metadata = {
   title: "About Limitless — Our Story, Philosophy & Team | London, UK",
@@ -45,9 +47,45 @@ const values = [
   },
 ];
 
+// Only members the client has confirmed (ready + a real name) are ever
+// surfaced in structured data — no placeholder individuals are published.
+const readyTeam = team.filter((m) => m.ready && m.name);
+
+const aboutSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": `${SITE_URL}/about`,
+  url: `${SITE_URL}/about`,
+  name: "About Limitless Trading Group",
+  isPartOf: { "@id": `${SITE_URL}/#website` },
+  about: { "@id": `${SITE_URL}/#organization` },
+};
+
+const personSchemas = readyTeam.map((m) => ({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: m.name,
+  jobTitle: m.role,
+  worksFor: { "@id": `${SITE_URL}/#organization` },
+  ...(m.credentials ? { description: m.credentials } : {}),
+  ...(m.image ? { image: m.image } : {}),
+  ...(m.linkedin ? { sameAs: [m.linkedin] } : {}),
+}));
+
 export default function AboutPage() {
   return (
     <div className="bg-void text-text min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }}
+      />
+      {personSchemas.map((p, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(p) }}
+        />
+      ))}
       <Navbar />
       <main>
         {/* Hero */}
@@ -137,6 +175,73 @@ export default function AboutPage() {
                 <span className="mono text-[9px] block" style={{ color: "var(--text-soft)" }}>LIMITLESS TRADING · FOUNDER</span>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Leadership / Team — humanises the brand (E-E-A-T). Cards render as
+            "coming soon" placeholders until the client confirms real profiles
+            in src/data.ts (set name + ready: true, add image/linkedin). */}
+        <section className="gutter py-32 bg-void">
+          <span className="mono text-[10px] text-gold tracking-[0.3em] block mb-8">THE TEAM</span>
+          <h2
+            className="display uppercase text-text mb-6"
+            style={{ fontSize: "clamp(40px, 6vw, 90px)", lineHeight: 0.95 }}
+          >
+            The people behind
+            <br />
+            <span className="text-gold">the process.</span>
+          </h2>
+          <p className="text-text-soft text-[15px] leading-relaxed max-w-2xl mb-16">
+            Limitless is run by a senior team across strategy, risk and execution, education, and
+            partnerships — the disciplines that turn a philosophy into a repeatable process.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {team.map((member, i) => {
+              const live = Boolean(member.ready && member.name);
+              return (
+                <div key={i} className="flex flex-col">
+                  {live && member.image ? (
+                    <div className="relative aspect-[4/5] w-full overflow-hidden border border-border">
+                      <Image
+                        src={member.image}
+                        alt={`${member.name} — ${member.role}, Limitless Trading Group`}
+                        fill
+                        className="object-cover"
+                        style={{ filter: "brightness(0.9)" }}
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      />
+                    </div>
+                  ) : (
+                    <ImagePlaceholder
+                      label="LTG"
+                      sublabel="Profile coming soon"
+                      className="aspect-[4/5] w-full"
+                    />
+                  )}
+                  <div className="mt-4">
+                    <span className="mono text-[10px] text-gold block mb-1">{member.role}</span>
+                    <h3 className="display font-bold text-text text-[18px] leading-snug">
+                      {live ? member.name : "Profile coming soon"}
+                    </h3>
+                    {live && member.credentials && (
+                      <p className="mono text-[9px] text-text-dim mt-1">{member.credentials}</p>
+                    )}
+                    <p className="text-text-soft text-[13px] leading-relaxed mt-2">{member.bio}</p>
+                    {live && member.linkedin && (
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className="mono text-[10px] text-gold link-underline inline-block mt-3"
+                      >
+                        LinkedIn →
+                      </a>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </section>
 
