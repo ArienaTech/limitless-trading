@@ -127,6 +127,7 @@ export default function AboutPage() {
                 alt="Limitless Trading founder — London, UK"
                 fill
                 className="object-cover"
+                style={{ filter: "brightness(0.85)" }}
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 priority
               />

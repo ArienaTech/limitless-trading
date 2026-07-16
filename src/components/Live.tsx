@@ -62,6 +62,7 @@ export default function Strategy() {
               alt="LTG Trading — systematic trading"
               fill
               className="object-cover"
+              style={{ filter: "brightness(0.85)" }}
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>

@@ -123,6 +123,7 @@ export default function ValueProps() {
                     alt={card.title}
                     fill
                     className="object-cover"
+                    style={{ filter: "brightness(0.85)" }}
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </motion.div>

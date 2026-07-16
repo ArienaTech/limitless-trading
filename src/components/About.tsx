@@ -150,6 +150,7 @@ export default function Philosophy() {
                 alt="Limitless Trading — Founder"
                 fill
                 className="object-cover"
+                style={{ filter: "brightness(0.85)" }}
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <div className="absolute bottom-0 left-0 right-0 h-1/3" style={{ background: "linear-gradient(to bottom, transparent, #fff)" }} />
