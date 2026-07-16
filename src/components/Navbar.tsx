@@ -8,69 +8,121 @@ import { AnimatePresence, motion } from "motion/react";
 import Magnetic from "./Magnetic";
 import { navItems, navLinks, type NavItem } from "../data";
 
-// A "soon" pill marks pages that are structured in the architecture but toggled
-// off until their content and brand assets are supplied (per client note).
-function SoonPill() {
+// A subtle "soon" tag marks pages that are structured in the architecture but
+// toggled off until their content and brand assets are supplied (per client).
+function SoonTag() {
   return (
-    <span className="mono text-[8px] text-text-dim border border-border rounded px-1.5 py-0.5 tracking-[0.15em]">
-      SOON
+    <span className="mono text-[8px] text-text-dim tracking-[0.2em] uppercase shrink-0">
+      soon
     </span>
   );
 }
 
-function ItemLabel({ item }: { item: { label: string; href: string; ready?: boolean } }) {
-  if (item.ready) {
-    return (
-      <span className="mono text-[11px] text-text-soft group-hover:text-text transition-colors tracking-[0.08em]">
+// Curated grouping of the full architecture into two balanced columns. Labels
+// reference navItems (single source of truth) so nothing drifts out of sync.
+const menuGroups: { heading: string; labels: string[] }[] = [
+  {
+    heading: "Explore",
+    labels: ["Home", "About", "Our Partners", "Shop", "Contact", "FAQ"],
+  },
+  {
+    heading: "The Ecosystem",
+    labels: [
+      "LTG Ecosystem",
+      "VIP Community & Signals",
+      "Trading Mastery & Education",
+      "Funded",
+      "VIP Fund Management",
+      "Affiliate Marketing Programme",
+    ],
+  },
+];
+
+function TopRow({ item, onNavigate }: { item: NavItem; onNavigate: () => void }) {
+  const base =
+    "group flex items-center justify-between gap-3 rounded-md px-3 py-2 transition-colors";
+  const inner = (
+    <>
+      <span
+        className={`mono text-[11px] tracking-[0.08em] leading-snug ${
+          item.ready ? "text-text-soft group-hover:text-text" : "text-text-dim"
+        }`}
+      >
         {item.label}
       </span>
+      {!item.ready && <SoonTag />}
+    </>
+  );
+
+  if (item.ready) {
+    return (
+      <Link href={item.href} onClick={onNavigate} className={`${base} hover:bg-surface`}>
+        {inner}
+      </Link>
     );
   }
-  return (
-    <span className="mono text-[11px] text-text-dim tracking-[0.08em] flex items-center gap-2">
-      {item.label} <SoonPill />
-    </span>
+  return <div className={`${base} cursor-default`}>{inner}</div>;
+}
+
+function ChildRow({
+  child,
+  onNavigate,
+}: {
+  child: { label: string; href: string; ready?: boolean };
+  onNavigate: () => void;
+}) {
+  const inner = (
+    <>
+      <span
+        className={`mono text-[10px] tracking-[0.05em] leading-snug ${
+          child.ready ? "text-text-soft group-hover:text-gold" : "text-text-dim"
+        }`}
+      >
+        {child.label}
+      </span>
+      {!child.ready && <SoonTag />}
+    </>
   );
+  const base = "group flex items-center justify-between gap-3 py-1.5";
+  if (child.ready) {
+    return (
+      <Link href={child.href} onClick={onNavigate} className={base}>
+        {inner}
+      </Link>
+    );
+  }
+  return <div className={`${base} cursor-default`}>{inner}</div>;
 }
 
 // Full-architecture dropdown panel (desktop).
 function FullMenuPanel({ onNavigate }: { onNavigate: () => void }) {
+  const byLabel = new Map(navItems.map((i) => [i.label, i]));
+
   return (
-    <div className="grid grid-cols-2 gap-x-8 gap-y-1 p-6 w-[560px] max-w-[80vw]">
-      {navItems.map((item) => (
-        <div key={item.label} className="py-1.5">
-          {item.ready ? (
-            <Link href={item.href} onClick={onNavigate} className="group flex items-center gap-2">
-              <ItemLabel item={item} />
-            </Link>
-          ) : (
-            <div className="group flex items-center gap-2 cursor-default">
-              <ItemLabel item={item} />
-            </div>
-          )}
-          {item.children && (
-            <div className="mt-1.5 ml-3 flex flex-col gap-1 border-l border-border pl-3">
-              {item.children.map((child) =>
-                child.ready ? (
-                  <Link
-                    key={child.label}
-                    href={child.href}
-                    onClick={onNavigate}
-                    className="mono text-[10px] text-text-soft hover:text-gold transition-colors tracking-[0.05em]"
-                  >
-                    {child.label}
-                  </Link>
-                ) : (
-                  <span
-                    key={child.label}
-                    className="mono text-[10px] text-text-dim tracking-[0.05em] flex items-center gap-2"
-                  >
-                    {child.label} <SoonPill />
-                  </span>
-                )
-              )}
-            </div>
-          )}
+    <div className="grid grid-cols-2 divide-x divide-border w-[600px] max-w-[92vw]">
+      {menuGroups.map((group) => (
+        <div key={group.heading} className="p-5">
+          <p className="mono text-[9px] text-gold tracking-[0.28em] uppercase px-3 mb-3">
+            {group.heading}
+          </p>
+          <div className="flex flex-col">
+            {group.labels.map((label) => {
+              const item = byLabel.get(label);
+              if (!item) return null;
+              return (
+                <div key={label}>
+                  <TopRow item={item} onNavigate={onNavigate} />
+                  {item.children && (
+                    <div className="ml-3 mb-1 flex flex-col border-l border-border pl-4 pr-3">
+                      {item.children.map((child) => (
+                        <ChildRow key={child.label} child={child} onNavigate={onNavigate} />
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
       ))}
     </div>
@@ -95,7 +147,7 @@ function MobileItem({ item, onNavigate }: { item: NavItem; onNavigate: () => voi
           </Link>
         ) : (
           <span className="display text-[22px] uppercase text-text-dim py-4 flex-1 flex items-center gap-3">
-            {item.label} <SoonPill />
+            {item.label} <SoonTag />
           </span>
         )}
         {hasChildren && (
@@ -128,7 +180,7 @@ function MobileItem({ item, onNavigate }: { item: NavItem; onNavigate: () => voi
                 key={child.label}
                 className="mono text-[12px] text-text-dim flex items-center gap-2"
               >
-                {child.label} <SoonPill />
+                {child.label} <SoonTag />
               </span>
             )
           )}

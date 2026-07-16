@@ -13,13 +13,12 @@ export default function Partners() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6 }}
-          className="flex items-center gap-5 mb-10"
+          className="flex flex-col items-center gap-4 mb-10 text-center"
         >
-          <div className="flex-1 h-px bg-border" />
           <span className="mono text-[10px] text-text-soft tracking-[0.3em]">
             IN PARTNERSHIP WITH
           </span>
-          <div className="flex-1 h-px bg-border" />
+          <div className="w-12 h-px bg-border" />
         </motion.div>
 
         {/* Partner logos */}

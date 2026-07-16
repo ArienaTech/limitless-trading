@@ -20,9 +20,9 @@ export interface Partner {
 
 export const partners: Partner[] = [
   { name: "MONETA", sub: "MARKETS" },
-  { name: "MONETA", sub: "FUNDED" },
   { name: "SKOOL", sub: "COMMUNITY" },
   { name: "BEN WOOLISS", sub: "BW 365" },
+  { name: "MONETA", sub: "FUNDED" },
 ];
 
 // ─── Infrastructure & Trust ───────────────────────────────────────────────────
