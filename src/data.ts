@@ -16,16 +16,13 @@ export const trustMetrics: string[] = [
 export interface Partner {
   name: string;
   logo: string;
-  // When true, a muted grey filter is applied so a coloured logo blends in with
-  // the other (naturally monochrome) partner logos on the light theme.
-  mono?: boolean;
 }
 
 export const partners: Partner[] = [
   { name: "Moneta Markets", logo: "/LT_logo1.svg" },
   { name: "Skool", logo: "/LT_logo2.svg" },
   { name: "Ben Wooliss BW 365", logo: "/LGT_logo3.svg" },
-  { name: "Moneta Funded", logo: "/LT_logo4.svg", mono: true },
+  { name: "Moneta Funded", logo: "/LT_logo4.svg" },
 ];
 
 // ─── Infrastructure & Trust ───────────────────────────────────────────────────
