@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "motion/react";
 import Reveal from "./Reveal";
+import ImagePlaceholder from "./ImagePlaceholder";
 
 const failureReasons = [
   { num: "01", title: "Emotion over logic" },
@@ -56,13 +56,13 @@ export default function Strategy() {
         </Reveal>
 
         <Reveal index={1}>
-          <div className="relative aspect-[4/3] w-full overflow-hidden border border-border mb-8">
-            <Image
-              src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/home_img1.png"
-              alt="LTG Trading — systematic trading"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
+          {/* OPEN ITEM (§6): swap this placeholder for the over-the-shoulder shot
+              of Dee trading at his setup once supplied by the client. */}
+          <div className="relative aspect-[4/3] w-full overflow-hidden mb-8">
+            <ImagePlaceholder
+              label="AT THE DESK"
+              sublabel="Over-the-shoulder trading shot — coming soon"
+              className="w-full h-full"
             />
           </div>
 
