@@ -5,11 +5,11 @@ import { motion } from "motion/react";
 import Reveal from "./Reveal";
 
 const failureReasons = [
-  { num: "01", title: "Trading on emotion, not rules" },
-  { num: "02", title: "Overtrading when confidence is high" },
-  { num: "03", title: "Cutting winners short, holding losers long" },
-  { num: "04", title: "Ignoring risk — until it's too late" },
-  { num: "05", title: "No system. No edge. No consistency." },
+  { num: "01", title: "Emotion over logic" },
+  { num: "02", title: "Overtrading with too much confidence" },
+  { num: "03", title: "Closing profit too early" },
+  { num: "04", title: "Increased risk and gambling" },
+  { num: "05", title: "Lack of consistency and strategy" },
 ];
 
 export default function Strategy() {
@@ -27,8 +27,10 @@ export default function Strategy() {
             <span className="text-gold">Never Make It.</span>
           </h2>
           <p className="text-text-soft text-[15px] mb-10 leading-relaxed max-w-md">
-            Over 80% of traders lose money. It&apos;s not intelligence. It&apos;s not market access. 
-            It&apos;s the same five mistakes — repeated until the account is gone.
+            Only 1% of traders that enter the forex markets will develop longevity. At LTG
+            we believe it&apos;s not the strategy the trader uses, but their mindset, psychology
+            &amp; emotional control that sets them back. Our approach is to master the individual
+            before mastering the trader.
           </p>
 
           <div className="border-t border-border">
@@ -60,17 +62,18 @@ export default function Strategy() {
               alt="LTG Trading — systematic trading"
               fill
               className="object-cover"
+              style={{ filter: "brightness(0.85)" }}
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>
 
           <div className="border border-gold/30 bg-surface p-8">
-            <span className="mono text-[10px] text-gold block mb-4">THE LIMITLESS SOLUTION</span>
+            <span className="mono text-[10px] text-gold block mb-4">THE LTG SOLUTION</span>
             <h3
               className="display uppercase text-text mb-4"
               style={{ fontSize: "clamp(22px, 3vw, 38px)", lineHeight: 1 }}
             >
-              We removed the human error.
+              We build our traders&apos; success through our complete ecosystem.
             </h3>
             <p className="text-text-soft text-[13px] mb-6 leading-relaxed">
               Our system executes with zero emotion, zero fatigue, and zero deviation from the rules — 

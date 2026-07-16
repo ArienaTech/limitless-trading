@@ -18,26 +18,27 @@ const spaceMono = Space_Mono({
   display: "swap",
 });
 
+// NOTE (open item): confirm the final production domain before launch.
 const SITE_URL = "https://limitlesstrading.com";
 const OG_IMAGE = `${SITE_URL}/og-image.png`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Limitless — Systematic Forex Trading | London, UK | FCA Regulated",
+    default: "Limitless Trading Group — Learn First, Execute Second, Scale Forever | London, UK",
     template: "%s | Limitless Trading",
   },
   description:
-    "Limitless is a London-based systematic trading firm founded in 2014. FCA regulated. We provide automated forex execution, institutional education, and managed capital services to serious investors worldwide.",
+    "Limitless Trading Group is a London-based systematic forex trading, education, and fund management group founded in 2023. We work with trusted, licensed partners and brokers — education first, disciplined execution, and risk management for serious traders worldwide.",
   keywords: [
     "systematic trading UK",
     "algorithmic forex trading",
     "managed forex fund",
     "automated trading London",
-    "FCA regulated trading",
-    "systematic trading education",
+    "forex trading education",
+    "funded trading",
     "forex fund management UK",
-    "institutional trading membership",
+    "trading community membership",
   ],
   authors: [{ name: "Limitless Trading", url: SITE_URL }],
   creator: "Limitless Trading Ltd",
@@ -54,9 +55,9 @@ export const metadata: Metadata = {
     title: "Limitless Trading",
   },
   openGraph: {
-    title: "Limitless — Systematic Forex Trading | London, UK",
+    title: "Limitless Trading Group — Learn First, Execute Second, Scale Forever",
     description:
-      "FCA regulated. Founded 2014. Automated forex execution, institutional education, and managed capital — by application only.",
+      "Systematic forex trading, education, and fund management. Education first, disciplined execution, and risk management — by application only.",
     type: "website",
     url: SITE_URL,
     siteName: "Limitless Trading",
@@ -72,9 +73,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Limitless — Systematic Forex Trading | London, UK",
+    title: "Limitless Trading Group — Learn First, Execute Second, Scale Forever",
     description:
-      "FCA regulated. Founded 2014. Automated forex execution, institutional education, and managed capital — by application only.",
+      "Systematic forex trading, education, and fund management. Education first, disciplined execution, and risk management — by application only.",
     images: [OG_IMAGE],
     creator: "@limitlesstrading",
   },
@@ -108,16 +109,16 @@ const organizationSchema = {
     {
       "@type": "Organization",
       "@id": `${SITE_URL}/#organization`,
-      name: "Limitless Trading",
-      alternateName: "LTG Trading",
+      name: "Limitless Trading Group",
+      alternateName: "LTG",
       url: SITE_URL,
       logo: {
         "@type": "ImageObject",
         url: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/logo3.svg",
       },
       description:
-        "Limitless is a London-based systematic trading firm founded in 2014. We provide automated forex execution, institutional-grade education, and managed capital services to serious investors. FCA authorised and regulated.",
-      foundingDate: "2014",
+        "Limitless Trading Group is a London-based systematic forex trading, education, and fund management group founded in 2023. We work with trusted, licensed partners and brokers to deliver education, disciplined execution, and risk management to serious traders.",
+      foundingDate: "2023",
       foundingLocation: {
         "@type": "Place",
         name: "London, United Kingdom",
@@ -131,15 +132,6 @@ const organizationSchema = {
         "Risk management",
         "Automated execution",
       ],
-      hasCredential: {
-        "@type": "EducationalOccupationalCredential",
-        credentialCategory: "Financial Services Regulation",
-        recognizedBy: {
-          "@type": "Organization",
-          name: "Financial Conduct Authority",
-          url: "https://www.fca.org.uk",
-        },
-      },
       sameAs: [
         "https://www.linkedin.com/company/limitlesstrading",
         "https://twitter.com/limitlesstrading",

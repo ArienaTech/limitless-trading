@@ -1,54 +1,116 @@
 import type { Metadata } from "next";
-import Navbar from "../../../components/Navbar";
-import Footer from "../../../components/Footer";
+import LegalDoc, { type LegalSection } from "../../../components/LegalDoc";
+import { legal } from "../../../legalMeta";
 
 export const metadata: Metadata = {
   title: "Risk Disclosure | Limitless Trading",
-  description: "Important risk information for clients and prospective members of Limitless Trading (LTG Trading Ltd). FCA regulated.",
+  description:
+    "Important risk information for clients and prospective members of Limitless Trading Group. Trading carries a high risk of loss.",
   alternates: { canonical: "https://limitlesstrading.com/legal/risk-disclosure" },
 };
 
+const mail = (addr: string) => (
+  <a href={`mailto:${addr}`} className="text-gold hover:underline">
+    {addr}
+  </a>
+);
+
+const intro = (
+  <>
+    <strong className="text-text">Important:</strong> Trading forex and other financial instruments
+    carries a significant risk of loss and is not suitable for everyone. You should only trade or
+    invest capital you can afford to lose. Past performance is not indicative of future results.
+  </>
+);
+
+const sections: LegalSection[] = [
+  {
+    heading: "1. Capital at risk",
+    blocks: [
+      {
+        p: "All trading and investment activity involves risk of capital loss. There is no guarantee that you will make a profit or recover any amount invested. The value of investments and any income from them can fall as well as rise.",
+      },
+    ],
+  },
+  {
+    heading: "2. Forex and leveraged products",
+    blocks: [
+      {
+        p: "Foreign exchange (forex) trading involves significant risk due to leverage, market volatility, and the 24-hour nature of global currency markets. Leverage amplifies both potential profits and potential losses. A small adverse movement in the market can result in a loss greater than your initial deposit.",
+      },
+    ],
+  },
+  {
+    heading: "3. Education and signals",
+    blocks: [
+      {
+        p: "Our education, community, and signals are provided for informational and educational purposes only. They do not constitute a personal recommendation or financial advice. Any decision to act on information provided is made at your own risk and discretion.",
+      },
+    ],
+  },
+  {
+    heading: "4. Systematic and automated trading",
+    blocks: [
+      {
+        p: "While systematic and automated strategies aim to remove emotional bias, they are not immune to losses. The historical performance of any trading system or strategy does not guarantee future results, and systems may perform differently across different market conditions.",
+      },
+    ],
+  },
+  {
+    heading: "5. Fund management",
+    blocks: [
+      {
+        p: "Where capital is managed through our VIP fund management service, trading decisions are made according to the agreed strategy. While professional diligence is exercised, performance cannot be guaranteed and there is no protection against market losses.",
+      },
+    ],
+  },
+  {
+    heading: "6. No financial advice",
+    blocks: [
+      {
+        p: "Nothing on this website or in our materials constitutes financial advice, investment advice, or a recommendation to buy or sell any financial instrument. You should seek independent professional advice before making any investment decision.",
+      },
+    ],
+  },
+  {
+    heading: "7. Licensing",
+    blocks: [
+      {
+        p: `${legal.brand} works with trusted and reputable licensed partners and brokers to ensure we operate within their regulations and standards of service. Our number-one pillar is to ensure that every individual introduced into the financial markets is educated and aware of the risks. Any account you open with a partner or broker is governed by that provider's own terms and regulatory protections.`,
+      },
+    ],
+  },
+  {
+    heading: "8. Past performance",
+    blocks: [
+      {
+        p: "Any performance data, statistics, results, or case studies presented on this website or in our materials relate to past performance only. Past performance is not a reliable indicator of future results, and results may be based on simulated or live performance, both of which carry uncertainty.",
+      },
+    ],
+  },
+  {
+    heading: "9. Contact",
+    blocks: [
+      {
+        p: (
+          <>
+            For any questions relating to this disclosure, please contact us at{" "}
+            {mail(legal.email.compliance)}.
+          </>
+        ),
+      },
+    ],
+  },
+];
+
 export default function RiskDisclosure() {
   return (
-    <div className="bg-void text-text min-h-screen">
-      <Navbar />
-      <main className="gutter pt-36 pb-32 max-w-3xl">
-        <span className="mono text-[10px] text-gold tracking-[0.3em] block mb-6">LEGAL</span>
-        <h1 className="display uppercase text-text mb-4" style={{ fontSize: "clamp(36px, 5vw, 64px)", lineHeight: 0.95 }}>
-          Risk Disclosure
-        </h1>
-        <p className="mono text-[10px] text-text-dim mb-16">Last updated: June 2026</p>
-
-        <div className="flex flex-col gap-10 text-text-soft text-[14px] leading-relaxed">
-          <div className="border border-gold/40 bg-surface p-6">
-            <p className="text-text font-medium text-[15px]">
-              <strong>Important:</strong> Trading forex and other financial instruments carries significant risk of loss. 
-              You should only trade or invest capital you can afford to lose. Past performance is not indicative of future results.
-            </p>
-          </div>
-
-          {[
-            { title: "1. Capital at risk", body: "All trading and investment activity involves risk of capital loss. There is no guarantee that you will make a profit or recover any amount invested. The value of investments and any income from them can fall as well as rise." },
-            { title: "2. Forex and leveraged products", body: "Foreign exchange (forex) trading involves significant risk due to leverage, market volatility, and the 24-hour nature of global currency markets. Leverage amplifies both potential profits and potential losses. A small adverse movement in the market can result in a loss greater than your initial deposit." },
-            { title: "3. Systematic and algorithmic trading", body: "While systematic strategies aim to remove emotional bias, they are not immune to losses. Historical performance of any trading system does not guarantee future results. Systems may perform differently across different market conditions." },
-            { title: "4. Managed capital", body: "When capital is managed on your behalf, Limitless acts as investment manager and makes trading decisions according to the agreed strategy. While we exercise professional diligence, we cannot guarantee performance or protect against market losses." },
-            { title: "5. No financial advice", body: "Nothing on this website constitutes financial advice, investment advice, or a recommendation to buy or sell any financial instrument. You should seek independent professional advice before making any investment decision." },
-            { title: "6. Regulatory protection", body: "LTG Trading Ltd is authorised and regulated by the Financial Conduct Authority. Client money is held in accordance with FCA CASS client money rules, segregated from company funds. You may be entitled to compensation under the Financial Services Compensation Scheme (FSCS) in certain circumstances." },
-            { title: "7. Past performance", body: "Any performance data, statistics, or case studies presented on this website or in our materials relate to past performance only. Past performance is not a reliable indicator of future results. Performance figures may be based on simulated or live results and both carry uncertainty." },
-          ].map((section) => (
-            <section key={section.title}>
-              <h2 className="display font-bold text-text text-[18px] mb-3">{section.title}</h2>
-              <p>{section.body}</p>
-            </section>
-          ))}
-
-          <section>
-            <h2 className="display font-bold text-text text-[18px] mb-3">8. Contact</h2>
-            <p>For regulatory enquiries: <a href="mailto:compliance@ltgtrading.com" className="text-gold hover:underline">compliance@ltgtrading.com</a>. To verify our FCA authorisation, visit the <a href="https://register.fca.org.uk" target="_blank" rel="noreferrer" className="text-gold hover:underline">FCA Financial Services Register</a>.</p>
-          </section>
-        </div>
-      </main>
-      <Footer />
-    </div>
+    <LegalDoc
+      title="Risk Disclosure"
+      updated={legal.lastUpdated}
+      self="/legal/risk-disclosure"
+      intro={intro}
+      sections={sections}
+    />
   );
 }

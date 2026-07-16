@@ -7,16 +7,16 @@ import { motion } from "motion/react";
 
 const cards = [
   {
-    tag: "THE ENGINE",
-    title: "Automated Execution",
+    tag: "PACKAGE 01",
+    title: "Fast Tracked Live Trading",
     description:
-      "Machine-precision execution that works the markets 24/7 — no emotion, no hesitation, no human error.",
+      "Everything you need to start trading live — our VIP community and signals, full trading mastery, and access to fund management and automated systems.",
     access: "By Application",
     accessSub: "ENQUIRY ONLY · NO PAYMENTS",
     features: [
-      "Proprietary auto-trader, fully managed",
-      "24/7 global market coverage",
-      "Built-in risk discipline",
+      "Complete access to VIP community & signals channel (includes get started course & 24/7 support every step of the way)",
+      "Complete access to LTG trading mastery",
+      "Access to VIP fund management & automated trading systems",
     ],
     cta: "ENQUIRE",
     ctaHref: "#apply",
@@ -24,35 +24,33 @@ const cards = [
     image: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Lgt_img1.png",
   },
   {
-    tag: "THE INNER CIRCLE",
-    title: "Education & Community",
+    tag: "PACKAGE 02",
+    title: "Fast Tracked Funded Trading",
     description:
-      "We don't sell signals — we build traders. A vetted community and a structured path to genuine mastery.",
+      "Get funded faster. Full access to our funded community alongside the VIP community, signals, and complete trading mastery.",
     access: "By Application",
-    accessSub: "CRITERIA-BASED ACCESS",
+    accessSub: "ENQUIRY ONLY · NO PAYMENTS",
     features: [
-      "Structured education, fundamentals to pro",
-      "Live market breakdowns & trade reasoning",
-      "Vetted, exclusive community",
-      "Direct mentorship from live traders",
+      "Complete access to LTG funded community",
+      "Complete access to VIP community & signals channel (includes get started course & 24/7 support every step of the way)",
+      "Complete access to LTG trading mastery",
     ],
     cta: "APPLY FOR ACCESS",
     ctaHref: "#apply",
     featured: true,
-    badge: "★ FLAGSHIP · MEMBER FAVOURITE",
+    badge: "★ MOST POPULAR",
     image: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Lgt_img2.png",
   },
   {
-    tag: "MANAGED CAPITAL",
-    title: "Fund Management",
+    tag: "PACKAGE 03",
+    title: "Automated Trading & VIP Fund Management",
     description:
-      "Professional, hands-off management for qualifying members — the same systematic edge, applied to your capital.",
+      "Hands-off, professionally managed trading and automated systems for qualifying members — the same systematic edge, applied to your capital.",
     access: "By Application",
     accessSub: "QUALIFYING MEMBERS ONLY",
+    // TODO: package bullets to be supplied by client (open item).
     features: [
-      "Hands-off professional management",
-      "Transparent, real-time reporting",
-      "Institutional risk discipline",
+      "Full package details coming soon",
     ],
     cta: "REQUEST CRITERIA",
     ctaHref: "#apply",
@@ -66,14 +64,14 @@ export default function ValueProps() {
     <section id="values" className="gutter py-16 sm:py-32 lg:py-40 bg-void-2">
       <Reveal>
         <p className="mono text-[10px] text-text-soft tracking-[0.3em] mb-6 text-center">
-          WHAT WE DO
+          WHAT WE OFFER
         </p>
         <h2
           className="display uppercase text-center mb-16"
           style={{ fontSize: "clamp(32px, 7vw, 96px)", lineHeight: 0.95 }}
         >
-          <span className="text-text">THE LIMITLESS </span>
-          <span className="text-gold">STANDARD.</span>
+          <span className="text-text">LTG </span>
+          <span className="text-gold">ECOSYSTEM.</span>
         </h2>
       </Reveal>
 
@@ -125,6 +123,7 @@ export default function ValueProps() {
                     alt={card.title}
                     fill
                     className="object-cover"
+                    style={{ filter: "brightness(0.85)" }}
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </motion.div>
@@ -177,7 +176,6 @@ export default function ValueProps() {
                       ? "bg-gold text-void hover:bg-gold-dim"
                       : "border border-border-hi text-text hover:border-gold hover:text-gold"
                   }`}
-                  style={{ borderRadius: "999px" }}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 20 }}

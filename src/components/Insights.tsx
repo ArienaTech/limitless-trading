@@ -49,6 +49,7 @@ export default function Insights() {
                   alt={insightImages[i].alt}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  style={{ filter: "brightness(0.85)" }}
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
                 <span className="absolute top-3 left-3 mono text-[9px] text-gold">{insight.category}</span>

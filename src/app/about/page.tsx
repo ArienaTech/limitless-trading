@@ -7,23 +7,22 @@ import Footer from "../../components/Footer";
 export const metadata: Metadata = {
   title: "About Limitless — Our Story, Philosophy & Team | London, UK",
   description:
-    "Founded in London in 2014, Limitless is a systematic trading firm built on one belief: process beats prediction. Meet the founder and learn how we built a decade of consistent, rules-based performance.",
+    "Founded in London in 2023, Limitless Trading Group is an education-first forex community built on one belief: master the individual before mastering the trader. Meet the team and learn what we stand for.",
   alternates: { canonical: "https://limitlesstrading.com/about" },
   openGraph: {
-    title: "About Limitless Trading — Founded 2014, London UK",
-    description: "Our story, our philosophy, and the team behind twelve years of systematic trading.",
+    title: "About Limitless Trading Group — Founded 2023, London UK",
+    description: "Our story, our philosophy, and the team behind an education-first trading community.",
     url: "https://limitlesstrading.com/about",
   },
 };
 
+// NOTE (client to confirm): milestone copy below is placeholder pending final
+// company-history wording. Kept free of regulatory/certification claims.
 const timeline = [
-  { year: "2014", event: "Limitless founded in London. First systematic strategy goes live." },
-  { year: "2016", event: "FCA authorisation achieved. First external capital managed." },
-  { year: "2018", event: "Inner Circle education programme launched. First 50 members enrolled." },
-  { year: "2020", event: "Automated execution engine upgraded. Coverage expanded to 24/7 global markets." },
-  { year: "2022", event: "ISO 27001 security certification achieved. $1B+ capital milestone reached." },
-  { year: "2024", event: "Global membership passes 800. Managed Capital programme opened to qualifying members." },
-  { year: "2026", event: "Limitless rebrand. New platform. Same systematic edge." },
+  { year: "2023", event: "Limitless Trading Group founded in London on an education-first approach." },
+  { year: "2024", event: "VIP community & signals and the LTG trading mastery programme launched." },
+  { year: "2025", event: "Partnerships with trusted, licensed brokers. Funded programme introduced." },
+  { year: "2026", event: "New platform and rebrand. Automated trading & VIP fund management expanded." },
 ];
 
 const values = [
@@ -82,42 +81,42 @@ export default function AboutPage() {
                 className="display uppercase text-text mb-8"
                 style={{ fontSize: "clamp(36px, 5vw, 72px)", lineHeight: 0.95 }}
               >
-                A trader who
+                Traders who
                 <br />
                 <span className="text-gold">built the system</span>
                 <br />
-                he needed.
+                they needed.
               </h2>
               <div className="flex flex-col gap-5 text-text-soft text-[15px] leading-relaxed">
                 <p>
-                  The founder of Limitless began trading the London forex markets in the early 2000s. 
-                  Like most traders, the first years were defined by discretionary decisions, emotional 
-                  exits, and the humbling reality that intelligence alone is not an edge.
+                  The team behind Limitless came up through the forex markets the hard way.
+                  Like most traders, the early years were defined by discretionary decisions,
+                  emotional exits, and the humbling reality that intelligence alone is not an edge.
                 </p>
                 <p>
-                  The turning point came not from a better indicator or a secret strategy — it came 
-                  from accepting that the human brain is simply not built for consistent high-frequency 
-                  decision-making under pressure. The answer was to build a system that didn&apos;t need him.
+                  The turning point came from a simple realisation: it&apos;s not the strategy a
+                  trader uses, but their mindset, psychology, and emotional control that sets them
+                  back. The answer was to master the individual before mastering the trader.
                 </p>
                 <p>
-                  By 2014, the systematic framework that would become Limitless was live. FCA authorisation 
-                  followed in 2016. Twelve years later, the same rules-based philosophy underpins every 
-                  trade executed, every member trained, and every pound of capital managed.
+                  In 2023, that philosophy became Limitless Trading Group — an education-first
+                  community built on results, trust, transparency, and longevity, working alongside
+                  trusted, licensed partners and brokers.
                 </p>
               </div>
 
               <div className="flex gap-10 mt-12 pt-8 border-t border-border">
                 <div>
-                  <div className="display text-gold font-bold" style={{ fontSize: "clamp(28px, 3vw, 42px)" }}>12+</div>
-                  <div className="label mt-1">Years trading</div>
+                  <div className="display text-gold font-bold" style={{ fontSize: "clamp(28px, 3vw, 42px)" }}>2023</div>
+                  <div className="label mt-1">Founded</div>
                 </div>
                 <div>
-                  <div className="display text-gold font-bold" style={{ fontSize: "clamp(28px, 3vw, 42px)" }}>FCA</div>
-                  <div className="label mt-1">Authorised</div>
-                </div>
-                <div>
-                  <div className="display text-gold font-bold" style={{ fontSize: "clamp(28px, 3vw, 42px)" }}>847</div>
+                  <div className="display text-gold font-bold" style={{ fontSize: "clamp(28px, 3vw, 42px)" }}>1000+</div>
                   <div className="label mt-1">Members</div>
+                </div>
+                <div>
+                  <div className="display text-gold font-bold" style={{ fontSize: "clamp(28px, 3vw, 42px)" }}>4</div>
+                  <div className="label mt-1">LTG Pillars</div>
                 </div>
               </div>
             </div>
@@ -128,6 +127,7 @@ export default function AboutPage() {
                 alt="Limitless Trading founder — London, UK"
                 fill
                 className="object-cover"
+                style={{ filter: "brightness(0.85)" }}
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 priority
               />
@@ -168,9 +168,9 @@ export default function AboutPage() {
             className="display uppercase text-text mb-16"
             style={{ fontSize: "clamp(40px, 6vw, 90px)", lineHeight: 0.95 }}
           >
-            Twelve years.
+            The story
             <br />
-            <span className="text-gold">One system.</span>
+            <span className="text-gold">so far.</span>
           </h2>
           <div className="border-t border-border max-w-3xl">
             {timeline.map((item) => (

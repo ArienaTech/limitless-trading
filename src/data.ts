@@ -7,24 +7,25 @@ export const trustMetrics: string[] = [
   "PROFESSIONAL FUND MANAGEMENT",
   "EXCLUSIVE VIP COMMUNITY",
   "ENQUIRY ONLY — NO PAYMENTS",
-  "FCA REGULATED ENTITY",
-  "ISO 27001 CERTIFIED",
-  "99.97% PLATFORM UPTIME",
+  "EDUCATION FIRST — RISK MANAGED",
+  "LICENSED PARTNERS & BROKERS",
 ];
 
 // ─── Partners ─────────────────────────────────────────────────────────────────
 
 export interface Partner {
   name: string;
-  sub: string;
+  logo: string;
 }
 
+const LOGO_BASE =
+  "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public";
+
 export const partners: Partner[] = [
-  { name: "MONETA", sub: "MARKETS" },
-  { name: "Meridian", sub: "CAPITAL" },
-  { name: "Aurum", sub: "LIQUIDITY" },
-  { name: "Vantage", sub: "PRIME" },
-  { name: "Helios", sub: "FX" },
+  { name: "Moneta Markets", logo: `${LOGO_BASE}/LGT_logo1.svg` },
+  { name: "Skool", logo: `${LOGO_BASE}/LGT_logo2.svg` },
+  { name: "Ben Wooliss BW 365", logo: `${LOGO_BASE}/LGT_logo3.svg` },
+  { name: "Moneta Funded", logo: `${LOGO_BASE}/LGT_logo4.svg` },
 ];
 
 // ─── Infrastructure & Trust ───────────────────────────────────────────────────
@@ -39,45 +40,31 @@ export interface TrustItem {
 export const trustItems: TrustItem[] = [
   {
     index: "001",
-    category: "REGULATORY",
-    name: "FCA Authorised",
+    category: "LICENSING",
+    name: "Licensed Partners & Brokers",
     detail:
-      "Regulated by the Financial Conduct Authority. Full client money protection under CASS rules. Reference #987654.",
+      "We work with trusted and reputable licensed partners and brokers to ensure we operate within their regulations and standards of service.",
   },
   {
     index: "002",
     category: "EXECUTION",
-    name: "Tier-1 Prime Brokerage",
+    name: "Automated Execution",
     detail:
-      "Institutional-grade execution via Tier-1 prime brokers. Best-execution policy enforced algorithmically on every order.",
+      "Rules-based execution applied consistently across every position — no emotion, no fatigue, no deviation from the plan.",
   },
   {
     index: "003",
-    category: "SECURITY",
-    name: "ISO 27001 Certified",
+    category: "RISK",
+    name: "Risk Management First",
     detail:
-      "Information security management certified to ISO 27001:2022. Annual external audits. 256-bit AES encryption at rest and in transit.",
+      "Our number-one pillar is ensuring every individual introduced into the financial markets is educated and aware of the risks.",
   },
   {
     index: "004",
-    category: "INFRASTRUCTURE",
-    name: "Co-located Data Centres",
-    detail:
-      "Ultra-low latency execution from co-located infrastructure across three Tier-4 data centres. 99.97% SLA-backed uptime since 2014.",
-  },
-  {
-    index: "005",
-    category: "RISK",
-    name: "Independent Risk Committee",
-    detail:
-      "Three-person independent risk oversight committee. Automated kill-switches and drawdown controls active on every strategy.",
-  },
-  {
-    index: "006",
     category: "REPORTING",
-    name: "Daily Transparency Reports",
+    name: "Transparency",
     detail:
-      "Every member receives daily P&L reporting, trade-level transparency, and risk attribution — auditable in real time.",
+      "Members receive transparent, trade-level reporting so they always understand what is happening with their capital.",
   },
 ];
 
@@ -111,47 +98,6 @@ export const valuePillars: ValuePillar[] = [
     tagline: "Disciplined compounding. Long-term results.",
     description:
       "Sustainable growth comes from risk-adjusted consistency, not outsized bets. Our portfolio construction targets stable, compound returns across market cycles — measuring success in years, not days.",
-  },
-];
-
-// ─── Performance Metrics ──────────────────────────────────────────────────────
-
-export interface Metric {
-  value: string;
-  label: string;
-  note: string;
-}
-
-export const metrics: Metric[] = [
-  {
-    value: "5,200+",
-    label: "Markets Monitored",
-    note: "Equities, FX, Futures, Commodities",
-  },
-  {
-    value: "99.97%",
-    label: "System Availability",
-    note: "Since operational launch, 2014",
-  },
-  {
-    value: "<45ms",
-    label: "Avg Execution Time",
-    note: "Co-located, cross-venue routing",
-  },
-  {
-    value: "24/5",
-    label: "Market Coverage",
-    note: "All major global sessions",
-  },
-  {
-    value: "Same day",
-    label: "P&L Reporting",
-    note: "Full trade-level transparency",
-  },
-  {
-    value: "12 yr",
-    label: "Live Track Record",
-    note: "Auditable, third-party verified",
   },
 ];
 
@@ -254,36 +200,83 @@ export interface AppStep {
 export const appSteps: AppStep[] = [
   {
     num: "01",
-    title: "Application",
+    title: "Get in touch",
     description:
-      "Submit a brief investor profile covering your background, objectives, and intended capital allocation. No obligations or commitments at this stage.",
+      "Reach out and tell us where you're at. No obligations or commitments — just a conversation about whether LTG is the right fit for you.",
   },
   {
     num: "02",
-    title: "Review",
+    title: "Setup your trading account",
     description:
-      "Our team reviews every application within 48 hours. We assess suitability, not net worth. LTG is selective because strategic alignment matters.",
+      "We help you get set up with the right account through our trusted, licensed partners and brokers so you're ready to begin.",
   },
   {
     num: "03",
-    title: "Strategy Discussion",
+    title: "Start our education & free courses",
     description:
-      "Qualified applicants are invited to a 30-minute call with a senior partner. We explain our approach, answer your questions, and explore fit.",
+      "Begin with our education and free courses. Master the individual before mastering the trader — mindset, psychology, and risk come first.",
   },
   {
     num: "04",
-    title: "Approval & Onboarding",
+    title: "Execute daily & evolve with our community",
     description:
-      "Approved members receive a tailored strategy framework, full platform access, and a dedicated onboarding session. Typically completed within one week.",
+      "Put the education into practice. Execute daily alongside a purpose-driven community and evolve with the support of live traders.",
+  },
+  {
+    num: "05",
+    title: "Become a professional trader",
+    description:
+      "Scale with longevity. Develop the discipline, consistency, and risk-management infrastructure that define a professional trader.",
   },
 ];
 
 // ─── Navigation ───────────────────────────────────────────────────────────────
+// Full site architecture. `ready: false` pages are pre-structured but toggled
+// off in the UI until their content and brand assets are supplied (per client).
 
-export const navLinks = [
-  { label: "About", href: "/about" },
-  { label: "What We Do", href: "/#values" },
-  { label: "Performance", href: "/#performance" },
-  { label: "Insights", href: "/insights" },
-  { label: "FAQ", href: "/#faq" },
+export interface NavChild {
+  label: string;
+  href: string;
+  ready?: boolean;
+}
+
+export interface NavItem {
+  label: string;
+  href: string;
+  ready?: boolean;
+  children?: NavChild[];
+}
+
+export const navItems: NavItem[] = [
+  { label: "Home", href: "/", ready: true },
+  { label: "About", href: "/about", ready: true },
+  {
+    label: "LTG Ecosystem",
+    href: "/#values",
+    ready: true,
+    children: [
+      { label: "Results", href: "/ecosystem/results", ready: false },
+      { label: "Testimonials & Case Studies", href: "/ecosystem/testimonials", ready: false },
+    ],
+  },
+  { label: "VIP Community & Signals", href: "/vip-community-signals", ready: false },
+  { label: "Trading Mastery & Education", href: "/trading-mastery", ready: false },
+  { label: "Funded", href: "/funded", ready: false },
+  { label: "VIP Fund Management", href: "/vip-fund-management", ready: false },
+  { label: "Our Partners", href: "/partners", ready: false },
+  { label: "Shop", href: "/shop", ready: false },
+  { label: "Contact", href: "/#apply", ready: true },
+  { label: "FAQ", href: "/#faq", ready: true },
+  {
+    label: "Affiliate Marketing Programme",
+    href: "/affiliate",
+    ready: false,
+    children: [
+      { label: "Build Your Own White Label Trading Business", href: "/affiliate/white-label", ready: false },
+      { label: "Become an IB", href: "/affiliate/become-an-ib", ready: false },
+    ],
+  },
 ];
+
+// Compact top-bar links — the ready subset that renders inline on the homepage.
+export const navLinks = navItems.filter((i) => i.ready && i.label !== "Home");

@@ -43,11 +43,22 @@ export default function Application() {
               <br />
               <span className="text-gold">Everyone.</span>
             </h2>
-            <p className="text-text-soft text-[15px] leading-relaxed max-w-lg">
-              Limitless accepts a small number of new members each quarter. We don&apos;t assess capital size — 
-              we assess mindset, commitment, and fit. If you&apos;re serious about trading with a real edge, 
-              this is where it starts.
-            </p>
+            <div className="flex flex-col gap-4 max-w-lg">
+              <p className="text-text-soft text-[15px] leading-relaxed">
+                Our goal is to build a community of purpose-driven individuals that develop the
+                skill of forex trading to use as the vehicle to financial freedom and a better
+                quality of life.
+              </p>
+              <p className="text-text-soft text-[15px] leading-relaxed">
+                Our criteria differ for each service and education platform to ensure we protect
+                the livelihood of each student/client &amp; our own reputation within the industry.
+              </p>
+              <p className="text-text-soft text-[15px] leading-relaxed">
+                The trading industry is rapidly growing and fuelled by greed and deceit for
+                financial gain, so we focus on the pillars of education first, executing second,
+                and scaling with longevity and risk-management infrastructure over chasing profits.
+              </p>
+            </div>
           </div>
         </Reveal>
 
@@ -66,11 +77,12 @@ export default function Application() {
               ))}
             </div>
 
+            {/* FLAG (client to confirm): unverified claim — keep, rewrite, or remove per client decision. */}
             <div className="border border-gold/20 bg-void p-6 mb-8">
               <p className="display font-medium text-text text-[15px] mb-2">
                 &ldquo;We turned away more applications than we accepted last quarter.&rdquo;
               </p>
-              <span className="mono text-[9px] text-text-dim">— LTG TRADING, MEMBERSHIP DIRECTOR</span>
+              <span className="mono text-[9px] text-text-dim">— LTG, MEMBERSHIP DIRECTOR</span>
             </div>
 
             <div className="border-t border-border">
