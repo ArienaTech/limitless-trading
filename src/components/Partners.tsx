@@ -22,7 +22,8 @@ export default function Partners() {
           <div className="w-12 h-px bg-border" />
         </motion.div>
 
-        {/* Partner logos — rendered in solid black via a brightness(0) filter */}
+        {/* Partner logos — rendered as a muted warm-grey silhouette so they
+            sit softly against the light theme rather than reading as harsh black */}
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-y-10 gap-x-4 sm:gap-8 lg:gap-0">
           {partners.map((partner, i) => (
             <motion.div
@@ -40,8 +41,8 @@ export default function Partners() {
                 width={200}
                 height={80}
                 unoptimized
-                className="h-12 sm:h-14 w-auto max-w-full object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300"
-                style={{ filter: "brightness(0)" }}
+                className="h-12 sm:h-14 w-auto max-w-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                style={{ filter: "brightness(0) invert(0.42) sepia(0.18) saturate(0.7)" }}
               />
             </motion.div>
           ))}
