@@ -21,14 +21,8 @@ const relatedLinks = [
   { label: "Privacy Policy", href: "/legal/privacy-policy" },
   { label: "Terms & Conditions", href: "/legal/terms" },
   { label: "Cookie Policy", href: "/legal/cookie-policy" },
-  { label: "Acceptable Use Policy", href: "/legal/acceptable-use" },
-  { label: "Accessibility Statement", href: "/legal/accessibility" },
   { label: "Risk Disclosure", href: "/legal/risk-disclosure" },
   { label: "Disclaimer", href: "/legal/disclaimer" },
-  { label: "Refund & Cancellation Policy", href: "/legal/refund-policy" },
-  { label: "Affiliate & IB Terms", href: "/legal/affiliate-terms" },
-  { label: "Complaints Procedure", href: "/legal/complaints" },
-  { label: "Regulatory & Licensing", href: "/legal/regulatory" },
 ];
 
 export default function LegalDoc({

@@ -93,27 +93,25 @@ const sections: LegalSection[] = [
         p: "The price of products and services is displayed at the point of purchase. Where a service is provided on a recurring subscription basis, you authorise us (or our payment providers) to charge the applicable fee for each billing period until you cancel. All fees are stated inclusive or exclusive of VAT as indicated at checkout.",
       },
       {
-        p: (
-          <>
-            Your rights to cancel and any refunds are set out in our{" "}
-            {link("/legal/refund-policy", "Refund & Cancellation Policy")}.
-          </>
-        ),
+        p: "If you are a consumer, you may have statutory rights to cancel certain purchases and to obtain a refund under applicable UK consumer protection law, including the Consumer Rights Act 2015 and the Consumer Contracts Regulations 2013. Any specific cancellation and refund terms will be made available to you at the point of purchase.",
       },
     ],
   },
   {
     heading: "8. Acceptable use",
     blocks: [
+      { p: "You must use our website, community, and Services lawfully and responsibly. In particular, you must not:" },
       {
-        p: (
-          <>
-            Your use of our website, community, and Services must comply with our{" "}
-            {link("/legal/acceptable-use", "Acceptable Use Policy")}. We may suspend or terminate your
-            access if you breach it.
-          </>
-        ),
+        ul: [
+          "Use our Services in any way that breaches any applicable law or regulation, or for any unlawful or fraudulent purpose.",
+          "Copy, resell, redistribute, or share our Content, including signals and course materials, outside the community or without our written permission.",
+          "Post content that is unlawful, misleading, defamatory, obscene, or infringing of any third party's rights.",
+          "Impersonate any person, or provide personal financial advice to other members.",
+          "Attempt to gain unauthorised access to, interfere with, or disrupt our Services or systems.",
+          "Harass, abuse, or threaten other members or our team.",
+        ],
       },
+      { p: "We may suspend or terminate your access if you breach these Terms." },
     ],
   },
   {
@@ -184,8 +182,8 @@ const sections: LegalSection[] = [
       {
         p: (
           <>
-            If you are unhappy with any aspect of our Services, please refer to our{" "}
-            {link("/legal/complaints", "Complaints Procedure")}.
+            If you are unhappy with any aspect of our Services, please contact us at{" "}
+            {mail(legal.email.general)} and we will do our best to put things right.
           </>
         ),
       },
