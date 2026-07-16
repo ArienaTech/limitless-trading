@@ -139,6 +139,8 @@ export default function Philosophy() {
           </Reveal>
 
           <Reveal index={1} className="lg:mt-8">
+            {/* OPEN ITEM (§5): replace with a photo of Dee and his business partner
+                once supplied by the client. */}
             <motion.div
               className="relative w-full overflow-hidden border border-border"
               style={{ aspectRatio: "4/5", maxHeight: "600px" }}
