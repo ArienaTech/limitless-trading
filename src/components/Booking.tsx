@@ -53,7 +53,7 @@ export default function Application() {
   };
 
   return (
-    <section id="apply" className="relative bg-surface border-y border-border overflow-hidden">
+    <section id="membership" className="relative bg-surface border-y border-border overflow-hidden">
       {/* Subtle crimson glow — echoes hero, signals final destination */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -130,9 +130,10 @@ export default function Application() {
             </div>
           </Reveal>
 
-          {/* Form */}
+          {/* Form — #apply anchors here so every "Apply"/"Application" CTA lands
+              directly on the form rather than the section intro. */}
           <Reveal index={1}>
-            <div className="bg-void border border-border p-6 sm:p-8">
+            <div id="apply" className="bg-void border border-border p-6 sm:p-8 scroll-mt-24">
               <p className="display font-bold text-text text-[18px] mb-1">Start your application</p>
               <p className="text-text-soft text-[13px] mb-6">Takes 2 minutes. No commitment. Fully confidential.</p>
 
