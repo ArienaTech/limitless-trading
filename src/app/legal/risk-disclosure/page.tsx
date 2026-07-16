@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import LegalDoc, { type LegalSection } from "../../../components/LegalDoc";
+import { SITE_URL } from "../../../siteConfig";
 import { legal } from "../../../legalMeta";
 
 export const metadata: Metadata = {
   title: "Risk Disclosure | Limitless Trading",
   description:
     "Important risk information for clients and prospective members of Limitless Trading Group. Trading carries a high risk of loss.",
-  alternates: { canonical: "https://limitlesstrading.com/legal/risk-disclosure" },
+  alternates: { canonical: `${SITE_URL}/legal/risk-disclosure` },
 };
 
 const mail = (addr: string) => (

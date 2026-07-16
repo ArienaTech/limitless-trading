@@ -4,6 +4,8 @@ import "./globals.css";
 import SmoothScroll from "../components/SmoothScroll";
 import ScrollProgress from "../components/ScrollProgress";
 import Preloader from "../components/Preloader";
+import Analytics from "../components/Analytics";
+import { SITE_URL, EMAILS } from "../siteConfig";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -18,10 +20,9 @@ const spaceMono = Space_Mono({
   display: "swap",
 });
 
-// NOTE (open item): confirm the final production domain before launch.
-const SITE_URL = "https://limitlesstrading.com";
-// Social share image is generated dynamically via src/app/opengraph-image.tsx
-// and src/app/twitter-image.tsx (Next.js file conventions).
+// The production domain is centralised in src/siteConfig.ts (SITE_URL) so it can
+// be switched in one place once confirmed. Social share images are generated
+// dynamically via src/app/opengraph-image.tsx and src/app/twitter-image.tsx.
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -85,6 +86,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE_URL,
   },
+  // Set GOOGLE_SITE_VERIFICATION in the environment to emit the Search Console
+  // verification meta tag. Omitted automatically when unset.
+  verification: process.env.GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+    : undefined,
 };
 
 export const viewport: Viewport = {
@@ -121,19 +127,19 @@ const organizationSchema = {
         addressRegion: "England",
         addressCountry: "GB",
       },
-      email: "hello@ltgtrading.com",
+      email: EMAILS.general,
       contactPoint: [
         {
           "@type": "ContactPoint",
           contactType: "customer support",
-          email: "hello@ltgtrading.com",
+          email: EMAILS.general,
           areaServed: "Worldwide",
           availableLanguage: ["English"],
         },
         {
           "@type": "ContactPoint",
           contactType: "sales",
-          email: "invest@ltgtrading.com",
+          email: EMAILS.invest,
           areaServed: "Worldwide",
           availableLanguage: ["English"],
         },
@@ -194,40 +200,16 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://cpvmmxiiwlzkqapnimws.supabase.co" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
-        {/* Google Search Console verification — replace with real token */}
-        {/* <meta name="google-site-verification" content="YOUR_VERIFICATION_TOKEN" /> */}
-
         {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
-
-        {/* Google Analytics 4 — replace G-XXXXXXXXXX with real Measurement ID */}
-        {/* 
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX" />
-        <script dangerouslySetInnerHTML={{ __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-XXXXXXXXXX');
-          gtag('event', 'page_view');
-        ` }} />
-        */}
-
-        {/* Microsoft Clarity — replace with real project ID */}
-        {/*
-        <script dangerouslySetInnerHTML={{ __html: `
-          (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-          })(window, document, "clarity", "script", "YOUR_CLARITY_ID");
-        ` }} />
-        */}
       </head>
       <body>
         <a href="#main-content" className="skip-link">Skip to main content</a>
+        {/* Analytics load only when their env-var IDs are configured */}
+        <Analytics />
         <SmoothScroll>
           <Preloader />
           <ScrollProgress />

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import LegalDoc, { type LegalSection } from "../../../components/LegalDoc";
+import { SITE_URL } from "../../../siteConfig";
 import { legal } from "../../../legalMeta";
 
 export const metadata: Metadata = {
   title: "Cookie Policy | Limitless Trading",
   description:
     "How Limitless Trading Group uses cookies and similar technologies, in line with the Privacy and Electronic Communications Regulations (PECR) and UK GDPR.",
-  alternates: { canonical: "https://limitlesstrading.com/legal/cookie-policy" },
+  alternates: { canonical: `${SITE_URL}/legal/cookie-policy` },
 };
 
 const mail = (addr: string) => (

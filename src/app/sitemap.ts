@@ -1,6 +1,5 @@
 import { MetadataRoute } from "next";
-
-const BASE = "https://limitlesstrading.com";
+import { SITE_URL as BASE } from "../siteConfig";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
