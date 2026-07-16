@@ -295,7 +295,7 @@ body {
 
 /* ---------- Mobile touch targets ---------- */
 @media (max-width: 768px) {
-  .btn-gold, .btn-ghost {
+  .btn-gold, .btn-gold-solid, .btn-ghost {
     min-height: 44px;
     display: flex;
     align-items: center;
@@ -318,6 +318,19 @@ body {
 .btn-gold:hover {
   background: var(--gold);
   color: #fff;
+}
+.btn-gold-solid {
+  border: 1px solid var(--gold);
+  color: #fff;
+  background: var(--gold);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    opacity 0.2s ease;
+}
+.btn-gold-solid:hover {
+  background: var(--gold-dim);
+  border-color: var(--gold-dim);
 }
 .btn-ghost {
   border: 1px solid var(--border-hi);

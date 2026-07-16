@@ -217,7 +217,7 @@ export default function Hero() {
           <Magnetic className="block w-full sm:w-auto" strength={8}>
             <motion.a
               href="#apply"
-              className="btn-gold mono px-6 sm:px-8 py-3 sm:py-4 inline-block text-[10px] sm:text-[11px] tracking-[0.15em] w-full sm:w-auto text-center"
+              className="btn-gold-solid mono px-6 sm:px-8 py-3 sm:py-4 inline-block text-[10px] sm:text-[11px] tracking-[0.15em] w-full sm:w-auto text-center"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 400, damping: 20 }}
