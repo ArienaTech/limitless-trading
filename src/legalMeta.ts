@@ -6,6 +6,8 @@
 // company registration number are placeholders — update `entityLegalName` and
 // `companyNumber` once confirmed with Companies House.
 
+import { SITE_DOMAIN, EMAILS } from "./siteConfig";
+
 export const legal = {
   brand: "Limitless Trading Group",
   short: "LTG",
@@ -14,13 +16,13 @@ export const legal = {
   jurisdiction: "England and Wales",
   city: "London, United Kingdom",
   registeredOffice: "London, United Kingdom",
-  website: "limitlesstrading.com",
+  website: SITE_DOMAIN,
   lastUpdated: "July 2026",
   email: {
-    general: "hello@ltgtrading.com",
-    privacy: "privacy@ltgtrading.com",
-    complaints: "complaints@ltgtrading.com",
-    compliance: "compliance@ltgtrading.com",
+    general: EMAILS.general,
+    privacy: EMAILS.privacy,
+    complaints: EMAILS.complaints,
+    compliance: EMAILS.compliance,
   },
 } as const;
 

@@ -5,8 +5,7 @@ import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
 import Reveal from "../../../components/Reveal";
 import { articles, articleSlugs, getArticle, type ArticleBlock } from "../articles";
-
-const SITE_URL = "https://limitlesstrading.com";
+import { SITE_URL } from "../../../siteConfig";
 
 export function generateStaticParams() {
   return articleSlugs.map((slug) => ({ slug }));

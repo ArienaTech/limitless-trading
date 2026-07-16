@@ -3,16 +3,17 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import { SITE_URL } from "../../siteConfig";
 
 export const metadata: Metadata = {
   title: "About Limitless — Our Story, Philosophy & Team | London, UK",
   description:
     "Founded in London in 2023, Limitless Trading Group is an education-first forex community built on one belief: master the individual before mastering the trader. Meet the team and learn what we stand for.",
-  alternates: { canonical: "https://limitlesstrading.com/about" },
+  alternates: { canonical: `${SITE_URL}/about` },
   openGraph: {
     title: "About Limitless Trading Group — Founded 2023, London UK",
     description: "Our story, our philosophy, and the team behind an education-first trading community.",
-    url: "https://limitlesstrading.com/about",
+    url: `${SITE_URL}/about`,
   },
 };
 

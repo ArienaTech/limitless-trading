@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import LegalDoc, { type LegalSection } from "../../../components/LegalDoc";
+import { SITE_URL } from "../../../siteConfig";
 import { legal, entityDescription } from "../../../legalMeta";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Limitless Trading",
   description:
     "How Limitless Trading Group collects, uses, shares, and protects your personal data. Compliant with UK GDPR and the Data Protection Act 2018.",
-  alternates: { canonical: "https://limitlesstrading.com/legal/privacy-policy" },
+  alternates: { canonical: `${SITE_URL}/legal/privacy-policy` },
 };
 
 const mail = (addr: string) => (

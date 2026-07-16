@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import LegalDoc, { type LegalSection } from "../../../components/LegalDoc";
+import { SITE_URL } from "../../../siteConfig";
 import { legal } from "../../../legalMeta";
 
 export const metadata: Metadata = {
   title: "Disclaimer | Limitless Trading",
   description:
     "Educational-purpose and no-financial-advice disclaimer for the Limitless Trading Group website and services.",
-  alternates: { canonical: "https://limitlesstrading.com/legal/disclaimer" },
+  alternates: { canonical: `${SITE_URL}/legal/disclaimer` },
 };
 
 const link = (href: string, label: string) => (
