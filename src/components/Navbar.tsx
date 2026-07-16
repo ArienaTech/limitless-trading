@@ -314,7 +314,7 @@ export default function Navbar() {
             <Magnetic strength={6}>
               <Link
                 href="/#apply"
-                className="btn-gold-solid mono px-4 py-2 inline-block text-[10px] tracking-[0.1em]"
+                className="btn-gold mono px-4 py-2 inline-block text-[10px] tracking-[0.1em]"
                 aria-label="Apply for Limitless Trading membership"
               >
                 Apply →
@@ -352,7 +352,7 @@ export default function Navbar() {
             <Link
               href="/#apply"
               onClick={close}
-              className="btn-gold-solid mono px-6 py-3 mt-8 inline-block text-center"
+              className="btn-gold mono px-6 py-3 mt-8 inline-block text-center"
             >
               Apply →
             </Link>
