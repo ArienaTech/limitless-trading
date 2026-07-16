@@ -175,7 +175,6 @@ export default function ValueProps() {
                       ? "bg-gold text-void hover:bg-gold-dim"
                       : "border border-border-hi text-text hover:border-gold hover:text-gold"
                   }`}
-                  style={{ borderRadius: "999px" }}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 20 }}
