@@ -18,14 +18,11 @@ export interface Partner {
   logo: string;
 }
 
-const LOGO_BASE =
-  "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public";
-
 export const partners: Partner[] = [
-  { name: "Moneta Markets", logo: `${LOGO_BASE}/LGT_logo1.svg` },
-  { name: "Skool", logo: `${LOGO_BASE}/LGT_logo2.svg` },
-  { name: "Ben Wooliss BW 365", logo: `${LOGO_BASE}/LGT_logo3.svg` },
-  { name: "Moneta Funded", logo: `${LOGO_BASE}/LGT_logo4.svg` },
+  { name: "Moneta Markets", logo: "/LT_logo1.svg" },
+  { name: "Skool", logo: "/LT_logo2.svg" },
+  { name: "Ben Wooliss BW 365", logo: "/LGT_logo3.svg" },
+  { name: "Moneta Funded", logo: "/LT_logo4.svg" },
 ];
 
 // ─── Infrastructure & Trust ───────────────────────────────────────────────────
