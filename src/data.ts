@@ -15,14 +15,17 @@ export const trustMetrics: string[] = [
 
 export interface Partner {
   name: string;
-  sub: string;
+  logo: string;
 }
 
+const LOGO_BASE =
+  "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public";
+
 export const partners: Partner[] = [
-  { name: "MONETA", sub: "MARKETS" },
-  { name: "SKOOL", sub: "COMMUNITY" },
-  { name: "BEN WOOLISS", sub: "BW 365" },
-  { name: "MONETA", sub: "FUNDED" },
+  { name: "Moneta Markets", logo: `${LOGO_BASE}/LGT_logo1.svg` },
+  { name: "Skool", logo: `${LOGO_BASE}/LGT_logo2.svg` },
+  { name: "Ben Wooliss BW 365", logo: `${LOGO_BASE}/LGT_logo3.svg` },
+  { name: "Moneta Funded", logo: `${LOGO_BASE}/LGT_logo4.svg` },
 ];
 
 // ─── Infrastructure & Trust ───────────────────────────────────────────────────
