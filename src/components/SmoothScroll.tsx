@@ -7,10 +7,19 @@ import { useEffect, type ReactNode } from "react";
 export default function SmoothScroll({ children }: { children: ReactNode }) {
   const reduced = useReducedMotion();
 
+  // Always begin a fresh visit at the top. Browsers otherwise restore the
+  // previous scroll position on reload, which could drop a returning visitor
+  // mid-page. Skipped when the URL targets a specific section (e.g. /#apply).
+  useEffect(() => {
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    if (!window.location.hash) window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     if (reduced) return;
 
     const lenis = new Lenis({ lerp: 0.11 });
+    if (!window.location.hash) lenis.scrollTo(0, { immediate: true });
 
     let raf = requestAnimationFrame(function loop(time: number) {
       lenis.raf(time);
