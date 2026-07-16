@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, type Variants } from "motion/react";
 import { appSteps } from "../data";
 import Reveal from "./Reveal";
+import { EMAILS } from "../siteConfig";
 
 const formStagger: Variants = {
   hidden: {},
@@ -20,9 +21,9 @@ const formItem: Variants = {
 };
 
 const contacts = [
-  { label: "INVESTOR RELATIONS", email: "invest@ltgtrading.com" },
-  { label: "COMPLIANCE", email: "compliance@ltgtrading.com" },
-  { label: "GENERAL", email: "hello@ltgtrading.com" },
+  { label: "INVESTOR RELATIONS", email: EMAILS.invest },
+  { label: "COMPLIANCE", email: EMAILS.compliance },
+  { label: "GENERAL", email: EMAILS.general },
 ];
 
 export default function Application() {
@@ -47,7 +48,7 @@ export default function Application() {
         `Where they heard about us: ${source}\n\n` +
         `What brings you to Limitless:\n${goals}\n`
     );
-    window.location.href = `mailto:hello@ltgtrading.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${EMAILS.general}?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
@@ -253,8 +254,8 @@ export default function Application() {
                   >
                     Your email app should now open with your application ready to send. If it
                     doesn&apos;t, email us directly at{" "}
-                    <a href="mailto:hello@ltgtrading.com" className="text-gold hover:underline">
-                      hello@ltgtrading.com
+                    <a href={`mailto:${EMAILS.general}`} className="text-gold hover:underline">
+                      {EMAILS.general}
                     </a>
                     .
                   </p>

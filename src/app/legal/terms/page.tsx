@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import LegalDoc, { type LegalSection } from "../../../components/LegalDoc";
+import { SITE_URL } from "../../../siteConfig";
 import { legal, entityDescription } from "../../../legalMeta";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions | Limitless Trading",
   description:
     "The terms and conditions governing your use of the Limitless Trading Group website, services, community, education, and programmes. Governed by the laws of England and Wales.",
-  alternates: { canonical: "https://limitlesstrading.com/legal/terms" },
+  alternates: { canonical: `${SITE_URL}/legal/terms` },
 };
 
 const link = (href: string, label: string) => (

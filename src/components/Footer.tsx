@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
+import { EMAILS } from "../siteConfig";
 
 const navLinks = [
   { label: "Philosophy", href: "/#philosophy" },
@@ -132,8 +133,8 @@ export default function Footer() {
           </span>
           <div className="flex items-center gap-6">
             <Link href="/#faq" className="mono text-[10px] hover:text-gold transition-colors" style={{ color: "#8a8374" }}>FAQ</Link>
-            <a href="mailto:hello@ltgtrading.com" className="mono text-[10px] hover:text-gold transition-colors" style={{ color: "#8a8374" }}>
-              hello@ltgtrading.com
+            <a href={`mailto:${EMAILS.general}`} className="mono text-[10px] hover:text-gold transition-colors" style={{ color: "#8a8374" }}>
+              {EMAILS.general}
             </a>
           </div>
         </div>

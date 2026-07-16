@@ -3,20 +3,19 @@ import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { articles } from "./articles";
+import { SITE_URL } from "../../siteConfig";
 
 export const metadata: Metadata = {
   title: "Insights — Systematic Trading Education & Market Intelligence | Limitless",
   description:
     "Institutional-grade trading education from Limitless. Guides on systematic trading, forex risk management, algorithmic execution, and the psychology of consistent performance.",
-  alternates: { canonical: "https://limitlesstrading.com/insights" },
+  alternates: { canonical: `${SITE_URL}/insights` },
   openGraph: {
     title: "Limitless Insights — Systematic Trading Education",
     description: "Guides, frameworks, and market intelligence for serious traders.",
-    url: "https://limitlesstrading.com/insights",
+    url: `${SITE_URL}/insights`,
   },
 };
-
-const SITE_URL = "https://limitlesstrading.com";
 
 const blogSchema = {
   "@context": "https://schema.org",

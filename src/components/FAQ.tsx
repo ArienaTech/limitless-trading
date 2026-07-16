@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import Reveal from "./Reveal";
+import { EMAILS } from "../siteConfig";
 
 const faqs = [
   {
@@ -38,6 +39,26 @@ const faqs = [
     q: "Can I withdraw my capital at any time?",
     a: "Withdrawal terms depend on your specific service agreement and are discussed during onboarding. We believe in full transparency around capital access and provide this information before any commitment is made.",
   },
+  {
+    q: "Where is Limitless Trading Group based?",
+    a: "Limitless Trading Group is based in London, United Kingdom, and was founded in 2023. While we are London-based, we work with a purpose-driven community of members worldwide.",
+  },
+  {
+    q: "Who holds my capital and funds?",
+    a: "You retain ownership of your capital. Any trading account is opened with our trusted, licensed partners and brokers, and is governed by that provider's own terms and regulatory protections. We work within their regulations and standards of service.",
+  },
+  {
+    q: "How is Limitless different from a signals service?",
+    a: "We don't just sell signals. Limitless combines automated, rules-based execution, institutional-grade education, and managed capital under one roof. Our first pillar is education and risk awareness — signals alone don't build disciplined, consistent traders.",
+  },
+  {
+    q: "Is trading with Limitless risky?",
+    a: "Yes. Trading forex and leveraged products carries a high risk of loss and is not suitable for everyone — you should only trade capital you can afford to lose. Our entire approach is built around risk management and education precisely because the risk is real. Nothing we provide is financial advice.",
+  },
+  {
+    q: "How much does membership cost?",
+    a: "There is no upfront payment to apply, and enquiries are free. Costs vary by service — education and community access differ from managed capital arrangements — and are explained transparently during your strategy call before any commitment.",
+  },
 ];
 
 export default function FAQ() {
@@ -46,6 +67,10 @@ export default function FAQ() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["#faq"],
+    },
     mainEntity: faqs.map((f) => ({
       "@type": "Question",
       name: f.q,
@@ -136,12 +161,12 @@ export default function FAQ() {
         <div className="mt-16 flex flex-col sm:flex-row items-start sm:items-center gap-4">
           <p className="text-text-soft text-[14px]">Still have questions?</p>
           <motion.a
-            href="mailto:hello@ltgtrading.com"
+            href={`mailto:${EMAILS.general}`}
             className="mono text-[10px] text-gold link-underline tracking-[0.1em]"
             whileHover={{ x: 4 }}
             transition={{ type: "spring", stiffness: 400, damping: 30 }}
           >
-            hello@ltgtrading.com →
+            {EMAILS.general} →
           </motion.a>
         </div>
       </Reveal>
