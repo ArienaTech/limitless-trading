@@ -5,18 +5,25 @@ import Link from "next/link";
 import { motion } from "motion/react";
 
 const navLinks = [
-  { label: "Philosophy", href: "#philosophy" },
-  { label: "What We Offer", href: "#values" },
-  { label: "Insights", href: "#insights" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Apply", href: "#apply" },
+  { label: "Philosophy", href: "/#philosophy" },
+  { label: "What We Offer", href: "/#values" },
+  { label: "Insights", href: "/#insights" },
+  { label: "FAQ", href: "/#faq" },
+  { label: "Apply", href: "/#apply" },
 ];
 
 const legalLinks = [
   { label: "Privacy Policy", href: "/legal/privacy-policy" },
-  { label: "Terms of Use", href: "/legal/terms" },
+  { label: "Terms & Conditions", href: "/legal/terms" },
+  { label: "Cookie Policy", href: "/legal/cookie-policy" },
+  { label: "Acceptable Use Policy", href: "/legal/acceptable-use" },
+  { label: "Accessibility Statement", href: "/legal/accessibility" },
   { label: "Risk Disclosure", href: "/legal/risk-disclosure" },
-  { label: "Regulatory Info", href: "/legal/regulatory" },
+  { label: "Disclaimer", href: "/legal/disclaimer" },
+  { label: "Refund & Cancellation", href: "/legal/refund-policy" },
+  { label: "Affiliate & IB Terms", href: "/legal/affiliate-terms" },
+  { label: "Complaints Procedure", href: "/legal/complaints" },
+  { label: "Regulatory & Licensing", href: "/legal/regulatory" },
 ];
 
 const socialLinks = [
@@ -66,9 +73,9 @@ export default function Footer() {
             <ul className="flex flex-col gap-3">
               {navLinks.map((item) => (
                 <li key={item.label}>
-                  <a href={item.href} className="text-[13px] hover:text-gold transition-colors" style={{ color: "#b7b0a1" }}>
+                  <Link href={item.href} className="text-[13px] hover:text-gold transition-colors" style={{ color: "#b7b0a1" }}>
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -127,10 +134,10 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-[#2b2620] pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <span className="mono text-[10px]" style={{ color: "#8a8374" }}>
-            © 2026 LTG Trading Ltd. All rights reserved. London, United Kingdom.
+            © 2026 Limitless Trading Group Ltd. All rights reserved. London, United Kingdom.
           </span>
           <div className="flex items-center gap-6">
-            <a href="#faq" className="mono text-[10px] hover:text-gold transition-colors" style={{ color: "#8a8374" }}>FAQ</a>
+            <Link href="/#faq" className="mono text-[10px] hover:text-gold transition-colors" style={{ color: "#8a8374" }}>FAQ</Link>
             <a href="mailto:hello@ltgtrading.com" className="mono text-[10px] hover:text-gold transition-colors" style={{ color: "#8a8374" }}>
               hello@ltgtrading.com
             </a>

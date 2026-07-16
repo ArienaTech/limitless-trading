@@ -40,17 +40,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
-    {
-      url: `${BASE}/legal/privacy-policy`,
+    ...[
+      "privacy-policy",
+      "terms",
+      "cookie-policy",
+      "acceptable-use",
+      "accessibility",
+      "risk-disclosure",
+      "disclaimer",
+      "refund-policy",
+      "affiliate-terms",
+      "complaints",
+      "regulatory",
+    ].map((slug) => ({
+      url: `${BASE}/legal/${slug}`,
       lastModified: new Date(),
-      changeFrequency: "yearly",
+      changeFrequency: "yearly" as const,
       priority: 0.3,
-    },
-    {
-      url: `${BASE}/legal/risk-disclosure`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
+    })),
   ];
 }
