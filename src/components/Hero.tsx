@@ -47,10 +47,8 @@ function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
 }
 
 const trustStats = [
-  { display: <Counter to={2.4} suffix="B+" />, label: "Capital Managed", prefix: "$" },
-  { display: <Counter to={847} />, label: "Active Members" },
-  { display: <Counter to={12} suffix=" YR" />, label: "Track Record" },
-  { display: <Counter to={99.97} suffix="%" />, label: "Platform Uptime" },
+  { display: <Counter to={5} suffix="M+" />, label: "Capital Managed", prefix: "$" },
+  { display: <Counter to={1000} suffix="+" />, label: "Active Members" },
 ];
 
 // Single letter reveal
@@ -85,7 +83,7 @@ function AnimatedHeadline() {
       {/* White magnetic letters — always visible */}
       <h1
         className="display uppercase select-none"
-        style={{ fontSize: "clamp(48px, 11vw, 180px)", lineHeight: 0.88, margin: 0 }}
+        style={{ fontSize: "clamp(48px, 11vw, 180px)", lineHeight: 0.88, margin: 0, letterSpacing: "0.02em" }}
         aria-hidden="true"
       >
         {letters.map((char, i) => (
@@ -118,7 +116,7 @@ function AnimatedHeadline() {
             fontSize: "clamp(48px, 11vw, 180px)",
             fontFamily: "var(--font-space-grotesk), sans-serif",
             fontWeight: 700,
-            letterSpacing: "-0.04em",
+            letterSpacing: "0.02em",
             textTransform: "uppercase",
             color: "var(--text)",
             lineHeight: 0.88,
@@ -201,11 +199,6 @@ export default function Hero() {
         className="relative z-10 flex-1 flex flex-col items-center justify-center text-center gutter px-5 sm:px-8"
         style={{ y: contentY, opacity: contentOpacity }}
       >
-        <motion.div {...fade(0.1)} className="flex items-center gap-2 mb-6 sm:mb-8">
-          <span className="pulse-dot" aria-hidden="true" />
-          <span className="mono text-[9px] sm:text-[10px] text-text-soft tracking-[0.1em] sm:tracking-[0.15em]">Q3 2026 COHORT — LIMITED SPOTS</span>
-        </motion.div>
-
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -215,9 +208,8 @@ export default function Hero() {
           <AnimatedHeadline />
         </motion.div>
 
-        <motion.p {...fade(0.5)} className="text-text-soft text-[14px] sm:text-[16px] mt-5 sm:mt-6 max-w-sm sm:max-w-lg leading-relaxed">
-          Systematic forex trading for serious investors. FCA regulated.
-          Founded in London, 2014.
+        <motion.p {...fade(0.5)} className="text-text-soft text-[15px] sm:text-[18px] mt-5 sm:mt-6 max-w-sm sm:max-w-lg leading-relaxed">
+          Learn first, execute second, scale forever.
         </motion.p>
 
         <motion.div {...fade(0.62)} className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto">
@@ -256,7 +248,7 @@ export default function Hero() {
         role="region"
         aria-label="Trust statistics"
       >
-        <div className="gutter py-5 sm:py-6 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-0">
+        <div className="gutter py-5 sm:py-6 grid grid-cols-2 gap-4 sm:gap-6 md:gap-0 max-w-2xl mx-auto">
           {trustStats.map((stat, i) => (
             <motion.div
               key={stat.label}

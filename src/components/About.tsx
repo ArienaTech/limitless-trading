@@ -4,16 +4,16 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import Reveal from "./Reveal";
 
-const beliefs = [
-  "Most traders lose — not from lack of intelligence, but lack of process.",
-  "Process removes emotion. Emotion is what kills accounts.",
-  "Discipline applied consistently is the only edge that compounds.",
-  "We built the system so you don't have to fight yourself.",
+const pillars = [
+  { title: "Results driven", desc: "Everything we do is measured against real outcomes for our traders." },
+  { title: "Trust", desc: "Built through licensed partners, honest communication, and doing right by every member." },
+  { title: "Transparency", desc: "Clear reporting and no hidden agendas — you always know where you stand." },
+  { title: "Community", desc: "A purpose-driven community that grows, executes, and evolves together." },
 ];
 
 function MaskedHeadline() {
-  const line1 = "Winners don't leave it".split(" ");
-  const line2 = "to chance.".split(" ");
+  const line1 = "Risk management and infrastructure".split(" ");
+  const line2 = "over profits.".split(" ");
 
   const Word = ({ word, delay }: { word: string; delay: number }) => (
     <motion.span
@@ -82,19 +82,19 @@ export default function Philosophy() {
               className="display uppercase text-text mb-5"
               style={{ fontSize: "clamp(36px, 6vw, 82px)", lineHeight: 0.95 }}
             >
-              Built on
+              The LTG
               <br />
-              <span className="text-gold">Four Truths.</span>
+              <span className="text-gold">Pillars.</span>
             </h2>
             <p className="text-text-soft text-[14px] mb-8 leading-relaxed max-w-md">
-              Every decision Limitless makes — every system, every trade, every member we accept —
-              is built on these four principles. They&apos;re not motivational. They&apos;re structural.
+              Every decision LTG makes — every system, every trade, every member we accept —
+              is built on these four pillars. They&apos;re not motivational. They&apos;re structural.
             </p>
 
             <div className="flex flex-col gap-0 border-t border-border">
-              {beliefs.map((line, i) => (
+              {pillars.map((pillar, i) => (
                 <motion.div
-                  key={i}
+                  key={pillar.title}
                   className="flex items-start gap-4 sm:gap-5 py-4 sm:py-5 border-b border-border"
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -110,16 +110,19 @@ export default function Philosophy() {
                   >
                     0{i + 1}
                   </motion.span>
-                  <span className="display font-medium text-text text-[15px] sm:text-[18px] leading-snug">{line}</span>
+                  <span>
+                    <span className="display font-medium text-text text-[15px] sm:text-[18px] leading-snug block">{pillar.title}</span>
+                    <span className="text-text-soft text-[13px] leading-relaxed block mt-1">{pillar.desc}</span>
+                  </span>
                 </motion.div>
               ))}
             </div>
 
             <div className="flex gap-6 sm:gap-10 mt-8 sm:mt-10 flex-wrap">
               {[
-                { value: "2014", label: "Founded" },
-                { value: "$2.4B+", label: "Capital managed" },
-                { value: "847", label: "Active members" },
+                { value: "2023", label: "Founded" },
+                { value: "$5M+", label: "Capital managed" },
+                { value: "1000+", label: "Active members" },
               ].map((stat, i) => (
                 <motion.div
                   key={stat.label}

@@ -3,6 +3,9 @@
 import { motion } from "motion/react";
 import Reveal from "./Reveal";
 
+// PLACEHOLDER testimonials (open item, section 9): Dee is gathering real visual
+// results and video testimonials to replace these. Also planned: a dedicated
+// members-results slide alongside the testimonial slide once assets are supplied.
 const testimonials = [
   {
     initial: "S",

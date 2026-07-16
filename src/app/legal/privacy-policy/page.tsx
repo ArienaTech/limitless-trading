@@ -4,7 +4,7 @@ import Footer from "../../../components/Footer";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Limitless Trading",
-  description: "How Limitless Trading (LTG Trading Ltd) collects, uses, and protects your personal data. FCA regulated. GDPR compliant.",
+  description: "How Limitless Trading Group collects, uses, and protects your personal data. GDPR compliant.",
   alternates: { canonical: "https://limitlesstrading.com/legal/privacy-policy" },
 };
 
@@ -22,7 +22,7 @@ export default function PrivacyPolicy() {
         <div className="flex flex-col gap-12 text-text-soft text-[14px] leading-relaxed">
           <section>
             <h2 className="display font-bold text-text text-[18px] mb-4">1. Who we are</h2>
-            <p>Limitless Trading (trading as LTG Trading Ltd) is a company registered in England and Wales and authorised and regulated by the Financial Conduct Authority. When we refer to &quot;we&quot;, &quot;us&quot; or &quot;Limitless&quot; in this policy, we mean LTG Trading Ltd. Our registered address is London, United Kingdom.</p>
+            <p>Limitless Trading Group is a company registered in England and Wales. When we refer to &quot;we&quot;, &quot;us&quot; or &quot;LTG&quot; in this policy, we mean Limitless Trading Group. We work with trusted and reputable licensed partners and brokers. Our registered address is London, United Kingdom.</p>
           </section>
 
           <section>
@@ -39,7 +39,7 @@ export default function PrivacyPolicy() {
             <h2 className="display font-bold text-text text-[18px] mb-4">3. How we use your data</h2>
             <p className="mb-3">We use your personal data to:</p>
             <ul className="flex flex-col gap-2 pl-4">
-              {["Process and assess your membership application", "Communicate with you about your application and membership", "Provide our trading services and educational programmes", "Comply with our FCA regulatory obligations", "Improve our website and services", "Send relevant updates and market intelligence (with your consent)"].map((item) => (
+              {["Process and assess your membership application", "Communicate with you about your application and membership", "Provide our trading services and educational programmes", "Comply with our legal and regulatory obligations", "Improve our website and services", "Send relevant updates and market intelligence (with your consent)"].map((item) => (
                 <li key={item} className="flex gap-3"><span className="text-gold shrink-0">—</span>{item}</li>
               ))}
             </ul>
@@ -47,12 +47,12 @@ export default function PrivacyPolicy() {
 
           <section>
             <h2 className="display font-bold text-text text-[18px] mb-4">4. Legal basis for processing</h2>
-            <p>We process your data on the following legal bases under UK GDPR: (a) performance of a contract or pre-contractual steps at your request; (b) compliance with our legal obligations as an FCA-regulated firm; (c) our legitimate interests in operating and improving our business; and (d) your consent, where we have obtained it.</p>
+            <p>We process your data on the following legal bases under UK GDPR: (a) performance of a contract or pre-contractual steps at your request; (b) compliance with our legal obligations; (c) our legitimate interests in operating and improving our business; and (d) your consent, where we have obtained it.</p>
           </section>
 
           <section>
             <h2 className="display font-bold text-text text-[18px] mb-4">5. Data retention</h2>
-            <p>We retain personal data for as long as necessary to provide our services and comply with our legal and regulatory obligations. FCA regulations require us to retain certain records for a minimum of five years. Application data from unsuccessful applications is deleted within 12 months.</p>
+            <p>We retain personal data for as long as necessary to provide our services and comply with our legal and regulatory obligations. Certain records may be retained for a minimum of five years where required by law. Application data from unsuccessful applications is deleted within 12 months.</p>
           </section>
 
           <section>

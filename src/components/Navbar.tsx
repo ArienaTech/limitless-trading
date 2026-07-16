@@ -1,22 +1,148 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 import Magnetic from "./Magnetic";
+import { navItems, navLinks, type NavItem } from "../data";
 
-const navLinks = [
-  { label: "About", href: "/about" },
-  { label: "What We Do", href: "/#values" },
-  { label: "Performance", href: "/#performance" },
-  { label: "Insights", href: "/insights" },
-  { label: "FAQ", href: "/#faq" },
-];
+// A "soon" pill marks pages that are structured in the architecture but toggled
+// off until their content and brand assets are supplied (per client note).
+function SoonPill() {
+  return (
+    <span className="mono text-[8px] text-text-dim border border-border rounded px-1.5 py-0.5 tracking-[0.15em]">
+      SOON
+    </span>
+  );
+}
+
+function ItemLabel({ item }: { item: { label: string; href: string; ready?: boolean } }) {
+  if (item.ready) {
+    return (
+      <span className="mono text-[11px] text-text-soft group-hover:text-text transition-colors tracking-[0.08em]">
+        {item.label}
+      </span>
+    );
+  }
+  return (
+    <span className="mono text-[11px] text-text-dim tracking-[0.08em] flex items-center gap-2">
+      {item.label} <SoonPill />
+    </span>
+  );
+}
+
+// Full-architecture dropdown panel (desktop).
+function FullMenuPanel({ onNavigate }: { onNavigate: () => void }) {
+  return (
+    <div className="grid grid-cols-2 gap-x-8 gap-y-1 p-6 w-[560px] max-w-[80vw]">
+      {navItems.map((item) => (
+        <div key={item.label} className="py-1.5">
+          {item.ready ? (
+            <Link href={item.href} onClick={onNavigate} className="group flex items-center gap-2">
+              <ItemLabel item={item} />
+            </Link>
+          ) : (
+            <div className="group flex items-center gap-2 cursor-default">
+              <ItemLabel item={item} />
+            </div>
+          )}
+          {item.children && (
+            <div className="mt-1.5 ml-3 flex flex-col gap-1 border-l border-border pl-3">
+              {item.children.map((child) =>
+                child.ready ? (
+                  <Link
+                    key={child.label}
+                    href={child.href}
+                    onClick={onNavigate}
+                    className="mono text-[10px] text-text-soft hover:text-gold transition-colors tracking-[0.05em]"
+                  >
+                    {child.label}
+                  </Link>
+                ) : (
+                  <span
+                    key={child.label}
+                    className="mono text-[10px] text-text-dim tracking-[0.05em] flex items-center gap-2"
+                  >
+                    {child.label} <SoonPill />
+                  </span>
+                )
+              )}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// Mobile accordion row.
+function MobileItem({ item, onNavigate }: { item: NavItem; onNavigate: () => void }) {
+  const [expanded, setExpanded] = useState(false);
+  const hasChildren = !!item.children?.length;
+
+  return (
+    <div className="w-full border-b border-border">
+      <div className="flex items-center justify-between">
+        {item.ready ? (
+          <Link
+            href={item.href}
+            onClick={onNavigate}
+            className="display text-[22px] uppercase text-text hover:text-gold transition-colors py-4 flex-1"
+          >
+            {item.label}
+          </Link>
+        ) : (
+          <span className="display text-[22px] uppercase text-text-dim py-4 flex-1 flex items-center gap-3">
+            {item.label} <SoonPill />
+          </span>
+        )}
+        {hasChildren && (
+          <button
+            aria-label={expanded ? "Collapse" : "Expand"}
+            onClick={() => setExpanded((v) => !v)}
+            className="p-3 text-text-soft"
+          >
+            <ChevronDown
+              size={20}
+              className={`transition-transform ${expanded ? "rotate-180" : ""}`}
+            />
+          </button>
+        )}
+      </div>
+      {hasChildren && expanded && (
+        <div className="flex flex-col gap-3 pb-4 pl-4">
+          {item.children!.map((child) =>
+            child.ready ? (
+              <Link
+                key={child.label}
+                href={child.href}
+                onClick={onNavigate}
+                className="mono text-[12px] text-text-soft hover:text-gold transition-colors"
+              >
+                {child.label}
+              </Link>
+            ) : (
+              <span
+                key={child.label}
+                className="mono text-[12px] text-text-dim flex items-center gap-2"
+              >
+                {child.label} <SoonPill />
+              </span>
+            )
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false); // mobile menu
+  const [menuOpen, setMenuOpen] = useState(false); // desktop full menu
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -27,15 +153,23 @@ export default function Navbar() {
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = open ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
   }, [open]);
+
+  // Close desktop menu on outside click
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onClick = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", onClick);
+    return () => document.removeEventListener("mousedown", onClick);
+  }, [menuOpen]);
 
   const close = () => setOpen(false);
 
@@ -64,6 +198,8 @@ export default function Navbar() {
           aria-label="Main navigation"
         >
           {/* Logo */}
+          {/* NOTE (open item): client asked to match nav logo colour to the hero
+              wordmark treatment — confirm exact intent/asset with Dee. */}
           <Link href="/" aria-label="Limitless Trading — home" className="flex items-center">
             <Image
               src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/logo3.svg"
@@ -76,21 +212,53 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-8" role="list">
-            {navLinks.map((link) => (
-              <div key={link.href} role="listitem">
-                <Link
-                  href={link.href}
-                  className="mono text-[10px] link-underline text-text-soft hover:text-text transition-colors tracking-[0.1em]"
-                >
-                  {link.label}
-                </Link>
-              </div>
-            ))}
-          </div>
+          <div className="hidden md:flex items-center gap-8">
+            {/* Quick links — the ready subset */}
+            <div className="hidden lg:flex items-center gap-7" role="list">
+              {navLinks.map((link) => (
+                <div key={link.href} role="listitem">
+                  <Link
+                    href={link.href}
+                    className="mono text-[10px] link-underline text-text-soft hover:text-text transition-colors tracking-[0.1em]"
+                  >
+                    {link.label}
+                  </Link>
+                </div>
+              ))}
+            </div>
 
-          {/* CTA */}
-          <div className="hidden md:block">
+            {/* Full-architecture dropdown */}
+            <div className="relative" ref={menuRef}>
+              <button
+                onClick={() => setMenuOpen((v) => !v)}
+                aria-expanded={menuOpen}
+                aria-haspopup="true"
+                className="flex items-center gap-1.5 mono text-[10px] text-text-soft hover:text-text transition-colors tracking-[0.1em]"
+              >
+                Menu
+                <ChevronDown
+                  size={13}
+                  className={`transition-transform ${menuOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+
+              <AnimatePresence>
+                {menuOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 8 }}
+                    transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                    className="absolute right-0 top-full mt-3 bg-void border border-border shadow-[0_12px_48px_rgba(34,31,25,0.12)]"
+                    role="menu"
+                  >
+                    <FullMenuPanel onNavigate={() => setMenuOpen(false)} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* CTA */}
             <Magnetic strength={6}>
               <Link
                 href="/#apply"
@@ -115,35 +283,24 @@ export default function Navbar() {
         </nav>
       </header>
 
-      {/* Mobile menu — rendered OUTSIDE the header to avoid stacking context / backdrop-blur bleed */}
+      {/* Mobile menu — full architecture accordion */}
       {open && (
         <div
           id="mobile-menu"
-          className="fixed inset-0 z-[99] bg-void flex flex-col md:hidden"
+          className="fixed inset-0 z-[99] bg-void flex flex-col md:hidden overflow-y-auto"
           role="dialog"
           aria-label="Navigation menu"
           aria-modal="true"
         >
-          {/* Spacer to push content below the header */}
-          <div className="h-16" />
-          <nav
-            className="flex-1 flex flex-col items-center justify-center gap-10"
-            aria-label="Mobile navigation"
-          >
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={close}
-                className="display text-4xl uppercase text-text hover:text-gold transition-colors"
-              >
-                {link.label}
-              </Link>
+          <div className="h-16 shrink-0" />
+          <nav className="flex flex-col px-6 pb-10" aria-label="Mobile navigation">
+            {navItems.map((item) => (
+              <MobileItem key={item.label} item={item} onNavigate={close} />
             ))}
             <Link
               href="/#apply"
               onClick={close}
-              className="btn-gold mono px-6 py-3 mt-4 inline-block"
+              className="btn-gold mono px-6 py-3 mt-8 inline-block text-center"
             >
               Apply →
             </Link>

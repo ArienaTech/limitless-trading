@@ -5,8 +5,7 @@ import { motion } from "motion/react";
 
 const navLinks = [
   { label: "Philosophy", href: "#philosophy" },
-  { label: "What We Do", href: "#values" },
-  { label: "Performance", href: "#performance" },
+  { label: "What We Offer", href: "#values" },
   { label: "Insights", href: "#insights" },
   { label: "FAQ", href: "#faq" },
   { label: "Apply", href: "#apply" },
@@ -53,9 +52,10 @@ export default function Footer() {
         </motion.div>
 
         <p className="text-[14px] leading-relaxed max-w-md mb-16" style={{ color: "#b7b0a1" }}>
-          Systematic trading for serious investors. FCA regulated, institutionally
-          executed, and built on twelve years of transparent, rules-based performance.
-          London, UK — serving members worldwide.
+          Systematic forex trading, education, and fund management for serious traders.
+          Founded in 2023 and built on the pillars of education first, disciplined
+          execution, and risk management over chasing profits. London, UK — serving a
+          purpose-driven community worldwide.
         </p>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-10 mb-12 sm:mb-16">
@@ -107,21 +107,15 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Regulatory */}
+          {/* Licensing */}
           <div>
-            <h3 className="label mb-5" style={{ color: "#9c9484" }}>Regulatory</h3>
+            <h3 className="label mb-5" style={{ color: "#9c9484" }}>Licensing</h3>
             <p className="mono text-[10px] leading-relaxed mb-4" style={{ color: "#b7b0a1" }}>
-              LTG Trading Ltd is authorised and regulated by the Financial Conduct
-              Authority. Registered in England and Wales.
+              We work with trusted and reputable licensed partners &amp; brokers to ensure we are
+              working within their regulations and standards of service. Our #1 pillar is to
+              ensure that every individual introduced into the financial markets are educated
+              and aware of the risks.
             </p>
-            <a
-              href="https://register.fca.org.uk"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="mono text-[9px] text-gold link-underline"
-            >
-              Verify on FCA Register →
-            </a>
             <p className="mono text-[10px] mt-4 leading-relaxed" style={{ color: "#8a8374" }}>
               Capital at risk. Past performance is not indicative of future results.
               This website does not constitute financial advice.

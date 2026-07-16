@@ -18,8 +18,8 @@ const faqs = [
     a: "No. Our Inner Circle education programme is designed for traders at every level — from complete beginners to professionals. Our Automated Execution and Managed Capital services are available to qualifying members regardless of their trading background.",
   },
   {
-    q: "Is Limitless FCA regulated?",
-    a: "Yes. Limitless (trading as LTG Trading Ltd) is authorised and regulated by the Financial Conduct Authority (FCA). This means your capital is protected under CASS client money rules and we are subject to regular FCA oversight and reporting.",
+    q: "Is LTG licensed and regulated?",
+    a: "We work with trusted and reputable licensed partners & brokers to ensure we are working within their regulations and standards of service. Our #1 pillar is to ensure that every individual introduced into the financial markets are educated and aware of the risks.",
   },
   {
     q: "How does the application process work?",
