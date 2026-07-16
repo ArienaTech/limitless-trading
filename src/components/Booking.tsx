@@ -16,6 +16,19 @@ export default function Application() {
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    const name = String(data.get("name") ?? "").trim();
+    const email = String(data.get("email") ?? "").trim();
+    const profile = String(data.get("profile") ?? "").trim();
+    const goals = String(data.get("goals") ?? "").trim();
+
+    // Static site (no backend): route the enquiry through the user's mail client
+    // so leads actually reach the team instead of being silently dropped.
+    const subject = encodeURIComponent(`Membership application — ${name || "New enquiry"}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nI am a: ${profile}\n\nWhat brings you to Limitless:\n${goals}\n`
+    );
+    window.location.href = `mailto:hello@ltgtrading.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
@@ -104,16 +117,39 @@ export default function Application() {
               <p className="text-text-soft text-[13px] mb-6">Takes 2 minutes. No commitment. Fully confidential.</p>
 
               <form onSubmit={onSubmit} className="flex flex-col gap-4">
-                <Field label="Full name">
-                  <input className="field w-full px-3 py-3 text-[14px]" required />
+                <Field label="Full name" htmlFor="apply-name">
+                  <input
+                    id="apply-name"
+                    name="name"
+                    type="text"
+                    autoComplete="name"
+                    autoCapitalize="words"
+                    className="field w-full px-3 py-3 text-[14px]"
+                    required
+                  />
                 </Field>
 
-                <Field label="Email address">
-                  <input type="email" className="field w-full px-3 py-3 text-[14px]" required />
+                <Field label="Email address" htmlFor="apply-email">
+                  <input
+                    id="apply-email"
+                    name="email"
+                    type="email"
+                    inputMode="email"
+                    autoComplete="email"
+                    autoCapitalize="none"
+                    spellCheck={false}
+                    className="field w-full px-3 py-3 text-[14px]"
+                    required
+                  />
                 </Field>
 
-                <Field label="I am a...">
-                  <select className="field w-full px-3 py-3 text-[14px]" defaultValue="Active retail trader">
+                <Field label="I am a..." htmlFor="apply-profile">
+                  <select
+                    id="apply-profile"
+                    name="profile"
+                    className="field w-full px-3 py-3 text-[14px]"
+                    defaultValue="Active retail trader"
+                  >
                     <option>Active retail trader</option>
                     <option>Professional investor</option>
                     <option>Business owner / entrepreneur</option>
@@ -123,8 +159,10 @@ export default function Application() {
                   </select>
                 </Field>
 
-                <Field label="What brings you to Limitless?">
+                <Field label="What brings you to Limitless?" htmlFor="apply-goals">
                   <textarea
+                    id="apply-goals"
+                    name="goals"
                     rows={3}
                     placeholder="Tell us what you're looking to achieve and where you're at right now."
                     className="field w-full px-3 py-3 text-[14px] resize-none"
@@ -144,6 +182,21 @@ export default function Application() {
                 <p className="mono text-[9px] text-text-dim text-center">
                   Confidential · No spam · No payment required
                 </p>
+
+                {submitted && (
+                  <p
+                    className="text-[12px] text-text-soft text-center leading-relaxed"
+                    role="status"
+                    aria-live="polite"
+                  >
+                    Your email app should now open with your application ready to send. If it
+                    doesn&apos;t, email us directly at{" "}
+                    <a href="mailto:hello@ltgtrading.com" className="text-gold hover:underline">
+                      hello@ltgtrading.com
+                    </a>
+                    .
+                  </p>
+                )}
               </form>
             </div>
           </Reveal>
@@ -153,11 +206,21 @@ export default function Application() {
   );
 }
 
-function Field({ label, children }: { label: string; children: React.ReactNode }) {
+function Field({
+  label,
+  htmlFor,
+  children,
+}: {
+  label: string;
+  htmlFor?: string;
+  children: React.ReactNode;
+}) {
   return (
-    <label className="flex flex-col gap-2">
-      <span className="label">{label}</span>
+    <div className="flex flex-col gap-2">
+      <label className="label" htmlFor={htmlFor}>
+        {label}
+      </label>
       {children}
-    </label>
+    </div>
   );
 }

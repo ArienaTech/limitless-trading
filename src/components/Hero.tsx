@@ -78,18 +78,17 @@ function AnimatedHeadline() {
   return (
     <div
       style={{ position: "relative", display: "inline-block", lineHeight: 0.88 }}
-      aria-label="Limitless"
+      aria-hidden="true"
     >
-      {/* White magnetic letters — always visible */}
-      <h1
+      {/* Decorative animated wordmark — the semantic <h1> is rendered separately for SEO/AT */}
+      <div
         className="display uppercase select-none"
         style={{ fontSize: "clamp(48px, 11vw, 180px)", lineHeight: 0.88, margin: 0, letterSpacing: "0.02em" }}
-        aria-hidden="true"
       >
         {letters.map((char, i) => (
           <AnimatedLetter key={i} char={char} index={i} />
         ))}
-      </h1>
+      </div>
 
       {/* Subtle wave shimmer — a soft translucent white band that ripples upward then fades */}
       <motion.div
@@ -200,6 +199,11 @@ export default function Hero() {
         className="relative z-10 flex-1 flex flex-col items-center justify-center text-center gutter px-5 sm:px-8"
         style={{ y: contentY, opacity: contentOpacity }}
       >
+        {/* Semantic, descriptive H1 for SEO/AEO/GEO and screen readers */}
+        <h1 className="sr-only">
+          Limitless Trading Group — Systematic Forex Trading, Education &amp; Fund Management in London, UK
+        </h1>
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -209,7 +213,10 @@ export default function Hero() {
           <AnimatedHeadline />
         </motion.div>
 
-        <motion.p {...fade(0.5)} className="text-text-soft text-[15px] sm:text-[18px] mt-5 sm:mt-6 max-w-sm sm:max-w-lg leading-relaxed">
+        <motion.p {...fade(0.5)} className="text-text text-[16px] sm:text-[20px] mt-5 sm:mt-6 max-w-md sm:max-w-xl leading-relaxed font-medium">
+          Systematic forex trading, institutional-grade education, and managed capital — under one roof.
+        </motion.p>
+        <motion.p {...fade(0.56)} className="text-text-soft text-[14px] sm:text-[16px] mt-2 max-w-sm sm:max-w-lg leading-relaxed">
           Learn first, execute second, scale forever.
         </motion.p>
 

@@ -123,6 +123,30 @@ const organizationSchema = {
         "@type": "Place",
         name: "London, United Kingdom",
       },
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "London",
+        addressRegion: "England",
+        addressCountry: "GB",
+      },
+      email: "hello@ltgtrading.com",
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          contactType: "customer support",
+          email: "hello@ltgtrading.com",
+          areaServed: "Worldwide",
+          availableLanguage: ["English"],
+        },
+        {
+          "@type": "ContactPoint",
+          contactType: "sales",
+          email: "invest@ltgtrading.com",
+          areaServed: "Worldwide",
+          availableLanguage: ["English"],
+        },
+      ],
+      slogan: "Learn first, execute second, scale forever.",
       areaServed: "Worldwide",
       knowsAbout: [
         "Systematic trading",
@@ -211,6 +235,7 @@ export default function RootLayout({
         */}
       </head>
       <body>
+        <a href="#main-content" className="skip-link">Skip to main content</a>
         <SmoothScroll>
           <Preloader />
           <ScrollProgress />

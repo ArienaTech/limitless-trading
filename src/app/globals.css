@@ -45,6 +45,25 @@ html.lenis body {
   outline-offset: 3px;
 }
 
+/* Skip-to-content link — visible only on keyboard focus */
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 16px;
+  z-index: 200;
+  background: var(--gold);
+  color: #fff;
+  font-family: var(--font-space-mono), monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 16px;
+}
+
 body {
   margin: 0;
   background: var(--void);
