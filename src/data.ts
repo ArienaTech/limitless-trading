@@ -21,14 +21,8 @@ export interface Partner {
 export const partners: Partner[] = [
   { name: "Moneta Markets", logo: "/LGT_logo1.svg" },
   { name: "Skool", logo: "/LGT_logo2.svg" },
-  {
-    name: "Ben Wooliss BW 365",
-    logo: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/LGT_logo3.png",
-  },
-  {
-    name: "Moneta Funded",
-    logo: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/LGT_logo4.png",
-  },
+  { name: "Ben Wooliss BW 365", logo: "/LGT_logo3.png" },
+  { name: "Moneta Funded", logo: "/LGT_logo4.png" },
 ];
 
 // ─── Infrastructure & Trust ───────────────────────────────────────────────────
