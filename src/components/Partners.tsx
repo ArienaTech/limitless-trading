@@ -41,8 +41,8 @@ export default function Partners() {
                 width={200}
                 height={80}
                 unoptimized
-                className="h-12 sm:h-14 w-auto max-w-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
-                style={{ filter: "brightness(0) invert(0.42) sepia(0.18) saturate(0.7)" }}
+                className="h-12 sm:h-14 w-auto max-w-full object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                style={{ filter: "brightness(0) invert(0.28) sepia(0.16) saturate(0.7)" }}
               />
             </motion.div>
           ))}
