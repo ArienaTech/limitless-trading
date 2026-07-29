@@ -146,7 +146,7 @@ export default function Philosophy() {
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             >
               <Image
-                src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/LTG%20Trading%20Founder.png"
+                src="/founder-portrait.png"
                 alt="Limitless Trading — Founder"
                 fill
                 className="object-cover"

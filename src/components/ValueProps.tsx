@@ -21,7 +21,7 @@ const cards = [
     cta: "ENQUIRE",
     ctaHref: "#apply",
     featured: false,
-    image: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Lgt_img1.png",
+    image: "/package-01-vip-community.png",
   },
   {
     tag: "PACKAGE 02",
@@ -39,7 +39,7 @@ const cards = [
     ctaHref: "#apply",
     featured: true,
     badge: "★ MOST POPULAR",
-    image: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Lgt_img2.png",
+    image: "/package-02-funded-trading.png",
   },
   {
     tag: "PACKAGE 03",
@@ -55,7 +55,7 @@ const cards = [
     cta: "REQUEST CRITERIA",
     ctaHref: "#apply",
     featured: false,
-    image: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Lgt_img4.png",
+    image: "/package-03-fund-management.png",
   },
 ];
 

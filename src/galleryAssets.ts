@@ -2,10 +2,13 @@
 // Every image that appears anywhere on the site (brand marks, partner logos,
 // photography, editorial stock) is registered here once. The gallery page
 // renders from this list, and /api/gallery/download uses it as a strict
-// allowlist — a source that is not in this file cannot be proxied or bundled.
+// allowlist — a file that is not in this list cannot be served or bundled.
 //
-// To add an asset: register it here with the page(s) it appears on. Nothing
-// else needs to change.
+// Every asset is self-hosted from public/. Nothing here points at a
+// third-party host, so the site has no external image dependency.
+//
+// To add an asset: drop the file in public/ and register it here with the
+// page(s) it appears on. Nothing else needs to change.
 
 export const GALLERY_CATEGORIES = [
   "Brand",
@@ -19,7 +22,7 @@ export type GalleryCategory = (typeof GALLERY_CATEGORIES)[number];
 export interface GalleryAsset {
   /** Stable slug — used as the download API's lookup key. */
   id: string;
-  /** Either a /public path or an absolute URL (must match next.config remotePatterns). */
+  /** Path within public/, e.g. "/limitless-wordmark.svg". */
   src: string;
   title: string;
   alt: string;
@@ -37,7 +40,7 @@ export const galleryAssets: GalleryAsset[] = [
   // ── Brand ──────────────────────────────────────────────────────────────────
   {
     id: "wordmark",
-    src: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/logo3.svg",
+    src: "/limitless-wordmark.svg",
     title: "Limitless Wordmark",
     alt: "Limitless Trading primary wordmark",
     category: "Brand",
@@ -48,7 +51,7 @@ export const galleryAssets: GalleryAsset[] = [
   },
   {
     id: "favicon",
-    src: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Favicon2.svg",
+    src: "/limitless-favicon.svg",
     title: "Limitless Favicon",
     alt: "Limitless Trading favicon mark",
     category: "Brand",
@@ -57,16 +60,14 @@ export const galleryAssets: GalleryAsset[] = [
     filename: "limitless-favicon.svg",
     fit: "contain",
   },
-  // NOTE (open item): the PWA icons in public/icons/ are deliberately NOT
-  // listed. They are still the pre-rebrand placeholders from the original
-  // template (and the files themselves are malformed, so they render broken).
-  // Once real brand icons are dropped in, add them back here as
-  // { id: "app-icon-512", src: "/icons/icon-512.svg", ... } and they appear.
+  // NOTE (open item): the PWA manifest now points at the favicon above. If
+  // dedicated 192px/512px app icons are produced later, drop them in public/,
+  // reference them from manifest.json, and register them here to list them.
 
   // ── Partners ───────────────────────────────────────────────────────────────
   {
     id: "partner-moneta-markets",
-    src: "/LT_logo1.svg",
+    src: "/partner-moneta-markets.svg",
     title: "Moneta Markets",
     alt: "Moneta Markets partner logo",
     category: "Partners",
@@ -77,7 +78,7 @@ export const galleryAssets: GalleryAsset[] = [
   },
   {
     id: "partner-skool",
-    src: "/LT_logo2.svg",
+    src: "/partner-skool.svg",
     title: "Skool",
     alt: "Skool partner logo",
     category: "Partners",
@@ -88,7 +89,7 @@ export const galleryAssets: GalleryAsset[] = [
   },
   {
     id: "partner-bw365",
-    src: "/LGT_logo3.svg",
+    src: "/partner-bw365.svg",
     title: "Ben Wooliss BW 365",
     alt: "Ben Wooliss BW 365 partner logo",
     category: "Partners",
@@ -99,7 +100,7 @@ export const galleryAssets: GalleryAsset[] = [
   },
   {
     id: "partner-moneta-funded",
-    src: "/LT_logo4.svg",
+    src: "/partner-moneta-funded.svg",
     title: "Moneta Funded",
     alt: "Moneta Funded partner logo",
     category: "Partners",
@@ -112,7 +113,7 @@ export const galleryAssets: GalleryAsset[] = [
   // ── Photography ────────────────────────────────────────────────────────────
   {
     id: "hero-background",
-    src: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/hero_bg.png",
+    src: "/hero-background.png",
     title: "Hero Background",
     alt: "Limitless Trading hero background",
     category: "Photography",
@@ -123,7 +124,7 @@ export const galleryAssets: GalleryAsset[] = [
   },
   {
     id: "founder",
-    src: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/LTG%20Trading%20Founder.png",
+    src: "/founder-portrait.png",
     title: "Founder Portrait",
     alt: "Limitless Trading founder — London, UK",
     category: "Photography",
@@ -134,7 +135,7 @@ export const galleryAssets: GalleryAsset[] = [
   },
   {
     id: "package-01",
-    src: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Lgt_img1.png",
+    src: "/package-01-vip-community.png",
     title: "Package 01 — VIP Community",
     alt: "VIP community and signals package imagery",
     category: "Photography",
@@ -145,7 +146,7 @@ export const galleryAssets: GalleryAsset[] = [
   },
   {
     id: "package-02",
-    src: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Lgt_img2.png",
+    src: "/package-02-funded-trading.png",
     title: "Package 02 — Funded Trading",
     alt: "Fast tracked funded trading package imagery",
     category: "Photography",
@@ -156,7 +157,7 @@ export const galleryAssets: GalleryAsset[] = [
   },
   {
     id: "package-03",
-    src: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Lgt_img4.png",
+    src: "/package-03-fund-management.png",
     title: "Package 03 — Fund Management",
     alt: "Automated trading and VIP fund management imagery",
     category: "Photography",
@@ -167,7 +168,7 @@ export const galleryAssets: GalleryAsset[] = [
   },
   {
     id: "dee-01",
-    src: "/Dee_1.png",
+    src: "/dee-portrait-01.png",
     title: "Dee — Portrait 01",
     alt: "Limitless Trading portrait",
     category: "Photography",
@@ -178,7 +179,7 @@ export const galleryAssets: GalleryAsset[] = [
   },
   {
     id: "dee-02",
-    src: "/Dee_2.png",
+    src: "/dee-portrait-02.png",
     title: "Dee — Portrait 02",
     alt: "Limitless Trading portrait",
     category: "Photography",
@@ -193,7 +194,7 @@ export const galleryAssets: GalleryAsset[] = [
   // terms, not Limitless-owned. Kept in its own category so it is obvious.
   {
     id: "editorial-systematic",
-    src: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80",
+    src: "/editorial-systematic-trading.jpg",
     title: "Systematic Trading",
     alt: "Systematic trading chart",
     category: "Editorial",
@@ -204,7 +205,7 @@ export const galleryAssets: GalleryAsset[] = [
   },
   {
     id: "editorial-psychology",
-    src: "https://images.unsplash.com/photo-1753998943413-8cba1b923c0e?auto=format&fit=crop&w=800&q=80",
+    src: "/editorial-trading-psychology.jpg",
     title: "Trading Psychology",
     alt: "Trading psychology and decision systems",
     category: "Editorial",
@@ -215,7 +216,7 @@ export const galleryAssets: GalleryAsset[] = [
   },
   {
     id: "editorial-risk",
-    src: "https://images.unsplash.com/photo-1762279389020-eeeb69c25813?auto=format&fit=crop&w=800&q=80",
+    src: "/editorial-risk-adjusted-returns.jpg",
     title: "Risk-Adjusted Returns",
     alt: "Risk-adjusted returns visualization",
     category: "Editorial",

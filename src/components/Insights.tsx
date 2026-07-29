@@ -4,15 +4,15 @@ import Reveal from "./Reveal";
 
 const insightImages = [
   {
-    src: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80",
+    src: "/editorial-systematic-trading.jpg",
     alt: "Systematic trading chart",
   },
   {
-    src: "https://images.unsplash.com/photo-1753998943413-8cba1b923c0e?auto=format&fit=crop&w=800&q=80",
+    src: "/editorial-trading-psychology.jpg",
     alt: "Trading psychology and decision systems",
   },
   {
-    src: "https://images.unsplash.com/photo-1762279389020-eeeb69c25813?auto=format&fit=crop&w=800&q=80",
+    src: "/editorial-risk-adjusted-returns.jpg",
     alt: "Risk-adjusted returns visualization",
   },
 ];

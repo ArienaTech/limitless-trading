@@ -254,7 +254,7 @@ export default function Navbar() {
               wordmark treatment — confirm exact intent/asset with Dee. */}
           <Link href="/" aria-label="Limitless Trading — home" className="flex items-center">
             <Image
-              src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/logo3.svg"
+              src="/limitless-wordmark.svg"
               alt="Limitless Trading"
               width={120}
               height={48}

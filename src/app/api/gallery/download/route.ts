@@ -17,9 +17,9 @@ import { createZip } from "./zip";
 //   /api/gallery/download?all=1            → every asset, zipped
 //   /api/gallery/download?category=Brand   → one category, zipped
 //
-// Only ids/sources registered in galleryAssets.ts are servable: the request
-// never supplies a URL or a path, so this cannot be turned into an open proxy
-// or used to read outside /public.
+// Only assets registered in galleryAssets.ts are servable: the request passes
+// an id or a category, never a path, so this cannot be used to read outside
+// public/.
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -30,23 +30,11 @@ const MIME: Record<GalleryAsset["format"], string> = {
   JPG: "image/jpeg",
 };
 
-const FETCH_TIMEOUT_MS = 20_000;
-
-async function loadAsset(asset: GalleryAsset): Promise<Buffer> {
-  if (asset.src.startsWith("/")) {
-    // Local asset — src comes from the manifest, so there is no user-controlled
-    // path segment to traverse with.
-    return readFile(path.join(process.cwd(), "public", asset.src));
-  }
-
-  const res = await fetch(asset.src, {
-    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
-    cache: "no-store",
-  });
-  if (!res.ok) {
-    throw new Error(`Upstream ${res.status} for ${asset.id}`);
-  }
-  return Buffer.from(await res.arrayBuffer());
+// Assets are read straight off disk from public/. `src` comes from the
+// manifest, never from the request, so there is no user-controlled path
+// segment to traverse with.
+function loadAsset(asset: GalleryAsset): Promise<Buffer> {
+  return readFile(path.join(process.cwd(), "public", asset.src));
 }
 
 function attachmentHeaders(filename: string, type: string, length: number) {

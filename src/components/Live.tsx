@@ -58,7 +58,7 @@ export default function Strategy() {
         <Reveal index={1}>
           <div className="relative aspect-[4/3] w-full overflow-hidden border border-border mb-8">
             <Image
-              src="/Dee_1.png"
+              src="/dee-portrait-01.png"
               alt="Dee — LTG Trading founder at his setup"
               fill
               className="object-cover"

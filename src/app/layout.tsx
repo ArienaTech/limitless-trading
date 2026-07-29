@@ -47,9 +47,9 @@ export const metadata: Metadata = {
   publisher: "Limitless Trading Ltd",
   manifest: "/manifest.json",
   icons: {
-    icon: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Favicon2.svg",
-    shortcut: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Favicon2.svg",
-    apple: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/Favicon2.svg",
+    icon: "/limitless-favicon.svg",
+    shortcut: "/limitless-favicon.svg",
+    apple: "/limitless-favicon.svg",
   },
   appleWebApp: {
     capable: true,
@@ -112,7 +112,7 @@ const organizationSchema = {
       url: SITE_URL,
       logo: {
         "@type": "ImageObject",
-        url: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/logo3.svg",
+        url: `${SITE_URL}/limitless-wordmark.svg`,
       },
       description:
         "Limitless Trading Group is a London-based systematic forex trading, education, and fund management group founded in 2023. We work with trusted, licensed partners and brokers to deliver education, disciplined execution, and risk management to serious traders.",
@@ -195,9 +195,8 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${spaceMono.variable}`}
     >
       <head>
-        {/* Preconnect to external domains for performance */}
-        <link rel="preconnect" href="https://cpvmmxiiwlzkqapnimws.supabase.co" />
-        <link rel="dns-prefetch" href="https://cpvmmxiiwlzkqapnimws.supabase.co" />
+        {/* Preconnect to external domains for performance. Images are served
+            from this origin (public/), so fonts are the only remote hop left. */}
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
         {/* JSON-LD Structured Data */}

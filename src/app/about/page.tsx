@@ -162,7 +162,7 @@ export default function AboutPage() {
 
             <div className="relative aspect-[4/5] w-full overflow-hidden border border-border">
               <Image
-                src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/LTG%20Trading%20Founder.png"
+                src="/founder-portrait.png"
                 alt="Limitless Trading founder — London, UK"
                 fill
                 className="object-cover"
