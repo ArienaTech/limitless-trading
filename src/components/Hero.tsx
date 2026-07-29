@@ -178,7 +178,7 @@ export default function Hero() {
           transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
         >
           <Image
-            src="https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/hero_bg.png"
+            src="/hero-background.png"
             alt=""
             fill
             priority

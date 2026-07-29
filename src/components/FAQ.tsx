@@ -146,7 +146,7 @@ export default function FAQ() {
         <Reveal index={1}>
           <div className="relative aspect-[3/4] w-full overflow-hidden border border-border lg:sticky lg:top-28">
             <Image
-              src="/Dee_2.png"
+              src="/dee-portrait-02.png"
               alt="Dee — LTG Trading founder"
               fill
               className="object-cover"

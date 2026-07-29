@@ -123,7 +123,7 @@ export default async function ArticlePage({
       url: SITE_URL,
       logo: {
         "@type": "ImageObject",
-        url: "https://cpvmmxiiwlzkqapnimws.supabase.co/storage/v1/object/public/web-public/logo3.svg",
+        url: `${SITE_URL}/limitless-wordmark.svg`,
       },
     },
   };

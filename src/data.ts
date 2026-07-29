@@ -19,10 +19,10 @@ export interface Partner {
 }
 
 export const partners: Partner[] = [
-  { name: "Moneta Markets", logo: "/LT_logo1.svg" },
-  { name: "Skool", logo: "/LT_logo2.svg" },
-  { name: "Ben Wooliss BW 365", logo: "/LGT_logo3.svg" },
-  { name: "Moneta Funded", logo: "/LT_logo4.svg" },
+  { name: "Moneta Markets", logo: "/partner-moneta-markets.svg" },
+  { name: "Skool", logo: "/partner-skool.svg" },
+  { name: "Ben Wooliss BW 365", logo: "/partner-bw365.svg" },
+  { name: "Moneta Funded", logo: "/partner-moneta-funded.svg" },
 ];
 
 // ─── Infrastructure & Trust ───────────────────────────────────────────────────

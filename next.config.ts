@@ -1,20 +1,11 @@
 import type { NextConfig } from "next";
 import withPWA from "@ducanh2912/next-pwa";
 
+// Every image is served from public/ on this origin, so no remote image hosts
+// are allow-listed — adding one back would re-introduce a third-party
+// dependency for assets that now live in the repo.
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-      },
-      {
-        protocol: "https",
-        hostname: "cpvmmxiiwlzkqapnimws.supabase.co",
-      },
-    ],
-  },
 };
 
 export default withPWA({
