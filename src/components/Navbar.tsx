@@ -23,7 +23,7 @@ function SoonTag() {
 const menuGroups: { heading: string; labels: string[] }[] = [
   {
     heading: "Explore",
-    labels: ["Home", "About", "Our Partners", "Shop", "Contact", "FAQ"],
+    labels: ["Home", "About", "Gallery", "Our Partners", "Shop", "Contact", "FAQ"],
   },
   {
     heading: "The Ecosystem",

@@ -29,6 +29,7 @@ export function GET() {
 - [Home](${SITE_URL}/): overview of the systematic trading, education, and fund management ecosystem
 - [About](${SITE_URL}/about): story, philosophy, values, and team
 - [Insights](${SITE_URL}/insights): educational articles and market intelligence
+- [Gallery](${SITE_URL}/gallery): brand, partner, and photography assets, downloadable individually or as a ZIP
 - [Apply](${SITE_URL}/#apply): membership application
 - [FAQ](${SITE_URL}/#faq): frequently asked questions
 

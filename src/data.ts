@@ -307,6 +307,7 @@ export const navItems: NavItem[] = [
   { label: "Funded", href: "/funded", ready: false },
   { label: "VIP Fund Management", href: "/vip-fund-management", ready: false },
   { label: "Our Partners", href: "/partners", ready: false },
+  { label: "Gallery", href: "/gallery", ready: true },
   { label: "Shop", href: "/shop", ready: false },
   { label: "Contact", href: "/#apply", ready: true },
   { label: "FAQ", href: "/#faq", ready: true },
